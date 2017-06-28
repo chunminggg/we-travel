@@ -1,0 +1,50 @@
+<!--轮播图-->
+<swiper indicator-dots="true" autoplay="YES" interval="2000">
+<block wx:for="{{imageArray}}">
+<swiper-item style="">
+<image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
+</swiper-item>
+</block>
+</swiper>
+<section>
+<view class="swiper-tab"> 
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">海岛游</view> 
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">出境游</view> 
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">游轮</view> 
+</view> 
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange"> 
+  <!-- 我是哈哈 -->
+  <swiper-item> 
+   <!--景点推荐-->
+<scroll-view scroll-y="true" style="height:100%" >  
+<view wx:for="{{dataArray}}" wx:for-index="idx" wx:for-item="item" wx:key="*this" class="itemClass"> 
+<!--景点图片-->
+<view >
+ <image  mode="aspectFill" src="{{item.imageUrl}}" class="cellImage" bindtap="clickImage(idx)" data-img="{{item.imageUrl}}">
+ </image>
+</view>
+<!--景点名称-->
+<view class="textView">
+<text class="labelClass">巴厘岛的美丽传说</text>
+</view>
+<!--详情文字-->
+<view class="detailTextView">
+<text class="detailLabelClass">印度尼西亚,巴厘岛|十天八晚</text>
+</view>
+<!--分割线-->
+<view class="splitLine">
+</view>
+</view>
+</scroll-view> 
+  </swiper-item> 
+  <!-- 我是呵呵 -->
+  <swiper-item> 
+   <view>我是呵呵</view> 
+  </swiper-item> 
+  <!-- 我是嘿嘿 -->
+  <swiper-item> 
+   <view>我是嘿嘿</view> 
+  </swiper-item> 
+</swiper> 
+
+</section>

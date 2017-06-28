@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "img/TabTwo.png",
+        "iconPath": "img/TabThree.png",
+        "pagePath": "pages/index/index",
+        "text": "旅行"
+      },
+      {
+        "selectedIconPath": "img/TabOne.png",
+        "iconPath": "img/TabFour.png",
+        "pagePath": "pages/logs/logs",
+        "text": "我的"
+      }
+  ]
+  }
+}
