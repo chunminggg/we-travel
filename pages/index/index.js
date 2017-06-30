@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp()
+var netWork = require('../../utils/network.js')
 var localData = [
   {
     imageUrl:'http://omh0qz95c.bkt.clouddn.com/timg%20%281%29.jpeg',
@@ -47,6 +48,7 @@ Page({
     /** 
    * 获取系统信息 
    */
+    
     wx.getSystemInfo({
 
       success: function (res) {

@@ -1,6 +1,11 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view class="main">
+ <view class="header">
+ <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-note" bindtap="clickAccount">绑定账号，享受便捷服务></text>
+ </view>
+ <view class="selfBody">
+ <text>暂无订单，请检查是否绑定账号</text>
+ </view>
 </view>

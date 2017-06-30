@@ -6,3 +6,38 @@
 .log-item {
   margin: 10rpx;
 }
+.header{
+  height: 300rpx;
+  width: 100%;
+  background-color: orange;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: white;
+}
+.userinfo-note{
+  font-size: 14px;
+  margin-top: 15px;
+  color: white;
+}
+.usermotto {
+  margin-top: 200px;
+}
+/*.selfBody{
+  
+}*/
+.main{
+  background-color: rgb(239, 239, 239);
+  height: 1200rpx;
+}

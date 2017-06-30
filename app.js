@@ -1,4 +1,9 @@
 //app.js
+const AV = require('./libs/av-weapp-min.js')
+AV.init({
+  appId: 'qDUQr0EmHHn3HOIqb3Re0IHa-gzGzoHsz',
+  appKey: 'w2TRHW0KHUkt5mVHtgp9wa2s',
+})
 App({
   onLaunch: function() {
     //调用API从本地缓存中获取数据
