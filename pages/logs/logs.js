@@ -6,7 +6,9 @@ Page({
     userInfo:{}
   },
   clickAccount: function(){
-
+    wx.navigateTo({
+      url: '../login/login',
+    })
   },
   onLoad: function () {
     var that = this

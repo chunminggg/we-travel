@@ -1,0 +1,29 @@
+/* pages/login/login.wxss */
+.logoText{
+  color: red
+}
+.phoneInput{
+  min-height: 2.4rem;
+  width:80%;
+  background-color: white;
+  margin-left: 10%;
+  border-radius:5px
+}
+.codeInput{
+  min-height: 2.4rem;
+  width:45%;
+  background-color: white;
+  margin-left: 10%;
+  border-radius:5px
+}
+.codeButton{
+  width:30%;
+  margin-left:5%;
+}
+.flex-wrp{
+    display:flex;
+ }
+ .confirmButton{
+   width:80%;
+   margin-left:10%;
+ }

@@ -7,4 +7,10 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
+  background-color: rgb(239, 239, 239);
 } 
+.section{
+  width:100%;
+  /*background-color: white;*/
+  margin-top: 20rpx;
+}
