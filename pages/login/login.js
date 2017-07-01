@@ -1,4 +1,5 @@
 // pages/login/login.js
+var netTool = require('../../utils/network.js')
 Page({
 
   /**
@@ -8,33 +9,55 @@ Page({
     second: '验证码',
     isCode: false,
     phoneNumber:'123',
+    isConfirmed: true,
+    confirmCode : '',
   },
   clickCodeButton:function(e){
     var that = this
-    if (!this.configPhoneNumber()){
-      this.code = true
+    if (this.configPhoneNumber()){
+      that.setData({
+        isCode: true,
+      });
       var timeNumberCount = 60
       that.countdown(timeNumberCount)
+      netTool.sendMessage()
+      this.setData({
+        isConfirmed: false
+      })
     }
+  },
+  //验证码输入框监听
+  bindCodeInput(e){
+   this.setData({
+     confirmCode : e.detail.value
+   })
+  },
+  //验证账号
+  confirmAccount(){
+
   },
   countdown(timeSecond) {
     var that = this
     if (timeSecond == 0) {
       that.setData({
-        second: "验证码",
+        second: "重新获取",
         isCode : false,
       });
 
       return;
     }
-    var time = setTimeout(function () {
-      timeSecond -= 1
+    else {
       that.setData({
-        second:`${timeSecond}秒`
+        second: `${timeSecond}秒`
       })
-      that.countdown(timeSecond);
+      var time = setTimeout(function () {
+        timeSecond -= 1
+
+        that.countdown(timeSecond);
+      }
+        , 1000)
     }
-      , 1000)
+  
   },
   configPhoneNumber:function(){
     let myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/
