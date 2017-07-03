@@ -6,6 +6,6 @@
     <text class="userinfo-note" bindtap="clickAccount">绑定账号，享受便捷服务></text>
  </view>
  <view class="selfBody">
- <text>暂无订单，请检查是否绑定账号</text>
+ <text>{{orderMessage}}</text>
  </view>
 </view>

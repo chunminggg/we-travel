@@ -6,10 +6,10 @@
   <input maxlength="11" bindinput="bindKeyInput" class="phoneInput" placeholder="请输入手机号" type="number" />
 </view>
 <view class="section flex-wrp"  >
-  <input class="codeInput" placeholder="验证码" bindinput="bindCodeInput"type="number" />
+  <input class="codeInput" placeholder="验证码" bindinput="bindCodeInput" type="number" />
   <button class="codeButton" type="primary" bindtap="clickCodeButton" disabled="{{isCode}}">{{second}}</button>
 </view>
 <view class="section">
- <button class="confirmButton" type="primary" disabled="{{isConfirmed}}">立即验证</button>
+ <button class="confirmButton" type="primary" disabled="{{isConfirmed}}" bindtap="confirmAccount">立即验证</button>
 </view>
 </view>

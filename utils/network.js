@@ -3,23 +3,30 @@ const AV = require('.././libs/av-weapp-min.js')
 var getTestData = {
     // 发送短信验证
     snedShortMessage(phoneNumber,successCallBack,errorCallBack){
-    return new Promise(function(reslove, reject){
+      
       AV.Cloud.requestSmsCode({
         mobilePhoneNumber: phoneNumber,
-        template: '验证码',
-        'sign': '超想去旅行',
-      }).then(()=>{
-        resolve()
-      },()=> {
-        reject()
-      })
-    })
-    },
-    sendMessage(){
-      wx.showToast({
-        title: '短信已发送',
-      })
-    },
+        name: '超想去旅行',
+        op: '验证',
+        ttl: 10                
+      }).then(function () {
+        successCallBack()
+      }, function (err) {
+        //调用失败
+        
+        errorCallBack(err)
+      });
+},
+//验证短信
+verifyMessageCode(verifyCode,phoneNumber,successCallBack,errorCallBack){
+  AV.Cloud.verifySmsCode(verifyCode,phoneNumber ).then(function () {
+    //验证成功
+    successCallBack()
+  }, function (err) {
+    //验证失败
+    errorCallBack(err)
+  });
+},
 }
 function handleDataWithNoPostData(dataUrl,success,error){
   wx.request({

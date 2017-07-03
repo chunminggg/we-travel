@@ -12,6 +12,7 @@ Page({
     isConfirmed: true,
     confirmCode : '',
   },
+  //点击获取验证码
   clickCodeButton:function(e){
     var that = this
     if (this.configPhoneNumber()){
@@ -20,20 +21,59 @@ Page({
       });
       var timeNumberCount = 60
       that.countdown(timeNumberCount)
-      netTool.sendMessage()
+      that.sendCodeMessage()
       this.setData({
         isConfirmed: false
       })
     }
+  },
+  // 发送验证码
+  sendCodeMessage(){
+    
+    netTool.snedShortMessage(this.data.phoneNumber,function(){
+      
+    },function(error){
+      wx.showToast({
+        title: '验证码发送失败，请重试',
+      })
+    })
+   
   },
   //验证码输入框监听
   bindCodeInput(e){
    this.setData({
      confirmCode : e.detail.value
    })
+   
   },
   //验证账号
   confirmAccount(){
+    wx.showLoading({
+      title: '验证中',
+    })
+    var that = this
+    netTool.verifyMessageCode(that.data.confirmCode,that.data.phoneNumber,function(){
+      wx.hideLoading()
+      wx.showToast({
+        title: '验证成功',
+      })
+      that.backSelfCenter()
+    },function(err){
+      
+      wx.showToast({
+        title: '验证失败',
+      })
+    })
+  },
+  // 验证成功后返回，并记录下登陆状态和手机号
+  backSelfCenter(){
+    wx.setStorageSync('loginSign', '1')
+    wx.setStorageSync('phoneNumber',this.data.phoneNumber)
+
+    //跳转到成功页面
+    wx.navigateBack({
+      
+    })
 
   },
   countdown(timeSecond) {
