@@ -17,16 +17,16 @@ var localData = [
   },
   ],
   imageArray = [{
-imageUrl:'http://omh0qz95c.bkt.clouddn.com/timg%20%281%29.jpeg'
+    imageUrl:'http://omh0qz95c.bkt.clouddn.com/101499175264_.pic.jpg'
   },
     {
-      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/bali1.jpg'
+      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
     },
     {
-      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/bali2.jpg'
+      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/91499175246_.pic.jpg'
     },
     {
-      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/bali4.jpg'
+      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/81499175132_.pic.jpg'
     }
   ]
 Page({
@@ -48,7 +48,7 @@ Page({
     /** 
    * 获取系统信息 
    */
-    
+    netWork.loginWithLeanCloud()
     wx.getSystemInfo({
 
       success: function (res) {

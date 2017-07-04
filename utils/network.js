@@ -27,6 +27,29 @@ verifyMessageCode(verifyCode,phoneNumber,successCallBack,errorCallBack){
     errorCallBack(err)
   });
 },
+//leancloud login
+loginWithLeanCloud(){
+  var that = this
+  AV.User.loginWithWeapp().then(user => {
+    // this.globalData.user = user.toJSON();
+    that.leanCloudGetUserInfo('123')
+  }).catch(console.error);
+},
+leanCloudGetUserInfo(phoneNumber){
+    const user = AV.User.current();
+    // 调用小程序 API，得到用户信息
+    wx.getUserInfo({
+      success: ({userInfo}) => {
+        // 更新当前用户的信息
+        userInfo.mobilePhoneNumber = phoneNumber
+        user.set(userInfo).save().then(user => {
+          
+          // 成功，此时可在控制台中看到更新后的用户信息
+          // this.globalData.user = user.toJSON();
+        }).catch(console.error);
+      }
+    });
+  }
 }
 function handleDataWithNoPostData(dataUrl,success,error){
   wx.request({

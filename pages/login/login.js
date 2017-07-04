@@ -69,7 +69,7 @@ Page({
   backSelfCenter(){
     wx.setStorageSync('loginSign', '1')
     wx.setStorageSync('phoneNumber',this.data.phoneNumber)
-
+    netTool.leanCloudGetUserInfo(this.data.phoneNumber)
     //跳转到成功页面
     wx.navigateBack({
       

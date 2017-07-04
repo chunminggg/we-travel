@@ -1,6 +1,6 @@
 <!--轮播图-->
 <swiper indicator-dots="true" autoplay="YES" interval="2000">
-<block wx:for="{{imageArray}}">
+<block wx:for="{{imageArray}}" wx:key="*this">
 <swiper-item style="">
 <image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
 </swiper-item>
