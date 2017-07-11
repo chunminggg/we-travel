@@ -1,15 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/login/login",
-    "pages/logs/logs"
-   
+    "pages/logs/logs",
+    "pages/itemList/itemList"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#a9b7b7",
@@ -28,6 +28,6 @@
         "pagePath": "pages/logs/logs",
         "text": "我的"
       }
-  ]
+    ]
   }
 }

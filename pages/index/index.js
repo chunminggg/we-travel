@@ -61,31 +61,10 @@ Page({
     }); 
   },
 
-  /** 
-    * 滑动切换tab 
-    */
-  bindChange: function (e) {
-
-    var that = this;
-    that.setData({ currentTab: e.detail.current });
-
-  },
-  /** 
-   * 点击tab切换 
-   */
-  swichNav: function (e) {
+  clickImageidx(){
     
-    var that = this;
-
-    if (this.datacurrentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current
-      })
-    }
-  },
-  clickImage(idx){
-
+    wx.navigateTo({
+      url: '../itemList/itemList',
+    })
   },
 })
