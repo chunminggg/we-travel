@@ -49,6 +49,23 @@ leanCloudGetUserInfo(phoneNumber){
         }).catch(console.error);
       }
     });
+  },
+  //获取列表
+  getItemList(typeSign,successCallback){
+    var query = new AV.Query('Product')
+    query.equalTo('type',typeSign)
+    query.find().then((data) =>{
+      if(data.length){
+        var dataArray = []
+        for (var i = 0; i < data.length; i++) {
+      dataArray.push(data[i].attributes)
+        }
+      }
+     
+      return successCallback(dataArray)
+    }, function (error) {
+      // 异常处理
+    });
   }
 }
 function handleDataWithNoPostData(dataUrl,success,error){

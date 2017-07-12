@@ -20,9 +20,7 @@
 <text class="labelClass">巴厘岛的美丽传说</text>
 </view>
 <!--详情文字-->
-<view class="detailTextView">
-<text class="detailLabelClass">印度尼西亚,巴厘岛|十天八晚</text>
-</view>
+
 <!--分割线-->
 <view class="splitLine">
 </view>

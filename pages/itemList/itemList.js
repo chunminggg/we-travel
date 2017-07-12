@@ -1,4 +1,5 @@
 // itemList.js
+var netTool = require('../../utils/network.js')
 Page({
 
   /**
@@ -6,17 +7,28 @@ Page({
    */
   data: {
     icon20:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
-    icon60:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
+    icon60:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
+    itemArray:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      icon20: '',
-      icon60:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
-    });
+    var that = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    netTool.getItemList(1,(data)=>{
+      wx.hideLoading()
+      
+      that.setData({
+        itemArray:data,
+        icon20: '',
+        icon60: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
+      })
+      
+    })
   },
 
   /**

@@ -3,3 +3,7 @@
   width:100%;
   height:300rpx; 
 }
+.borderStyle{
+  border:1rpx solid #e5e5e5;
+  background: white
+}
