@@ -50,6 +50,25 @@ leanCloudGetUserInfo(phoneNumber){
       }
     });
   },
+  //获取首页列表
+getMainThemeList(successCallback){
+  var query = new AV.Query('Theme')
+  query.find().then((data)=>{
+    if (data.length) {
+      var dataArray = []
+      for (var i = 0; i < data.length; i++) {
+        var model = data[i]
+        if (model.attributes.imageArray.length) {
+          model.attributes.url = model.attributes.imageArray[0].url
+        }
+        dataArray.push(data[i].attributes)
+      }
+    }
+     successCallback(dataArray)
+  },(error)=>{
+    
+  })
+  },
   //获取列表
   getItemList(typeSign,successCallback){
     var query = new AV.Query('Product')
@@ -58,7 +77,16 @@ leanCloudGetUserInfo(phoneNumber){
       if(data.length){
         var dataArray = []
         for (var i = 0; i < data.length; i++) {
-      dataArray.push(data[i].attributes)
+          var model = data[i]
+          
+          if (model.attributes.imageArray.length){
+            model.attributes.coverImage = model.attributes.imageArray[0].url
+            
+          }
+          model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
+          model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
+        dataArray.push(data[i].attributes)
+        
         }
       }
      

@@ -9,15 +9,19 @@
 <section>
    <!--景点推荐-->
 <scroll-view scroll-y="true" style="height:100%" >  
-<view  wx:for="{{dataArray}}" wx:for-index="idx" wx:for-item="item" wx:key="*this" class="itemClass"> 
+<view  wx:for="{{dataArray}}" wx:for-index="idx"  wx:key="*this" class="itemClass"> 
 <!--景点图片-->
 <view >
- <image  mode="aspectFill" src="{{item.imageUrl}}" class="cellImage"  data-img="{{item.imageUrl}}" bindtap="clickImageidx">
+ <image  mode="aspectFill" src="{{item.url}}" class="cellImage"  data-img="{{item.url}}" bindtap="clickImageidx">
  </image>
+<!-- <view class="">
+   <text class="page_title imageText">{{item.name}}</text>
+
+</view> -->
 </view>
 <!--景点名称-->
 <view class="textView">
-<text class="labelClass">巴厘岛的美丽传说</text>
+<text class="labelClass">{{item.brief}}</text>
 </view>
 <!--详情文字-->
 

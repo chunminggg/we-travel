@@ -31,7 +31,7 @@ var localData = [
   ]
 Page({
   data: {
-   dataArray:localData,
+   dataArray:[],
    imageArray:imageArray,
    /** 
    * 页面配置 
@@ -45,20 +45,28 @@ Page({
   //事件处理函数
   onLoad: function () {
     var that = this
+    wx.showLoading({
+      title: '加载中',
+    })
     /** 
    * 获取系统信息 
    */
-    netWork.loginWithLeanCloud()
+    netWork.getMainThemeList((data)=>{
+      wx.hideLoading()
+        netWork.loginWithLeanCloud()
     wx.getSystemInfo({
-
       success: function (res) {
+        wx.hideLoading()
         that.setData({
           winWidth: res.windowWidth,
-          winHeight: res.windowHeight
+          winHeight: res.windowHeight,
+          dataArray:data,
         });
       }
 
     }); 
+    })
+  
   },
 
   clickImageidx(){

@@ -4,12 +4,12 @@
  </image>
     </view>
    
-    <view class="page__bd" style="padding-bottom:0px" wx:for="{{itemArray}}" wx:key="*this" >
+    <view class="page__bd borderStyle" style="padding-bottom:0px" wx:for="{{itemArray}}" wx:key="*this" >
         
-
-        <navigator url="" class="weui-media-box weui-media-box_appmsg borderStyle" hover-class="weui-cell_active">
+    
+        <navigator url="" class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                        <image class="weui-media-box__thumb" src="{{item.coverImage}}" />
                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                         <view class="weui-media-box__title">{{item.name}}</view>
@@ -17,9 +17,9 @@
                     </view>
                 </navigator>
                  <view class="weui-media-box__info" style="margin-left:15px">
-                        <view class="weui-media-box__info__meta">{{item.place}}</view>
-                        <view class="weui-media-box__info__meta">{{item.startDate}}</view>
-                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.price}}</view>
+                        <view class="weui-media-box__info__meta">{{item.place}}出发</view>
+                        <view class="weui-media-box__info__meta">{{item.startDate}}至{{item.endDate}}</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">￥{{item.price}}</view>
                     </view>
     </view>
 </view>
