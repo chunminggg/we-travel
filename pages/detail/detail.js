@@ -1,39 +1,20 @@
-// itemList.js
-var netTool = require('../../utils/network.js')
+// detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    icon20:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
-    icon60:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
-    itemArray:[],
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    wx.showLoading({
-      title: '加载中',
-    })
-    netTool.getItemList(1,(data)=>{
-      wx.hideLoading()
-      
-      that.setData({
-        itemArray:data,
-        icon20: '',
-        icon60: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
-      })
-      
-    })
+  
   },
-  detailItemClick(index) {
-    
-  console.log(index)
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
