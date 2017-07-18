@@ -1,2 +1,18 @@
 <!--detail.wxml-->
-<text>detail.wxml</text>
+<scroll-view class="page"> 
+<!-- head -->
+ <view class="page__hd" style="padding:0">
+     <image  mode="aspectFill" src="{{icon60}}" class="cellImage"  data-img="{{icon60}}" >
+ </image>
+ <view class="page_title">
+ <text>{{detailData.name}}</text>
+ </view>
+  <view class="page_title">
+  <text>{{detailData.startDate}}至{{detailData.endDate}}</text>
+  <text>{{detailData.place}}   价格:{{detailData.price}}</text>
+ </view>
+
+    </view>
+    <view class="footer">
+    </view>
+</scroll-view>

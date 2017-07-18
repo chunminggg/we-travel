@@ -1,3 +1,4 @@
+var network = require('../../utils/network.js')
 // detail.js
 Page({
 
@@ -5,14 +6,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    icon60: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
+    onlyId: '',
+    detailData:{},
   },
+  getDetailData(onlyId){
 
+    
+    var that = this
+    network.getDetailItemWithId(onlyId,(data)=>{
+      that.setData({
+      detailData:data
+    })
+    
+    },(error)=>{
+
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+  this.setData({
+    onlyId: options.detailId
+  })
+  this.getDetailData(this.data.onlyId)
   },
 
   /**

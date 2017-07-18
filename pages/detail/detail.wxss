@@ -1,1 +1,10 @@
 /* detail.wxss */
+.cellImage{
+  width:100%;
+  height:300rpx; 
+}
+.footer{
+  background-color: red;
+  height: 150rpx;
+  margin-bottom: 0;
+}

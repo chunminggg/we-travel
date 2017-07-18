@@ -30,9 +30,13 @@ Page({
       
     })
   },
-  detailItemClick(index) {
-    
-  console.log(index)
+  detailItemClick(detailData) {
+    var idx = detailData.currentTarget.dataset.itemid,
+        model = this.data.itemArray[idx]
+
+  wx.navigateTo({
+    url: '../detail/detail?detailId='+model.uid,
+  })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

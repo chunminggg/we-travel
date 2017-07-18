@@ -85,6 +85,8 @@ getMainThemeList(successCallback){
           }
           model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
           model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
+          
+          model.attributes.uid = model.id
         dataArray.push(data[i].attributes)
         
         }
@@ -94,7 +96,25 @@ getMainThemeList(successCallback){
     }, function (error) {
       // 异常处理
     });
-  }
+  },
+  //根据id获取信息详情
+  getDetailItemWithId(onlyId,successCallback,errorCallback){
+  var query = new AV.Query('Product')
+  query.equalTo('_id',onlyId)
+  query.find().then((data)=>{
+    if(data.length){
+      var model = data[0]
+      model.attributes.uid = model.id
+      model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
+      model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)   
+      successCallback(model.attributes)
+    }
+  },(error)=>{
+    wx.showToast({
+      title: '获取信息失败，请重试',
+    })
+  })
+  },
 }
 function handleDataWithNoPostData(dataUrl,success,error){
   wx.request({
