@@ -76,6 +76,7 @@ getMainThemeList(successCallback){
     query.find().then((data) =>{
       if(data.length){
         var dataArray = []
+        
         for (var i = 0; i < data.length; i++) {
           var model = data[i]
           

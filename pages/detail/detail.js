@@ -1,4 +1,5 @@
 var network = require('../../utils/network.js')
+var WxParse = require('../../wxParse/wxParse.js');
 // detail.js
 Page({
 
@@ -9,16 +10,56 @@ Page({
     icon60: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
     onlyId: '',
     detailData:{},
+    list: [
+      {
+        id: 'form',
+        name: '线路特色',
+        open: false,
+       
+      },
+      {
+        id: 'widget',
+        name: '行程介绍',
+        open: false,
+      },
+      {
+        id: 'feedback',
+        name: '费用说明',
+        open: false,
+      },
+      {
+        id: 'nav',
+        name: '预订须知',
+        open: false,
+      }
+    ]
+  },
+  kindToggle: function (e) {
+   
+    var id = e.currentTarget.id, list = this.data.list;
+    for (var i = 0, len = list.length; i < len; ++i) {
+      if (list[i].id == id) {
+        list[i].open = !list[i].open
+      } else {
+        // list[i].open = false
+      }
+    }
+    this.setData({
+      list: list
+    });
+  
   },
   getDetailData(onlyId){
-
-    
     var that = this
     network.getDetailItemWithId(onlyId,(data)=>{
       that.setData({
       detailData:data
     })
     
+    for(var i=0, len = this.data.list.length; i<len ; ++i){
+      var model = this.data.list[i]
+      model.content = that.data.detailData.detailContent[i].content
+    }
     },(error)=>{
 
     })

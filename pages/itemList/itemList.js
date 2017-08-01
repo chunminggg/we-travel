@@ -20,6 +20,7 @@ Page({
       title: '加载中',
     })
     netTool.getItemList(1,(data)=>{
+      
       wx.hideLoading()
       
       that.setData({
