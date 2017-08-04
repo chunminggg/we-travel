@@ -12,8 +12,10 @@ Page({
     detailData:{},
     winWidth: 0,
     winHeight: 0,
+    scrollTop: 100,
     // tab切换 
     currentTab: 0, 
+    offsetTop: 0,
     myList: [
       {
         id: 'form',
@@ -86,6 +88,10 @@ Page({
 
     })
   },
+  //主页面纵向滑动时间
+  mainScroll(e){
+  
+  },
   /** 
   * 滑动切换tab 
   */
@@ -100,12 +106,14 @@ Page({
    * 点击tab切换 
    */
   swichNav: function (e) {
+
    var that = this 
    if (that.data.cuurentTab === e.target.dataset.current){
      return false
    }
    else{
      that.setData({
+       scorllTop : that.data.scorllTop+ 20,
        currentTab: e.target.dataset.current
      })
    }
@@ -120,7 +128,7 @@ Page({
         that.setData({
           onlyId: options.detailId,
           winWidth: res.screenWidth,
-          winHeight: res.screenHeight,
+          winHeight: res.windowHeight,
         })
       },
     }) 

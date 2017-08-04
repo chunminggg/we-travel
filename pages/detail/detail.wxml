@@ -1,6 +1,6 @@
 <!--detail.wxml-->
 <import src="../../wxParse/wxParse.wxml"/> 
-<scroll-view class="page"> 
+<scroll-view class="page"  scroll-top="{{scrollTop}}"> 
 <!-- head -->
  <view class="page__hd" style="padding:0">
      <image  mode="aspectFill" src="{{icon60}}" class="cellImage"  data-img="{{icon60}}" >
@@ -29,29 +29,44 @@
     <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">预订须知</view> 
 
 </view> 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange"> 
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;" bindchange="bindChange"> 
   <!-- 线路特色 -->
   <swiper-item> 
-  <view class="wxParse">
+      
+     <scroll-view scroll-y style="height:600px" class="wxParse"> 
     <template is="wxParse" data="{{wxParseData:line.nodes}}"/>
-    </view>
+
+    </scroll-view> 
+
+ 
   </swiper-item> 
   <!-- 行程介绍 -->
   <swiper-item> 
-   <view class="wxParse">
-    <template is="wxParse" data="{{wxParseData:trip.nodes}}"/>
-    </view>
+
+     <scroll-view scroll-y style="height:600px" class="wxParse"> 
+                   <template is="wxParse" data="{{wxParseData:trip.nodes}}"/>
+
+    </scroll-view> 
+
+   <!-- <view class="wxParse detailView">
+
+    </view> -->
   </swiper-item> 
   <!-- 费用说明 -->
   <swiper-item> 
-  <view class="wxParse">
+  
+      <scroll-view scroll-y style="height:600px" class="wxParse"> 
     <template is="wxParse" data="{{wxParseData:money.nodes}}"/>
-    </view> 
+
+    </scroll-view>
+ 
   </swiper-item>
    <swiper-item> 
-   <view class="wxParse">
+     <scroll-view scroll-y style="height:600px" class="wxParse"> 
     <template is="wxParse" data="{{wxParseData:order.nodes}}"/>
-    </view>
+
+    </scroll-view>
+
   </swiper-item>  
 </swiper> 
 </scroll-view>
