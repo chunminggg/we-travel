@@ -12,12 +12,8 @@
 <view  wx:for="{{dataArray}}" wx:for-index="idx"  wx:key="*this" class="itemClass"> 
 <!--景点图片-->
 <view >
- <image  mode="aspectFill" src="{{item.url}}" class="cellImage"  data-img="{{item.url}}" bindtap="clickImageidx">
+ <image data-type="{{idx}}" mode="aspectFill" src="{{item.url}}" class="cellImage"  data-img="{{item.url}}" bindtap="clickImageidx">
  </image>
-<!-- <view class="">
-   <text class="page_title imageText">{{item.name}}</text>
-
-</view> -->
 </view>
 <!--景点名称-->
 <view class="textView">

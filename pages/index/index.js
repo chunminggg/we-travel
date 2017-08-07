@@ -16,18 +16,7 @@ var localData = [
     name: '名称3',
   },
   ],
-  imageArray = [{
-    imageUrl:'http://omh0qz95c.bkt.clouddn.com/101499175264_.pic.jpg'
-  },
-    {
-      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
-    },
-    {
-      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/91499175246_.pic.jpg'
-    },
-    {
-      imageUrl: 'http://omh0qz95c.bkt.clouddn.com/81499175132_.pic.jpg'
-    }
+  imageArray = [
   ]
 Page({
   data: {
@@ -52,6 +41,11 @@ Page({
    * 获取系统信息 
    */
     netWork.getMainThemeList((data)=>{
+      netWork.getMainScroll((mainImageArray)=>{
+        that.setData({
+          imageArray: mainImageArray
+        })
+      })
       wx.hideLoading()
         netWork.loginWithLeanCloud()
     wx.getSystemInfo({
@@ -69,10 +63,10 @@ Page({
   
   },
 
-  clickImageidx(){
-    
+  clickImageidx(e){
+    var idx = e.currentTarget.dataset.type + 1
     wx.navigateTo({
-      url: '../itemList/itemList',
+      url: '../itemList/itemList?type='+idx,
     })
   },
 })

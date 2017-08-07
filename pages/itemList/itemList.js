@@ -19,7 +19,8 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    netTool.getItemList(1,(data)=>{
+    
+    netTool.getItemList(parseInt(options.type),(data)=>{
       
       wx.hideLoading()
       

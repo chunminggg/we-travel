@@ -69,4 +69,6 @@
 
   </swiper-item>  
 </swiper> 
+  <button class="weui-btn" type="primary"> 立即预定</button>
+  <button class="weui-btn" open-type="contact"  session-from="weapp" > 咨询客服</button>
 </scroll-view>

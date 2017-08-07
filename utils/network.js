@@ -50,6 +50,20 @@ leanCloudGetUserInfo(phoneNumber){
       }
     });
   },
+  getMainScroll(successCallback){
+  var query = new AV.Query('MainScroll')
+  query.descending('createdAt')
+  query.find().then((data)=>{
+    var imageArray = data[0].attributes.imageArray
+    if(imageArray.length){
+      var dataArray = []
+      for(var i=0;i<imageArray.length;i++){
+        dataArray.push({ 'imageUrl': imageArray[i].url})
+      }
+      return successCallback(dataArray)
+    }   
+  })
+  },
   //获取首页列表
 getMainThemeList(successCallback){
   var query = new AV.Query('Theme')
@@ -74,6 +88,7 @@ getMainThemeList(successCallback){
     var query = new AV.Query('Product')
     query.equalTo('type',typeSign)
     query.find().then((data) =>{
+      
       if(data.length){
         var dataArray = []
         

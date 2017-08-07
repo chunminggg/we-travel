@@ -3,6 +3,25 @@
   width:100%;
   height:300rpx; 
 }
+.bottomView{
+  width: 100%;
+  height:60rpx;
+  margin: 0 atuo;
+  padding: 20px 0;
+}
+.bottomButton{
+  width:40%;
+
+}
+.orderButton{
+  /* float:right; */
+ background-color: lightgray;
+}
+.serviceButton{
+  float: left;
+  background-color: lightseagreen;
+  margin-top:2;
+}
 .footer{
   background-color: red;
   height: 150rpx;
