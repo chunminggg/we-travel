@@ -1,74 +1,82 @@
 <!--detail.wxml-->
-<import src="../../wxParse/wxParse.wxml"/> 
-<scroll-view class="page"  scroll-top="{{scrollTop}}"> 
-<!-- head -->
- <view class="page__hd" style="padding:0">
-     <image  mode="aspectFill" src="{{icon60}}" class="cellImage"  data-img="{{icon60}}" >
- </image>
- <view class="page_title">
- <text>{{detailData.name}}</text>
- </view>
-  <view class="page_title">
-  <text>{{detailData.startDate}}至{{detailData.endDate}}</text>
-  <text>{{detailData.place}}   价格:{{detailData.price}}</text>
- </view>
-
+<import src="../../wxParse/wxParse.wxml" />
+<scroll-view class="page" scroll-top="{{scrollTop}}">
+  <!-- head -->
+  <view class="page__hd" style="padding:0">
+   <swiper indicator-dots="true" autoplay="YES" interval="2000">
+  <block wx:for="{{imageArray}}" wx:key="*this">
+    <swiper-item style="">
+      <image src="{{item.url}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
+    </swiper-item>
+  </block>
+</swiper>
+    <view class="page_title">
+      <text class="weui-article__h1">{{detailData.name}}</text>
     </view>
-    <!-- menu -->
-    <!-- <view style="padding: 20px 10px; background-color:#eee;">
+        <view class="weui-flex">
+            <view><view ><text>{{detailData.place}}出发</text></view></view>
+            <view class="weui-flex__item textCenter"><view class="placeholder">{{detailData.startDate}}-{{detailData.endDate}}</view></view>
+            <view><view class="placeholder" ><text style="color:red">{{detailData.price}}</text>起/人</view></view>
+        </view>
+   
+
+  </view>
+  <!-- menu -->
+  <!-- <view style="padding: 20px 10px; background-color:#eee;">
     <block wx:for="{{list}}" wx:key="">
         回复{{index}}:<template is="wxParse" data="{{wxParseData:item}}"/>
     </block>
 </view>   -->
-<!-- 滑块选项 -->
-  
-<view class="swiper-tab"> 
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">线路特色</view> 
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">行程介绍</view> 
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">费用说明</view> 
-    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">预订须知</view> 
+  <!-- 滑块选项 -->
 
-</view> 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;" bindchange="bindChange"> 
-  <!-- 线路特色 -->
-  <swiper-item> 
-      
-     <scroll-view scroll-y style="height:600px" class="wxParse"> 
-    <template is="wxParse" data="{{wxParseData:line.nodes}}"/>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">线路特色</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">行程介绍</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">费用说明</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">预订须知</view>
 
-    </scroll-view> 
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;" bindchange="bindChange">
+    <!-- 线路特色 -->
+    <swiper-item>
 
- 
-  </swiper-item> 
-  <!-- 行程介绍 -->
-  <swiper-item> 
+      <scroll-view scroll-y style="height:600px" class="wxParse">
+        <template is="wxParse" data="{{wxParseData:line.nodes}}" />
 
-     <scroll-view scroll-y style="height:600px" class="wxParse"> 
-                   <template is="wxParse" data="{{wxParseData:trip.nodes}}"/>
+      </scroll-view>
 
-    </scroll-view> 
 
-   <!-- <view class="wxParse detailView">
+    </swiper-item>
+    <!-- 行程介绍 -->
+    <swiper-item>
+
+      <scroll-view scroll-y style="height:600px" class="wxParse">
+        <template is="wxParse" data="{{wxParseData:trip.nodes}}" />
+
+      </scroll-view>
+
+      <!-- <view class="wxParse detailView">
 
     </view> -->
-  </swiper-item> 
-  <!-- 费用说明 -->
-  <swiper-item> 
-  
-      <scroll-view scroll-y style="height:600px" class="wxParse"> 
-    <template is="wxParse" data="{{wxParseData:money.nodes}}"/>
+    </swiper-item>
+    <!-- 费用说明 -->
+    <swiper-item>
 
-    </scroll-view>
- 
-  </swiper-item>
-   <swiper-item> 
-     <scroll-view scroll-y style="height:600px" class="wxParse"> 
-    <template is="wxParse" data="{{wxParseData:order.nodes}}"/>
+      <scroll-view scroll-y style="height:600px" class="wxParse">
+        <template is="wxParse" data="{{wxParseData:money.nodes}}" />
 
-    </scroll-view>
+      </scroll-view>
 
-  </swiper-item>  
-</swiper> 
-  <button class="weui-btn" type="primary" bindtap="reserverItem"> 立即预定</button>
-  <button class="weui-btn" open-type="contact"  session-from="weapp" > 咨询客服</button>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style="height:600px" class="wxParse">
+        <template is="wxParse" data="{{wxParseData:order.nodes}}" />
+
+      </scroll-view>
+
+    </swiper-item>
+  </swiper>
+
 </scroll-view>
+  <button class="weui-btn" type="primary" bindtap="reserverItem"> 立即预定</button>
+  <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button>

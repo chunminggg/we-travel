@@ -1,25 +1,28 @@
 <view class="page">
-    <view class="page__hd" style="padding:0">
-     <image  mode="aspectFill" src="{{icon60}}" class="cellImage"  data-img="{{icon60}}" >
- </image>
+  <view class="page__hd" style="padding:0">
+    <image mode="aspectFill" src="{{icon60}}" class="cellImage" data-img="{{icon60}}">
+    </image>
+  </view>
+
+  <view bindtap="detailItemClick" data-itemId="{{idx}}" class="page__bd borderStyle" style="padding-bottom:0px" wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" wx:if="{{isHaveData}}">
+
+
+    <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
+      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <image class="weui-media-box__thumb" src="{{item.coverImage}}" />
+      </view>
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title">{{item.name}}</view>
+        <view class="weui-media-box__desc">{{item.describe}}</view>
+      </view>
     </view>
-   
-    <view bindtap="detailItemClick" data-itemId="{{idx}}" class="page__bd borderStyle" style="padding-bottom:0px" wx:for="{{itemArray}}" wx:for-index="idx"  wx:key="*this" >
-        
-    
-         <view  class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" > 
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" >
-                        <image class="weui-media-box__thumb" src="{{item.coverImage}}" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.name}}</view>
-                        <view class="weui-media-box__desc">{{item.describe}}</view>
-                    </view>
-                 </view> 
-                 <view class="weui-media-box__info" style="margin-left:15px">
-                        <view class="weui-media-box__info__meta">{{item.place}}出发</view>
-                        <view class="weui-media-box__info__meta">{{item.startDate}}至{{item.endDate}}</view>
-                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">￥{{item.price}}</view>
-                    </view>
+    <view class="weui-media-box__info" style="margin-left:15px">
+      <view class="weui-media-box__info__meta">{{item.place}}出发</view>
+      <view class="weui-media-box__info__meta">{{item.startDate}}至{{item.endDate}}</view>
+      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">￥{{item.price}}</view>
     </view>
+  </view>
+  <view class="" wx:if="{{!isHaveData}}" >
+  <text style="margin-left:35%">暂无该分类信息</text>
+  </view>
 </view>

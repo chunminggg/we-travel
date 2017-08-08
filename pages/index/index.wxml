@@ -1,29 +1,29 @@
 <!--轮播图-->
 <swiper indicator-dots="true" autoplay="YES" interval="2000">
-<block wx:for="{{imageArray}}" wx:key="*this">
-<swiper-item style="">
-<image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx" ></image>
-</swiper-item>
-</block>
+  <block wx:for="{{imageArray}}" wx:key="*this">
+    <swiper-item style="">
+      <image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
+    </swiper-item>
+  </block>
 </swiper>
 <section>
-   <!--景点推荐-->
-<scroll-view scroll-y="true" style="height:100%" >  
-<view  wx:for="{{dataArray}}" wx:for-index="idx"  wx:key="*this" class="itemClass"> 
-<!--景点图片-->
-<view >
- <image data-type="{{idx}}" mode="aspectFill" src="{{item.url}}" class="cellImage"  data-img="{{item.url}}" bindtap="clickImageidx">
- </image>
-</view>
-<!--景点名称-->
-<view class="textView">
-<text class="labelClass">{{item.brief}}</text>
-</view>
-<!--详情文字-->
+  <!--景点推荐-->
+  <scroll-view scroll-y="true" style="height:100%">
+    <view wx:for="{{dataArray}}" wx:for-index="idx" wx:key="*this" class="itemClass">
+      <!--景点图片-->
+      <view>
+        <image data-type="{{idx}}" mode="aspectFill" src="{{item.url}}" class="cellImage" data-img="{{item.url}}" bindtap="clickImageidx">
+        </image>
+      </view>
+      <!--景点名称-->
+      <view class="textView">
+        <text class="labelClass">{{item.brief}}</text>
+      </view>
+      <!--详情文字-->
 
-<!--分割线-->
-<view class="splitLine">
-</view>
-</view>
-</scroll-view> 
+      <!--分割线-->
+      <view class="splitLine">
+      </view>
+    </view>
+  </scroll-view>
 </section>

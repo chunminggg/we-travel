@@ -16,6 +16,7 @@ Page({
     // tab切换 
     currentTab: 0, 
     offsetTop: 0,
+    imageArray:[],
     myList: [
       {
         id: 'form',
@@ -65,11 +66,16 @@ Page({
   },
   
   getDetailData(onlyId){
+    wx.showLoading({
+      title: '数据加载中',
+    })
     var that = this
     network.getDetailItemWithId(onlyId,(data)=>{
+      wx.hideLoading()
       that.setData({
       detailData:data,
-      icon60:data.imageArray[0].url
+      icon60:data.imageArray[0].url,
+      imageArray:data.imageArray,
     })
    var list = []
     for (let i = 0, len = that.data.list.length; i<len ; i++){
