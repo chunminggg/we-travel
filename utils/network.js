@@ -87,6 +87,7 @@ getMainThemeList(successCallback){
   getItemList(typeSign,successCallback){
     var query = new AV.Query('Product')
     query.equalTo('type',typeSign)
+    query.select(['place', 'name','startDate','type','endDate','onleyId','price','describe','imageArray'])
     query.find().then((data) =>{
       
       if(data.length){
@@ -112,6 +113,36 @@ getMainThemeList(successCallback){
     }, function (error) {
       // 异常处理
     });
+  },
+  //预定
+  reserveItem(data,successCallBack,errorCallBack){
+    var Product = AV.Object.extend('OrderItem')
+    var product = new Product()
+    var targetItem = AV.Object.createWithoutData('Product',data.itemId)
+      product.set('phoneNumber', data.phoneNumber)
+      product.set('name', data.name)
+      product.set('peopleCount', data.peopleCount)
+      product.set('finishDate', data.finishDate)
+      product.set('targetItem',targetItem)
+      product.save().then((todo) => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '提交成功'
+        })
+        setTimeout(function(){
+          wx.navigateBack({
+
+          })
+        },500)
+       
+      }, (error) => {
+          wx.hideLoading()
+          wx.showToast({
+            title: '提交失败'
+          })
+        
+      })
+    
   },
   //根据id获取信息详情
   getDetailItemWithId(onlyId,successCallback,errorCallback){

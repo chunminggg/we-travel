@@ -4,7 +4,8 @@
     "pages/login/login",
     "pages/logs/logs",
     "pages/itemList/itemList",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/reserve/reserve"
   ],
   "window": {
     "backgroundTextStyle": "light",

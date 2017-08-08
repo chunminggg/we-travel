@@ -7,7 +7,7 @@ Page({
    */
   data: {
     icon20:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
-    icon60:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
+    icon60:'',
     itemArray:[],
   },
 
@@ -23,11 +23,14 @@ Page({
     netTool.getItemList(parseInt(options.type),(data)=>{
       
       wx.hideLoading()
-      
+      var coverImage = 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
+      if(data.length){
+        coverImage = data[0].coverImage
+      }
       that.setData({
         itemArray:data,
         icon20: '',
-        icon60: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
+        icon60: coverImage
       })
       
     })

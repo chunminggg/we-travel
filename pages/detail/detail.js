@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    icon60: 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
+    icon60: '',
     onlyId: '',
     detailData:{},
     winWidth: 0,
@@ -68,7 +68,8 @@ Page({
     var that = this
     network.getDetailItemWithId(onlyId,(data)=>{
       that.setData({
-      detailData:data
+      detailData:data,
+      icon60:data.imageArray[0].url
     })
    var list = []
     for (let i = 0, len = that.data.list.length; i<len ; i++){
@@ -135,7 +136,14 @@ Page({
  
   this.getDetailData(this.data.onlyId)
   },
-
+  //立即预定
+  reserverItem(e){
+    var that = this,
+        onlyId = this.data.onlyId
+    wx.navigateTo({
+      url: '../reserve/reserve?itemId=' + onlyId,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
