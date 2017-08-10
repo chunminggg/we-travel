@@ -121,7 +121,7 @@ var getTestData = {
   getItemList(typeSign, successCallback) {
     var query = new AV.Query('Product')
     query.equalTo('type', typeSign)
-    query.select(['place', 'name', 'startDate', 'type', 'endDate', 'onleyId', 'price', 'describe', 'imageArray'])
+    query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     query.find().then((data) => {
 
       if (data.length) {
@@ -134,8 +134,8 @@ var getTestData = {
             model.attributes.coverImage = model.attributes.imageArray[0].url
 
           }
-          model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
-          model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
+          // model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
+          // model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
 
           model.attributes.uid = model.id
           dataArray.push(data[i].attributes)
@@ -186,8 +186,8 @@ var getTestData = {
       if (data.length) {
         var model = data[0]
         model.attributes.uid = model.id
-        model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
-        model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
+        // model.attributes.startDate = model.attributes.startDate.toISOString().slice(0, 10)
+        // model.attributes.endDate = model.attributes.endDate.toISOString().slice(0, 10)
         successCallback(model.attributes)
       }
     }, (error) => {

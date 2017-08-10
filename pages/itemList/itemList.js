@@ -9,7 +9,8 @@ Page({
     icon20:'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg',
     icon60:'',
     itemArray:[],
-    isHaveData:true
+    isHaveData:true,
+    imageArray:[],
   },
 
   /**
@@ -64,13 +65,23 @@ Page({
       }
       
       var coverImage = 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
+      var dataImageArray = [{'imageUrl':coverImage}]
       if(data.length){
+
+        dataImageArray = []
         coverImage = data[0].coverImage
+        data.forEach((obj)=>{
+          if(obj.coverImage == undefined){
+            return
+          }
+          dataImageArray.push({'imageUrl':obj.coverImage})
+        })
       }
       that.setData({
         itemArray:data,
         icon20: '',
-        icon60: coverImage
+        icon60: coverImage,
+        imageArray:dataImageArray
       })
       
     })

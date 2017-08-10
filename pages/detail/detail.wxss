@@ -1,4 +1,5 @@
 /* detail.wxss */
+
 .textCenter{
   text-align: center
 }
@@ -45,7 +46,7 @@
   
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
 .swiper-box view{  
-    text-align: center;  
+    text-align: left;  
 }  
 .weui-flex{-webkit-box-align:center;-webkit-align-items:center;align-items:center}
 .weui-cells{margin-top:0;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:.3s;transition:.3s}

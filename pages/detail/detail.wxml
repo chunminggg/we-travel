@@ -15,7 +15,7 @@
     </view>
         <view class="weui-flex">
             <view><view ><text>{{detailData.place}}出发</text></view></view>
-            <view class="weui-flex__item textCenter"><view class="placeholder">{{detailData.startDate}}-{{detailData.endDate}}</view></view>
+            <view class="weui-flex__item textCenter"><view class="placeholder">{{detailData.startDate}}</view></view>
             <view><view class="placeholder" ><text style="color:red">{{detailData.price}}</text>起/人</view></view>
         </view>
    

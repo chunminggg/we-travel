@@ -71,11 +71,17 @@ Page({
     })
     var that = this
     network.getDetailItemWithId(onlyId,(data)=>{
+      
+      var localImageArray = [{ 'url': 'http://ac-qDUQr0Em.clouddn.com/741cc9231efb2930db26.JPG'}]
+      if(data.imageArray.length){
+        localImageArray = []
+        localImageArray = data.imageArray
+      }
       wx.hideLoading()
       that.setData({
       detailData:data,
       icon60:data.imageArray[0].url,
-      imageArray:data.imageArray,
+      imageArray: localImageArray,
     })
    var list = []
     for (let i = 0, len = that.data.list.length; i<len ; i++){
