@@ -19,13 +19,24 @@ var getTestData = {
   },
   //验证短信
   verifyMessageCode(verifyCode, phoneNumber, successCallBack, errorCallBack) {
+    var that = this
     AV.Cloud.verifySmsCode(verifyCode, phoneNumber).then(function () {
       //验证成功
-      successCallBack()
+      that.createNewUser(phoneNumber)
+      setTimeout(function(){
+        successCallBack()
+      },500)
     }, function (err) {
       //验证失败
       errorCallBack(err)
     });
+  },
+  //存储用户信息
+  createNewUser(phoneNumber){
+    AV.User.loginWithWeapp().then(user => {
+      user.setMobilePhoneNumber(phoneNumber);
+      
+    }).catch(console.error);
   },
   //leancloud login
   loginWithLeanCloud() {
@@ -33,6 +44,7 @@ var getTestData = {
     var that = this
     AV.User.loginWithWeapp().then(user => {
 
+     
     }).catch(console.error);
   },
   leanCloudGetUserInfo(phoneNumber) {
