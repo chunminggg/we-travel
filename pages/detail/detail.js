@@ -152,6 +152,13 @@ Page({
   reserverItem(e){
     var that = this,
         onlyId = this.data.onlyId
+      let phoneNumber = wx.getStorageSync('phoneNumber')
+      if(phoneNumber =='' || phoneNumber == undefined){
+        wx.navigateTo({
+          url: '../login/login?itemId=' + onlyId,
+        })
+        return
+      }
     wx.navigateTo({
       url: '../reserve/reserve?itemId=' + onlyId,
     })
@@ -167,7 +174,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**

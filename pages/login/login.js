@@ -11,6 +11,7 @@ Page({
     phoneNumber:'123',
     isConfirmed: true,
     confirmCode : '',
+    itemId:'',
   },
   //点击获取验证码
   clickCodeButton:function(e){
@@ -128,7 +129,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+  // if(options.itemId.length){
+  //   this.setData({
+  //     itemId:options.itemId
+  //   })
+    
+  // }
   },
 
   /**

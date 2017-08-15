@@ -44,8 +44,11 @@ Page({
     })
   },
   submitData(e){
-    var that = this
+    var that = this,
+    userId = wx.getStorageSync('phoneNumber')
+
     var dict = {
+      userId:userId,
       phoneNumber: that.data.phoneNumber,
       name: that.data.name,
       peopleCount: that.data.peopleCount,

@@ -29,10 +29,10 @@ var getTestData = {
   },
   //leancloud login
   loginWithLeanCloud() {
+
     var that = this
     AV.User.loginWithWeapp().then(user => {
-      // this.globalData.user = user.toJSON();
-      that.leanCloudGetUserInfo('123')
+
     }).catch(console.error);
   },
   leanCloudGetUserInfo(phoneNumber) {
@@ -43,7 +43,6 @@ var getTestData = {
         // 更新当前用户的信息
         userInfo.mobilePhoneNumber = phoneNumber
         user.set(userInfo).save().then(user => {
-
           // 成功，此时可在控制台中看到更新后的用户信息
           // this.globalData.user = user.toJSON();
         }).catch(console.error);
@@ -51,54 +50,28 @@ var getTestData = {
     });
   },
   getMainScroll(successCallback) {
-    // var query = new AV.Query('MainScroll')
-    // query.descending('createdAt')
-    // query.find().then((data)=>{
-    //   var imageArray = data[0].attributes.imageArray
-    //   if(imageArray.length){
-    //     var dataArray = []
-    //     for(var i=0;i<imageArray.length;i++){
-    //       dataArray.push({ 'imageUrl': imageArray[i].url})
-    //     }
-    //     return successCallback(dataArray)
-    //   }   
-    // })
+
     return new Promise((resolve, reject) => {
       var query = new AV.Query('MainScroll')
       query.descending('createdAt')
-      query.find().then((data)=>{
-      var imageArray = data[0].attributes.imageArray
-      if(imageArray.length){
-        var dataArray = []
-        for(var i=0;i<imageArray.length;i++){
-          dataArray.push({ 'imageUrl': imageArray[i].url})
+      query.find().then((data) => {
+        var imageArray = data[0].attributes.imageArray
+        if (imageArray.length) {
+          var dataArray = []
+          for (var i = 0; i < imageArray.length; i++) {
+            dataArray.push({ 'imageUrl': imageArray[i].url })
+          }
+          return resolve(dataArray)
         }
-        return resolve(dataArray)
-      }   
-    },(error)=>{
-      reject(error)
-    })
+      }, (error) => {
+        reject(error)
+      })
     })
   },
   //获取首页列表
   getMainThemeList(successCallback) {
-    // var query = new AV.Query('Theme')
-    // query.find().then((data) => {
-    //   if (data.length) {
-    //     var dataArray = []
-    //     for (var i = 0; i < data.length; i++) {
-    //       var model = data[i]
-    //       if (model.attributes.imageArray.length) {
-    //         model.attributes.url = model.attributes.imageArray[0].url
-    //       }
-    //       dataArray.push(data[i].attributes)
-    //     }
-    //   }
-    //   successCallback(dataArray)
-    // }, (error) => {
 
-    // })
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
       var query = new AV.Query('Theme')
       query.find().then((data) => {
         if (data.length) {
@@ -153,6 +126,7 @@ var getTestData = {
     var Product = AV.Object.extend('OrderItem')
     var product = new Product()
     var targetItem = AV.Object.createWithoutData('Product', data.itemId)
+    product.set('userId', data.userId)
     product.set('phoneNumber', data.phoneNumber)
     product.set('name', data.name)
     product.set('peopleCount', data.peopleCount)
@@ -177,6 +151,16 @@ var getTestData = {
 
     })
 
+  },
+  //获取订单
+  getReserveItem(userId) {
+    var query = new AV.Query('OrderItem')
+    query.descending('createdAt')
+    query.equalTo('userId', userId)
+    query.include('targetItem')
+    query.include('targetItem.name')
+    query.include('targetItem.onleyId')
+    return query.find()
   },
   //根据id获取信息详情
   getDetailItemWithId(onlyId, successCallback, errorCallback) {
