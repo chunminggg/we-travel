@@ -78,5 +78,5 @@
   </swiper>
 
 </scroll-view>
-  <button class="weui-btn" type="primary" bindtap="reserverItem"> 立即预定</button>
-  <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button>
+  <!-- <button class="weui-btn" type="primary" bindtap="reserverItem"> 立即预定</button> -->
+  <!-- <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button> -->
