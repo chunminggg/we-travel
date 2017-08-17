@@ -107,6 +107,7 @@ var getTestData = {
     var query = new AV.Query('Product')
     query.equalTo('type', typeSign)
     query.descending('updatedAt')
+    query.addAscending('isSort')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     query.find().then((data) => {
 
