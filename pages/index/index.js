@@ -43,6 +43,7 @@ Page({
        wx.getSystemInfo({
       success: function (res) {
         wx.hideLoading()
+
         that.setData({
           winWidth: res.windowWidth,
           winHeight: res.windowHeight,
@@ -53,12 +54,14 @@ Page({
 
     }); 
     })
+    
   },
 
   clickImageidx(e) {
-    var idx = e.currentTarget.dataset.type + 1
+    var idx = e.currentTarget.dataset.type 
+    let naviTitle = e.currentTarget.dataset.title
     wx.navigateTo({
-      url: '../itemList/itemList?type=' + idx,
+      url: `../itemList/itemList?type=${idx}&title=${naviTitle}` ,
     })
   },
 })

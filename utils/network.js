@@ -80,11 +80,19 @@ var getTestData = {
       })
     })
   },
+  //产品留存计数
+  makeProductCount(onlyId,countNumber){
+    let todo = AV.Object.createWithoutData('Product', onlyId)
+    todo.set('countNumber',countNumber+1)
+    todo.save()
+  },
   //获取首页列表
   getMainThemeList(successCallback) {
 
     return new Promise((resolve, reject) => {
       var query = new AV.Query('Theme')
+      query.descending('updatedAt')
+      query.addAscending('isSort')
       query.find().then((data) => {
         if (data.length) {
           var dataArray = []

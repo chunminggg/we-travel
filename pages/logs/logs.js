@@ -50,11 +50,17 @@ Page({
 
   },
   onLoad: function () {
-    var that = this
    
-    wx.showLoading({
-      title: '数据加载中',
-    })
+
+  },
+  onShow(){
+    var that = this
+    that.loadReserverItem()
+    var that = this
+
+    // wx.showLoading({
+    //   title: '数据加载中',
+    // })
 
     try {
       var value = wx.getStorageSync('loginSign'),
@@ -71,17 +77,12 @@ Page({
           userInfo: userInfo,
           orderMessage: orderMessage
         })
-        wx.hideLoading()
+        // wx.hideLoading()
       })
     } catch (e) {
       that.setData({
-        'orderMessage': '您当前尚未登陆'
+        'orderMessage': ''
       })
     }
-
-  },
-  onShow(){
-    var that = this
-    that.loadReserverItem()
   }
 })
