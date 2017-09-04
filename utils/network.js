@@ -23,19 +23,19 @@ var getTestData = {
     AV.Cloud.verifySmsCode(verifyCode, phoneNumber).then(function () {
       //验证成功
       that.createNewUser(phoneNumber)
-      setTimeout(function(){
+      setTimeout(function () {
         successCallBack()
-      },500)
+      }, 500)
     }, function (err) {
       //验证失败
       errorCallBack(err)
     });
   },
   //存储用户信息
-  createNewUser(phoneNumber){
+  createNewUser(phoneNumber) {
     AV.User.loginWithWeapp().then(user => {
       user.setMobilePhoneNumber(phoneNumber);
-      
+
     }).catch(console.error);
   },
   //leancloud login
@@ -44,7 +44,7 @@ var getTestData = {
     var that = this
     AV.User.loginWithWeapp().then(user => {
 
-     
+
     }).catch(console.error);
   },
   leanCloudGetUserInfo(phoneNumber) {
@@ -81,10 +81,27 @@ var getTestData = {
     })
   },
   //产品留存计数
-  makeProductCount(onlyId,countNumber){
+  makeProductCount(onlyId, countNumber) {
     let todo = AV.Object.createWithoutData('Product', onlyId)
-    todo.set('countNumber',countNumber+1)
+    todo.set('countNumber', countNumber + 1)
     todo.save()
+  },
+  //获取特价列表
+  getSpecialPriceList() {
+    var query = new AV.Query('Product')
+    query.equalTo('isSpecialPrice', true)
+    query.descending('updatedAt')
+    query.addAscending('isRecommend')
+    query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
+    return query.find()
+  },
+  //获取推荐列表
+  getRecommendList() {
+    var query = new AV.Query('Product')
+    query.equalTo('isRecommend', true)
+    query.descending('updatedAt')
+    query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
+    return query.find()
   },
   //获取首页列表
   getMainThemeList(successCallback) {

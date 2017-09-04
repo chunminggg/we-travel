@@ -1,7 +1,11 @@
 /**index.wxss**/
-
+.upload_Item_text{
+ white-space: pre-line;
+ margin-top:-60rpx;
+width: 200rpx;
+}
 .uploadWrap {
-  height: 240rpx;
+  height: 320rpx;
   width: 100%;
   display: flex;
   display: -webkit-box;
@@ -14,8 +18,8 @@
   color: transparent;
 }
 .upload_Item {
-  width: 30%;
-  height: 240rpx;
+  width: 35%;
+  height: 320rpx;
   flex: 1;
 }
 

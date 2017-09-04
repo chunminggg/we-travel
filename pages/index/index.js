@@ -30,6 +30,8 @@ Page({
     winHeight: 0,
     // tab切换 
     currentTab: 0,
+    specialPriceArray: [],
+    recommendArray:[],
   },
 
   //事件处理函数
@@ -38,45 +40,72 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    Promise.all([netWork.getMainScroll(), netWork.getMainThemeList()]).then(([data1,data2])=>{
-        netWork.loginWithLeanCloud()
-        wx.hideLoading()
-       wx.getSystemInfo({
-      success: function (res) {
-        wx.hideLoading()
+    Promise.all([ netWork.getMainThemeList(), netWork.getSpecialPriceList(), netWork.getRecommendList()]).then(([data2, data3,data4]) => {
 
-        that.setData({
-          winWidth: res.windowWidth,
-          winHeight: res.windowHeight,
-          dataArray:data2,
-          imageArray: data1
-        });
-      }
+      netWork.loginWithLeanCloud()
+      wx.hideLoading()
+      wx.getSystemInfo({
+        success: function (res) {
+          wx.hideLoading()
+          let myDealArray = []
+          data3.forEach(obj=>{
+          obj.attributes.id = obj.id
+          myDealArray.push(obj.attributes)
+          })
+          let recommendArray = []
+          data4.forEach(obj => {
+            obj.attributes.id = obj.id
+            recommendArray.push(obj.attributes)
+          })
+          that.setData({
+            winWidth: res.windowWidth,
+            winHeight: res.windowHeight,
+            dataArray: data2,
+            // imageArray: data1,
+            specialPriceArray:myDealArray,
+            recommendArray:recommendArray,
+          });
 
-    }); 
+        }
+
+      });
     })
-    
+
   },
 
   clickImageidx(e) {
-    var idx = e.currentTarget.dataset.type 
+    var idx = e.currentTarget.dataset.type
     let naviTitle = e.currentTarget.dataset.title
     wx.navigateTo({
-      url: `../itemList/itemList?type=${idx}&title=${naviTitle}` ,
+      url: `../itemList/itemList?type=${idx}&title=${naviTitle}`,
+    })
+  },
+  clickRecommenItem(e){
+    let id = e.currentTarget.dataset.id
+
+    wx.navigateTo({
+      url: '../detail/detail?detailId=' + id,
+    })
+  },
+  clickSpecialPrice(e){
+    let id = e.currentTarget.dataset.id
+    
+    wx.navigateTo({
+      url: '../detail/detail?detailId=' + id,
     })
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
-   
+
     }
     return {
       title: '超想去旅行',
       path: '/pages/index/index',
       success: function (res) {
-      
+
       },
       fail: function (res) {
-       
+
       }
     }
   }

@@ -1,12 +1,25 @@
-<!--轮播图-->
-<!-- <swiper indicator-dots="true" autoplay="YES" interval="2000">
-  <block wx:for="{{imageArray}}" wx:key="*this">
-    <swiper-item style="">
-      <image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
-    </swiper-item>
-  </block>
-</swiper> -->
 <view class="page">
+  <view class="titleRow leftSection">
+    <view class="weui-flex ">
+      <view>
+        <view class="placeholder bigTitle">特价</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder smallTitle">Sale</view>
+      </view>
+    </view>
+    <scroll-view scroll-x="true">
+      <view class="uploadWrap" scroll-x="true" >
+        <view class="upload_Item" wx:for="{{specialPriceArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickSpecialPrice">
+          <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
+          <view class="upload_Item_text">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
   <view class="titleRow leftSection">
     <view class="weui-flex ">
       <view>
@@ -16,24 +29,18 @@
         <view class="placeholder smallTitle">Recommend</view>
       </view>
     </view>
-    <swiper indicator-dots="false" autoplay="false" interval="1000000">
-      <block wx:for="{{dataArray}}" wx:key="*this">
-        <swiper-item>
-          <image src="{{item.url}}" class="slide-image" width="150" height="150" />
-        </swiper-item>
-      </block>
-    </swiper>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
-        <view class="upload_Item" wx:for="{{dataArray}}" wx:key="*this">
-          <image class="upload_Item_img" src="{{item.url}}"></image>
-          <view class="">
-            <text class="labelClass">{{item.brief}}</text>
+        <view class="upload_Item" wx:for="{{recommendArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickRecommenItem">
+          <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
+          <view class="upload_Item_text">
+            {{item.name}}
           </view>
         </view>
       </view>
     </scroll-view>
   </view>
+
   <section>
     <!--景点推荐-->
     <scroll-view scroll-y="true" style="height:100%">
