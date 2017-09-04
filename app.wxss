@@ -11,13 +11,16 @@
   box-sizing: border-box;
   background-color: rgb(239, 239, 239);
 } 
+.leftSection{
+  margin-left: 20px
+}
 .section{
   width:100%;
   /*background-color: white;*/
   margin-top: 20rpx;
 }
 page{
-    background-color: #F8F8F8;
+    /* background-color: #F8F8F8; */
     font-size: 16px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }

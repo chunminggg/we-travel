@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+
 var app = getApp()
 var netWork = require('../../utils/network.js')
 var localData = [
@@ -64,4 +65,19 @@ Page({
       url: `../itemList/itemList?type=${idx}&title=${naviTitle}` ,
     })
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+   
+    }
+    return {
+      title: '超想去旅行',
+      path: '/pages/index/index',
+      success: function (res) {
+      
+      },
+      fail: function (res) {
+       
+      }
+    }
+  }
 })

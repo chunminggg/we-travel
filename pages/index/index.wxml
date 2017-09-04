@@ -1,29 +1,58 @@
 <!--轮播图-->
-<swiper indicator-dots="true" autoplay="YES" interval="2000">
+<!-- <swiper indicator-dots="true" autoplay="YES" interval="2000">
   <block wx:for="{{imageArray}}" wx:key="*this">
     <swiper-item style="">
       <image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
     </swiper-item>
   </block>
-</swiper>
-<section>
-  <!--景点推荐-->
-  <scroll-view scroll-y="true" style="height:100%">
-    <view wx:for="{{dataArray}}" wx:for-index="idx" wx:key="*this" class="itemClass">
-      <!--景点图片-->
+</swiper> -->
+<view class="page">
+  <view class="titleRow leftSection">
+    <view class="weui-flex ">
       <view>
-        <image data-title="{{item.name}}" data-type="{{item.type}}" mode="aspectFill" src="{{item.url}}" class="cellImage" data-img="{{item.url}}" bindtap="clickImageidx">
-        </image>
+        <view class="placeholder bigTitle">推荐</view>
       </view>
-      <!--景点名称-->
-      <view class="textView">
-        <text class="labelClass">{{item.brief}}</text>
-      </view>
-      <!--详情文字-->
-
-      <!--分割线-->
-      <view class="splitLine">
+      <view class="weui-flex__item">
+        <view class="placeholder smallTitle">Recommend</view>
       </view>
     </view>
-  </scroll-view>
-</section>
+    <swiper indicator-dots="false" autoplay="false" interval="1000000">
+      <block wx:for="{{dataArray}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item.url}}" class="slide-image" width="150" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <scroll-view scroll-x="true">
+      <view class="uploadWrap" scroll-x="true">
+        <view class="upload_Item" wx:for="{{dataArray}}" wx:key="*this">
+          <image class="upload_Item_img" src="{{item.url}}"></image>
+          <view class="">
+            <text class="labelClass">{{item.brief}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <section>
+    <!--景点推荐-->
+    <scroll-view scroll-y="true" style="height:100%">
+      <view wx:for="{{dataArray}}" wx:for-index="idx" wx:key="*this" class="itemClass">
+        <!--景点图片-->
+        <view>
+          <image data-title="{{item.name}}" data-type="{{item.type}}" mode="aspectFill" src="{{item.url}}" class="cellImage" data-img="{{item.url}}" bindtap="clickImageidx">
+          </image>
+        </view>
+        <!--景点名称-->
+        <view class="textView">
+          <text class="labelClass">{{item.brief}}</text>
+        </view>
+        <!--详情文字-->
+
+        <!--分割线-->
+        <view class="splitLine">
+        </view>
+      </view>
+    </scroll-view>
+  </section>
+</view>
