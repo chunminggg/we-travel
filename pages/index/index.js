@@ -32,6 +32,8 @@ Page({
     currentTab: 0,
     specialPriceArray: [],
     recommendArray:[],
+    followArray:[],
+    freeArray:[],
   },
 
   //事件处理函数
@@ -40,7 +42,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    Promise.all([ netWork.getMainThemeList(), netWork.getSpecialPriceList(), netWork.getRecommendList()]).then(([data2, data3,data4]) => {
+    Promise.all([netWork.getMainThemeList(), netWork.getSpecialPriceList(), netWork.getRecommendList(), netWork.getFollowTravleList(), netWork.getFreeTravelList()]).then(([data2, data3,data4,data5,data6]) => {
 
       netWork.loginWithLeanCloud()
       wx.hideLoading()
@@ -52,15 +54,30 @@ Page({
           obj.attributes.id = obj.id
           myDealArray.push(obj.attributes)
           })
+
           let recommendArray = []
           data4.forEach(obj => {
             obj.attributes.id = obj.id
             recommendArray.push(obj.attributes)
           })
+
+          let isFollowArray = []
+          data5.forEach(obj => {
+            obj.attributes.id = obj.id
+            isFollowArray.push(obj.attributes)
+          })
+
+          let isFreeArray = []
+          data5.forEach(obj => {
+            obj.attributes.id = obj.id
+            isFreeArray.push(obj.attributes)
+          })
           that.setData({
             winWidth: res.windowWidth,
             winHeight: res.windowHeight,
             dataArray: data2,
+            followArray: isFollowArray,
+            freeArray: isFreeArray,
             // imageArray: data1,
             specialPriceArray:myDealArray,
             recommendArray:recommendArray,
@@ -81,6 +98,7 @@ Page({
     })
   },
   clickRecommenItem(e){
+
     let id = e.currentTarget.dataset.id
 
     wx.navigateTo({
