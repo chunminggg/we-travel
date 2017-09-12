@@ -99,23 +99,20 @@ var getTestData = {
   getRecommendList() {
     var query = new AV.Query('Product')
     query.equalTo('isRecommend', true)
-    query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
   //获取跟团游列表
-  getFollowTravleList(){
+  getFollowTravleList() {
     var query = new AV.Query('Product')
     query.equalTo('isFollowTeam', true)
-    query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
   // 获取自由行列表
-  getFreeTravelList(){
+  getFreeTravelList() {
     var query = new AV.Query('Product')
     query.equalTo('isFreeTravel', true)
-    query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },

@@ -68,7 +68,7 @@ Page({
           })
 
           let isFreeArray = []
-          data5.forEach(obj => {
+          data6.forEach(obj => {
             obj.attributes.id = obj.id
             isFreeArray.push(obj.attributes)
           })
