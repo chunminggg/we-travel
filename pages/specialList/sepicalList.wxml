@@ -1,0 +1,15 @@
+<view class="page">
+  <scroll-view>
+    <view class='card'  wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" >
+      <view class='imgView'>
+        <image src="{{item.coverImage}}"></image>
+      </view>
+      <view class='nameView'>
+        <text>{{item.name}}</text>
+      </view>
+      <view class='describeView'>
+
+      </view>
+    </view>
+  </scroll-view>
+</view>

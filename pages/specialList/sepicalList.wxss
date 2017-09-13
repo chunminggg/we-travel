@@ -1,0 +1,18 @@
+/* pages/specialList/sepicalList.wxss */
+.card{
+  height:420rpx;
+  width: 100%;
+}
+.imgView{
+  width: 100%;
+  height: 240rpx;
+}
+.nameView{
+  margin: 10rpx;
+  width: 100%;
+}
+.describeView{
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  width: 100%;
+}

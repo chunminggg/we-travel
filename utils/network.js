@@ -87,32 +87,47 @@ var getTestData = {
     todo.save()
   },
   //获取特价列表
-  getSpecialPriceList() {
+  getSpecialPriceList(isLimit) {
     var query = new AV.Query('Product')
     query.equalTo('isSpecialPrice', true)
     query.descending('updatedAt')
+    if(isLimit){
+      query.limit(6)
+    }
     query.addAscending('isRecommend')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
   //获取推荐列表
-  getRecommendList() {
+  getRecommendList(isLimit) {
     var query = new AV.Query('Product')
     query.equalTo('isRecommend', true)
+    if (isLimit) {
+      query.limit(6)
+    }
+    query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
   //获取跟团游列表
-  getFollowTravleList() {
+  getFollowTravleList(isLimit) {
     var query = new AV.Query('Product')
     query.equalTo('isFollowTeam', true)
+    if (isLimit) {
+      query.limit(6)
+    }
+    query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
   // 获取自由行列表
-  getFreeTravelList() {
+  getFreeTravelList(isLimit) {
     var query = new AV.Query('Product')
     query.equalTo('isFreeTravel', true)
+    if (isLimit) {
+      query.limit(6)
+    }    
+    query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },

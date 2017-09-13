@@ -9,8 +9,6 @@
 </swiper>
 
   <view bindtap="detailItemClick" data-itemId="{{idx}}" class="page__bd borderStyle" style="padding-bottom:0px" wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" wx:if="{{isHaveData}}">
-
-
     <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
       <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
         <image class="weui-media-box__thumb" src="{{item.coverImage}}" />

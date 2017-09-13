@@ -42,7 +42,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    Promise.all([netWork.getMainThemeList(), netWork.getSpecialPriceList(), netWork.getRecommendList(), netWork.getFollowTravleList(), netWork.getFreeTravelList()]).then(([data2, data3,data4,data5,data6]) => {
+    Promise.all([netWork.getMainThemeList(), netWork.getSpecialPriceList(true), netWork.getRecommendList(true), netWork.getFollowTravleList(true), netWork.getFreeTravelList(true)]).then(([data2, data3,data4,data5,data6]) => {
 
       netWork.loginWithLeanCloud()
       wx.hideLoading()
@@ -89,7 +89,12 @@ Page({
     })
 
   },
-
+  //点击更多特价
+  clickMoreSpecialPriceList(e){
+  wx.navigateTo({
+    url: `../specialList/sepicalList`,
+  })
+  },
   clickImageidx(e) {
     var idx = e.currentTarget.dataset.type
     let naviTitle = e.currentTarget.dataset.title

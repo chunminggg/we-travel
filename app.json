@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "pages/itemList/itemList",
     "pages/detail/detail",
-    "pages/reserve/reserve"
+    "pages/reserve/reserve",
+    "pages/specialList/sepicalList"
   ],
   "window": {
     "backgroundTextStyle": "light",
