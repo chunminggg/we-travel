@@ -1,14 +1,19 @@
 <view class="page">
   <scroll-view>
-    <view class='card'  wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" >
+    <view class='card' wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" bindtap='clickItem'  data-itemId="{{idx}}">
       <view class='imgView'>
-        <image src="{{item.coverImage}}"></image>
+        <image mode='aspectFill' class='detailImage' src="{{item.coverImage}}"></image>
       </view>
       <view class='nameView'>
         <text>{{item.name}}</text>
       </view>
-      <view class='describeView'>
-
+      <view class='describeView weui-flex'>
+        <view class='weui-flex__item'>
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class='weui-flex__item startDate'>
+          <text>{{item.startDate}}</text>
+        </view>
       </view>
     </view>
   </scroll-view>

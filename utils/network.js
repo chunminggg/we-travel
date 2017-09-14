@@ -98,6 +98,16 @@ var getTestData = {
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
+  getListWithSpeicalName(isLimit,className){
+    var query = new AV.Query('Product')
+    query.equalTo(className, true)
+    if (isLimit) {
+      query.limit(6)
+    }
+    query.descending('updatedAt')
+    query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
+    return query.find()
+  },
   //获取推荐列表
   getRecommendList(isLimit) {
     var query = new AV.Query('Product')

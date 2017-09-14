@@ -1,18 +1,26 @@
 /* pages/specialList/sepicalList.wxss */
 .card{
-  height:420rpx;
   width: 100%;
+  height:420rpx;
 }
 .imgView{
   width: 100%;
-  height: 240rpx;
+  height: 300rpx;
+}
+.detailImage{
+  width: 100%;
+  height: 280rpx;
 }
 .nameView{
   margin: 10rpx;
   width: 100%;
 }
 .describeView{
-  margin-left: 10rpx;
+  margin-left: 15rpx;
   margin-right: 10rpx;
   width: 100%;
+  font-size: 12px;
+}
+.startDate{
+  text-align: center;
 }

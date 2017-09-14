@@ -1,3 +1,4 @@
+var netTool = require('../../utils/network.js')
 // pages/specialList/sepicalList.js
 Page({
 
@@ -5,16 +6,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    itemArray:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this
+    let className = options.name
+    netTool.getListWithSpeicalName(false,className).then(data => {
+      let myDealArray = []
+      data.forEach(obj => {
+        obj.attributes.id = obj.id
+        obj.attributes.coverImage = obj.attributes.imageArray[0].url
+        myDealArray.push(obj.attributes)
+      })
+      that.setData({
+        itemArray: myDealArray
+      })
+      wx.setNavigationBarTitle({
+        title: options.title,
+      })
+    })
   },
+  clickItem(detailData){
+    var idx = detailData.currentTarget.dataset.itemid,
+      model = this.data.itemArray[idx]
 
+    wx.navigateTo({
+      url: '../detail/detail?detailId=' + model.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

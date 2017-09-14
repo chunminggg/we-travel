@@ -92,8 +92,23 @@ Page({
   //点击更多特价
   clickMoreSpecialPriceList(e){
   wx.navigateTo({
-    url: `../specialList/sepicalList`,
+    url: `../specialList/sepicalList?name=isSpecialPrice&title=海岛特价`,
   })
+  },
+  clickMoreFree(){
+    wx.navigateTo({
+      url: `../specialList/sepicalList?name=isFreeTravel&title=海岛自由行`,
+    })
+  },
+  clickMoreRecommend(){
+    wx.navigateTo({
+      url: `../specialList/sepicalList?name=isRecommend&title=精品推荐`,
+    })
+  },
+  clickMoreFollow(){
+    wx.navigateTo({
+      url: `../specialList/sepicalList?name=isFollowTeam&title=海岛跟团游`,
+    })
   },
   clickImageidx(e) {
     var idx = e.currentTarget.dataset.type

@@ -8,7 +8,7 @@
         <view class="placeholder smallTitle">Sale</view>
       </view>
       <view class='weui-flex_item placeholder'>
-       <view class="placeholder moreTitle" bindtap='clickMoreSpecialPriceList'>更多</view>
+        <view class="placeholder moreTitle" bindtap='clickMoreSpecialPriceList'>更多</view>
       </view>
     </view>
     <scroll-view scroll-x="true">
@@ -16,14 +16,14 @@
         <view class="upload_Item" wx:for="{{specialPriceArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickSpecialPrice">
           <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
           <view class="upload_Item_text">
-            {{item.name}}   ¥{{item.price}}
+            {{item.name}} ¥{{item.price}}
           </view>
         </view>
       </view>
     </scroll-view>
   </view>
 
-   <view class="titleRow leftSection">
+  <view class="titleRow leftSection">
     <view class="weui-flex ">
       <view>
         <view class="placeholder bigTitle">全部海岛</view>
@@ -52,6 +52,9 @@
       <view class="weui-flex__item">
         <view class="placeholder smallTitle">Recommend</view>
       </view>
+      <view class='weui-flex_item placeholder'>
+        <view class="placeholder moreTitle" bindtap='clickMoreRecommend'>更多</view>
+        </view>
     </view>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
@@ -73,6 +76,9 @@
       <view class="weui-flex__item">
         <view class="placeholder smallTitle">Follow</view>
       </view>
+      <view class='weui-flex_item placeholder'>
+        <view class="placeholder moreTitle" bindtap='clickMoreFollow'>更多</view>
+        </view>
     </view>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
@@ -95,6 +101,9 @@
       <view class="weui-flex__item">
         <view class="placeholder smallTitle">FreeTravel</view>
       </view>
+      <view class='weui-flex_item placeholder'>
+        <view class="placeholder moreTitle" bindtap='clickMoreFree'>更多</view>
+        </view>
     </view>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
