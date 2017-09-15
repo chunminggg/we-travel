@@ -1,5 +1,28 @@
+.more{
+  float: right;
+}
+.line{
+  width:32px;
+  height:32px;
+  float:left;
+  margin-left:1px
+}
+.panel_hd{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+   flex-wrap: nowrap; 
+  justify-content: space-between;
+  padding-left: 20px;
+}
+.flex_item{
+  flex:1;
+}
+.page{
+  background-color: rgb(248, 248, 248)
+}
 .buttonView{
-  width: 25%;
+  width: 20%;
   float: left;
 }
 .btn-group{

@@ -1,27 +1,48 @@
 <view class="page">
-<view class='exampleView'>
-<view class='btn-group'>
-<view class='weui-flex__item'>
-<button class='btn '>test</button>
-<view class='buttonText'>
-<text>test</text>
- </view>
-</view>
-<view class='weui-flex__item'>
-<button class='btn '>test</button>
-</view>
-<view class='weui-flex__item'>
-<button class='btn '>test</button>
-</view>
-<view class='weui-flex__item'>
-<button class='btn '>test</button>
-</view>
-<view class='weui-flex__item'>
-<button class='btn '>test</button>
-</view>
 
-</view>
-</view>
+  <view class='exampleView'>
+    <view class='btn-group'>
+      <view class='weui-flex__item'>
+        <button class='btn '>test</button>
+        <view class='buttonText'>
+          <text>test</text>
+        </view>
+      </view>
+      <view class='weui-flex__item'>
+        <button class='btn '>test</button>
+      </view>
+      <view class='weui-flex__item'>
+        <button class='btn '>test</button>
+      </view>
+      <view class='weui-flex__item'>
+        <button class='btn '>test</button>
+      </view>
+      <view class='weui-flex__item'>
+        <button class='btn '>test</button>
+      </view>
+    </view>
+  </view>
+
+  <view class='panel'>
+    <view class='panel_hd '>
+      <view class='flex_item'>
+       <image mode='' src='../../img/vertical_1.png'  class='line'></image>
+        <text>全部海岛</text>
+        <text style='margin-left:10rpx;font-size:10px'>ISLANDS</text>
+      </view>
+      <view class='flex_item'>
+        <view class='more'>
+         <image src='../../img/arrow_left.png' style='width:32px;height:32px'></image>
+        </view>
+        <view class='more'>
+          <text style='font-size:14px'>全部
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class='panel_bd'></view>
+  </view>
+
   <view class="titleRow leftSection">
     <view class="weui-flex ">
       <view>
@@ -77,7 +98,7 @@
       </view>
       <view class='weui-flex_item placeholder'>
         <view class="placeholder moreTitle" bindtap='clickMoreRecommend'>更多</view>
-        </view>
+      </view>
     </view>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
@@ -101,7 +122,7 @@
       </view>
       <view class='weui-flex_item placeholder'>
         <view class="placeholder moreTitle" bindtap='clickMoreFollow'>更多</view>
-        </view>
+      </view>
     </view>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
@@ -126,7 +147,7 @@
       </view>
       <view class='weui-flex_item placeholder'>
         <view class="placeholder moreTitle" bindtap='clickMoreFree'>更多</view>
-        </view>
+      </view>
     </view>
     <scroll-view scroll-x="true">
       <view class="uploadWrap" scroll-x="true">
