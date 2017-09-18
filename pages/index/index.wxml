@@ -1,176 +1,69 @@
 <view class="page">
 
-  <view class='exampleView'>
-    <view class='btn-group'>
-      <view class='weui-flex__item'>
-        <button class='btn '>test</button>
-        <view class='buttonText'>
-          <text>全部海岛</text>
-        </view>
+  <view class='saleView'>
+    <view class='saleHead'>
+      <view class='line'></view>
+      <view class='chineseTitle'>海岛特价</view>
+      <view class='englishTitle'>SALE</view>
+    </view>
+    <view class='saleBody'></view>
+    <swiper class='specialView' indicator-dots="true" autoplay="YES" interval="2000">
+      <block wx:for="{{specialPriceArray}}" wx:key="*this">
+        <swiper-item style="">
+          <image src="{{item.imageArray[0].url}}" mode="scaleToFill" class='scrollImage'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='stripView'></view>
+
+  <view class='btn-group'>
+    <view class='itemCell'>
+      <view class='btn-round'>
+        <image src='../../img/全部海岛-1.png' class='btn-image'></image>
       </view>
-      <view class='weui-flex__item'>
-        <button class='btn '>test</button>
-        <view class='buttonText'>
-          <text>海岛特价</text>
-        </view>
+      <view class='btn-text'>全部海岛</view>
+    </view>
+    <view class='itemCell'>
+      <view class='btn-round'>
+        <image src='../../img/海岛特价-1.png' class='btn-image'></image>
       </view>
-      <view class='weui-flex__item'>
-        <button class='btn '>test</button>
-        <view class='buttonText'>
-          <text>精品推荐</text>
-        </view>
+      <view class='btn-text'>海岛特价</view>
+    </view>
+    <view class='itemCell'>
+      <view class='btn-round'>
+        <image src='../../img/精品推荐-1.png' class='btn-image'></image>
       </view>
-      <view class='weui-flex__item'>
-        <button class='btn '>test</button>
-        <view class='buttonText'>
-          <text>跟团游</text>
-        </view>
+      <view class='btn-text'>精品推荐</view>
+    </view>
+    <view class='itemCell'>
+      <view class='btn-round'>
+        <image src='../../img/跟团游-1.png' class='btn-image'></image>
       </view>
-      <view class='weui-flex__item'>
-        <button class='btn '>test</button>
-        <view class='buttonText'>
-          <text>自由行</text>
-        </view>
+      <view class='btn-text'>跟团游</view>
+    </view>
+    <view class='itemCell'>
+      <view class='btn-round'>
+        <image src='../../img/自由行-1.png' class='btn-image'></image>
       </view>
+      <view class='btn-text'>自由行</view>
     </view>
   </view>
 
-  <view class='panel'>
-    <view class='panel_hd '>
-      <view class='flex_item'>
-       <image mode='' src='../../img/vertical_1.png'  class='line'></image>
-        <text>全部海岛</text>
-        <text style='margin-left:10rpx;font-size:10px'>ISLANDS</text>
+  <view class='stripView'></view>
+
+  <view class='islandsView'></view>
+  <view class='saleHead'>
+    <view class='line'></view>
+    <view class='chineseTitle'>全部海岛</view>
+    <view class='englishTitle'>ISLANDS</view>
+    <view class='allView'>
+      <view class='allText'>
+        全部
       </view>
-      <view class='flex_item'>
-        <view class='more'>
-         <image src='../../img/arrow_left.png' class='arrowImage' ></image>
-        </view>
-        <view class='more'>
-          <text style='font-size:14px'>全部
-          </text>
-        </view>
-      </view>
+      <!-- <view class='arrowView'></view> -->
+       <image src='../../img/全部-1.png' class='arrowView' ></image> 
     </view>
-    <view class='panel_bd'></view>
   </view>
-
-  <view class="titleRow leftSection">
-    <view class="weui-flex ">
-      <view>
-        <view class="placeholder bigTitle">海岛特价</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder smallTitle">Sale</view>
-      </view>
-      <view class='weui-flex_item placeholder'>
-        <view class="placeholder moreTitle" bindtap='clickMoreSpecialPriceList'>更多</view>
-      </view>
-    </view>
-    <scroll-view scroll-x="true">
-      <view class="uploadWrap" scroll-x="true">
-        <view class="upload_Item" wx:for="{{specialPriceArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickSpecialPrice">
-          <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
-          <view class="upload_Item_text">
-            {{item.name}} ¥{{item.price}}
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-
-  <view class="titleRow leftSection">
-    <view class="weui-flex ">
-      <view>
-        <view class="placeholder bigTitle">全部海岛</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder smallTitle">Island</view>
-      </view>
-    </view>
-    <scroll-view scroll-x="true">
-      <view class="uploadWrap" scroll-x="true">
-        <view class="upload_Item" wx:for="{{dataArray}}" wx:key="*this">
-          <image class="upload_Item_img" data-title="{{item.name}}" data-type="{{item.type}}" mode="aspectFill" src="{{item.url}}" data-img="{{item.url}}" bindtap="clickImageidx"></image>
-          <view class="upload_Item_text">
-            {{item.brief}}
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-
-  <view class="titleRow leftSection">
-    <view class="weui-flex ">
-      <view>
-        <view class="placeholder bigTitle">精品推荐</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder smallTitle">Recommend</view>
-      </view>
-      <view class='weui-flex_item placeholder'>
-        <view class="placeholder moreTitle" bindtap='clickMoreRecommend'>更多</view>
-      </view>
-    </view>
-    <scroll-view scroll-x="true">
-      <view class="uploadWrap" scroll-x="true">
-        <view class="upload_Item" wx:for="{{recommendArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickRecommenItem">
-          <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
-          <view class="upload_Item_text">
-            {{item.name}}
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-
-  <view class="titleRow leftSection">
-    <view class="weui-flex ">
-      <view>
-        <view class="placeholder bigTitle">海岛跟团</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder smallTitle">Follow</view>
-      </view>
-      <view class='weui-flex_item placeholder'>
-        <view class="placeholder moreTitle" bindtap='clickMoreFollow'>更多</view>
-      </view>
-    </view>
-    <scroll-view scroll-x="true">
-      <view class="uploadWrap" scroll-x="true">
-        <view class="upload_Item" wx:for="{{followArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickRecommenItem">
-          <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
-          <view class="upload_Item_text">
-            {{item.name}}
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-
-
-  <view class="titleRow leftSection">
-    <view class="weui-flex ">
-      <view>
-        <view class="placeholder bigTitle">海岛自由行</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder smallTitle">FreeTravel</view>
-      </view>
-      <view class='weui-flex_item placeholder'>
-        <view class="placeholder moreTitle" bindtap='clickMoreFree'>更多</view>
-      </view>
-    </view>
-    <scroll-view scroll-x="true">
-      <view class="uploadWrap" scroll-x="true">
-        <view class="upload_Item" wx:for="{{freeArray}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickRecommenItem">
-          <image class="upload_Item_img" src="{{item.imageArray[0].url}}"></image>
-          <view class="upload_Item_text">
-            {{item.name}}
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-
 </view>
