@@ -5,20 +5,32 @@
       <view class='weui-flex__item'>
         <button class='btn '>test</button>
         <view class='buttonText'>
-          <text>test</text>
+          <text>全部海岛</text>
         </view>
       </view>
       <view class='weui-flex__item'>
         <button class='btn '>test</button>
+        <view class='buttonText'>
+          <text>海岛特价</text>
+        </view>
       </view>
       <view class='weui-flex__item'>
         <button class='btn '>test</button>
+        <view class='buttonText'>
+          <text>精品推荐</text>
+        </view>
       </view>
       <view class='weui-flex__item'>
         <button class='btn '>test</button>
+        <view class='buttonText'>
+          <text>跟团游</text>
+        </view>
       </view>
       <view class='weui-flex__item'>
         <button class='btn '>test</button>
+        <view class='buttonText'>
+          <text>自由行</text>
+        </view>
       </view>
     </view>
   </view>
@@ -32,7 +44,7 @@
       </view>
       <view class='flex_item'>
         <view class='more'>
-         <image src='../../img/arrow_left.png' style='width:32px;height:32px'></image>
+         <image src='../../img/arrow_left.png' class='arrowImage' ></image>
         </view>
         <view class='more'>
           <text style='font-size:14px'>全部

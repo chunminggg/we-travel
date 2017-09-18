@@ -13,24 +13,5 @@
     "navigationBarBackgroundColor": "#4397e6",
     "navigationBarTitleText": "超想去旅行",
     "navigationBarTextStyle": "white"
-  },
-  "tabBar": {
-    "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
-    "borderStyle": "black",
-    "list": [
-      {
-        "selectedIconPath": "img/TabTwo.png",
-        "iconPath": "img/TabThree.png",
-        "pagePath": "pages/index/index",
-        "text": "旅行"
-      },
-      {
-        "selectedIconPath": "img/TabOne.png",
-        "iconPath": "img/TabFour.png",
-        "pagePath": "pages/logs/logs",
-        "text": "我的"
-      }
-    ]
   }
 }
