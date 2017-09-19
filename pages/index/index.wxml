@@ -1,5 +1,6 @@
 <view class="page">
 
+  <!-- 特价 -->
   <view class='saleView'>
     <view class='saleHead'>
       <view class='line'></view>
@@ -10,7 +11,7 @@
     <swiper class='specialView' indicator-dots="true" autoplay="YES" interval="2000">
       <block wx:for="{{specialPriceArray}}" wx:key="*this">
         <swiper-item style="">
-          <image src="{{item.imageArray[0].url}}" mode="scaleToFill" class='scrollImage'></image>
+          <image src="{{item.imageArray[0].url}}" mode="scaleToFill" class='scrollImage' data-id="{{item.id}}" bindtap="clickSpecialPrice" ></image>
         </swiper-item>
       </block>
     </swiper>
@@ -18,32 +19,33 @@
 
   <view class='stripView'></view>
 
+  <!-- 按钮组 -->
   <view class='btn-group'>
-    <view class='itemCell'>
+     <!-- <view class='itemCell' bindtap='allIslandsClick'>
       <view class='btn-round'>
         <image src='../../img/全部海岛-1.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>全部海岛</view>
-    </view>
-    <view class='itemCell'>
+    </view>  -->
+    <view class='itemCell' bindtap='clickMoreSpecialPriceList'>
       <view class='btn-round'>
         <image src='../../img/海岛特价-1.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>海岛特价</view>
     </view>
-    <view class='itemCell'>
+    <view class='itemCell' bindtap='clickMoreRecommend'>
       <view class='btn-round'>
         <image src='../../img/精品推荐-1.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>精品推荐</view>
     </view>
-    <view class='itemCell'>
+    <view class='itemCell' bindtap='clickMoreFollow'>
       <view class='btn-round'>
         <image src='../../img/跟团游-1.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>跟团游</view>
     </view>
-    <view class='itemCell'>
+    <view class='itemCell' bindtap='clickMoreFree'>
       <view class='btn-round'>
         <image src='../../img/自由行-1.png' class='btn-image'></image>
       </view>
@@ -53,17 +55,116 @@
 
   <view class='stripView'></view>
 
-  <view class='islandsView'></view>
-  <view class='saleHead'>
-    <view class='line'></view>
-    <view class='chineseTitle'>全部海岛</view>
-    <view class='englishTitle'>ISLANDS</view>
-    <view class='allView'>
-      <view class='allText'>
-        全部
-      </view>
-      <!-- <view class='arrowView'></view> -->
-       <image src='../../img/全部-1.png' class='arrowView' ></image> 
+  <!-- 全部海岛 -->
+  <view class='islandsView'>
+    <view class='saleHead'>
+      <view class='line'></view>
+      <view class='chineseTitle'>全部海岛</view>
+      <view class='englishTitle'>ISLANDS</view>
+      <!-- <view class='allView'  bindtap='allIslandsClick'>
+        <view class='allText'>
+          全部
+        </view>
+        <image src='../../img/全部-1.png' class='arrowView'></image>
+      </view> -->
+    </view>
+    <view class='saleBody'>
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+        <block wx:for="{{dataArray}}" wx:key="*this">
+          <image class="image-group" data-title="{{item.name}}" data-type="{{item.type}}" mode="aspectFill" src="{{item.url}}" data-img="{{item.url}}" bindtap="clickImageidx"></image>
+        </block>
+      </scroll-view>
     </view>
   </view>
+
+  <view class='stripView'></view>
+
+  <!-- 精品推荐 -->
+  <view class='saleView'>
+    <view class='saleHead'>
+      <view class='line'></view>
+      <view class='chineseTitle'>精品推荐</view>
+      <view class='englishTitle'>RECOMMEND</view>
+      <view class='allView' bindtap='clickMoreRecommend'>
+        <view class='allText'>
+          全部
+        </view>
+        <image src='../../img/全部-1.png' class='arrowView'></image>
+      </view>
+    </view>
+
+    <view class='saleBody'>
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+        <block wx:for="{{recommendArray}}" wx:key="*this">
+          <view class='follow-view'>
+          <image class="recommend-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
+          <view class='follow-describe'> {{item.name}}
+          </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class='stripView'></view>
+
+  <!-- 跟团游 -->
+  <view class='saleView'>
+  <view class='saleHead'>
+      <view class='line'></view>
+      <view class='chineseTitle'>跟团游</view>
+      <view class='englishTitle'>FOLLOW</view>
+      <view class='allView' bindtap='clickMoreFollow'>
+        <view class='allText'>
+          全部
+        </view>
+        <image src='../../img/全部-1.png' class='arrowView'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='saleBody'>
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+        <block wx:for="{{followArray}}" wx:key="*this">
+        <view class='follow-view'>
+          <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
+          <view class='follow-describe'> {{item.name}}
+          </view>
+          <view class='follow-price' style='color:red'>￥{{item.price}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+      <view class='stripView'></view>
+
+  <!-- 自由行 -->
+  <view class='saleView'>
+  <view class='saleHead'>
+      <view class='line'></view>
+      <view class='chineseTitle'>自由行</view>
+      <view class='englishTitle'>FREEDOM</view>
+      <view class='allView' bindtap='clickMoreFree'>
+        <view class='allText'>
+          全部
+        </view>
+        <image src='../../img/全部-1.png' class='arrowView'></image>
+        
+      </view>
+    </view>
+  </view>
+
+  <view class='saleBody'>
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+        <block wx:for="{{freeArray}}" wx:key="*this">
+        <view class='follow-view'>
+          <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
+          <view class='follow-describe'> {{item.name}}
+          </view>
+          <view class='follow-price' style='color:red'>￥{{item.price}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
 </view>

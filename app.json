@@ -6,7 +6,8 @@
     "pages/itemList/itemList",
     "pages/detail/detail",
     "pages/reserve/reserve",
-    "pages/specialList/sepicalList"
+    "pages/specialList/sepicalList",
+    "pages/islands/islands"
   ],
   "window": {
     "backgroundTextStyle": "light",

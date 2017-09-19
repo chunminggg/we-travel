@@ -82,7 +82,7 @@ Page({
             specialPriceArray:myDealArray,
             recommendArray:recommendArray,
           });
-
+        
         }
 
       });
@@ -116,6 +116,11 @@ Page({
     wx.navigateTo({
       url: `../itemList/itemList?type=${idx}&title=${naviTitle}`,
     })
+  },
+  allIslandsClick(e){
+wx.navigateTo({
+  url: '../islands/islands',
+})
   },
   clickRecommenItem(e){
 
