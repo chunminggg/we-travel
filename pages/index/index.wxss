@@ -55,14 +55,14 @@
 
 .itemCell {
   float: left;
-  width: 25%;
+  width: 20%;
   height: 200rpx;
 }
 
 .btn-image {
   width: 100rpx;
   height: 100rpx;
-  margin-left: 40rpx;
+  margin-left: 20rpx;
   margin-top: 20rpx;
 }
 

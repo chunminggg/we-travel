@@ -146,7 +146,7 @@ var getTestData = {
 
     return new Promise((resolve, reject) => {
       var query = new AV.Query('Theme')
-      query.descending('updatedAt')
+      query.ascending('type')
       query.addAscending('isSort')
       query.find().then((data) => {
         if (data.length) {

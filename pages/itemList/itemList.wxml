@@ -1,14 +1,14 @@
 <view class="page">
   <!--轮播图-->
-<swiper indicator-dots="true" autoplay="YES" interval="2000">
-  <block wx:for="{{imageArray}}" wx:key="*this">
-    <swiper-item style="">
-      <image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
-    </swiper-item>
-  </block>
-</swiper>
+  <swiper indicator-dots="true" autoplay="YES" interval="2000">
+    <block wx:for="{{imageArray}}" wx:key="*this">
+      <swiper-item style="">
+        <image src="{{item.imageUrl}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
+      </swiper-item>
+    </block>
+  </swiper>
 
-  <view bindtap="detailItemClick" data-itemId="{{idx}}" class="page__bd borderStyle" style="padding-bottom:0px" wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" wx:if="{{isHaveData}}">
+  <view bindtap="detailItemClick" data-itemId="{{idx}}" class="page__bd borderStyle itemView" wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" wx:if="{{isHaveData}}">
     <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
       <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
         <image class="weui-media-box__thumb" src="{{item.coverImage}}" />
@@ -18,13 +18,13 @@
         <view class="weui-media-box__desc">{{item.describe}}</view>
       </view>
     </view>
-    <view class="weui-media-box__info" style="margin-left:15px">
+    <view class="weui-media-box__info" style="margin-left:15px;margin-top:0">
       <view class="weui-media-box__info__meta">{{item.place}}出发</view>
       <view class="weui-media-box__info__meta">{{item.startDate}}</view>
-      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">￥{{item.price}}</view>
+      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra priceText">￥{{item.price}}</view>
     </view>
   </view>
-  <view class="" wx:if="{{!isHaveData}}" >
-  <text style="margin-left:35%">暂无该分类信息</text>
+  <view class="" wx:if="{{!isHaveData}}">
+    <text style="margin-left:35%">暂无该分类信息</text>
   </view>
 </view>

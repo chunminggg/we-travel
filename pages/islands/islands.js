@@ -31,6 +31,13 @@ Page({
       url: '../detail/detail?detailId=' + model.id,
     })
   },
+  clickImageidx(e) {
+    var idx = e.currentTarget.dataset.type
+    let naviTitle = e.currentTarget.dataset.title
+    wx.navigateTo({
+      url: `../itemList/itemList?type=${idx}&title=${naviTitle}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

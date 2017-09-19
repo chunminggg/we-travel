@@ -21,12 +21,12 @@
 
   <!-- 按钮组 -->
   <view class='btn-group'>
-     <!-- <view class='itemCell' bindtap='allIslandsClick'>
+      <view class='itemCell' bindtap='allIslandsClick'>
       <view class='btn-round'>
         <image src='../../img/全部海岛-1.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>全部海岛</view>
-    </view>  -->
+    </view>  
     <view class='itemCell' bindtap='clickMoreSpecialPriceList'>
       <view class='btn-round'>
         <image src='../../img/海岛特价-1.png' class='btn-image'></image>
@@ -61,12 +61,12 @@
       <view class='line'></view>
       <view class='chineseTitle'>全部海岛</view>
       <view class='englishTitle'>ISLANDS</view>
-      <!-- <view class='allView'  bindtap='allIslandsClick'>
+       <view class='allView'  bindtap='allIslandsClick'>
         <view class='allText'>
           全部
         </view>
         <image src='../../img/全部-1.png' class='arrowView'></image>
-      </view> -->
+      </view> 
     </view>
     <view class='saleBody'>
       <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">

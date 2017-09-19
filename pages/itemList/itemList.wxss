@@ -1,4 +1,15 @@
 /* itemList.wxss */
+.page{
+  background: #F9F9F9;
+}
+.itemView{
+  margin: 10rpx;
+  padding-bottom: 0;
+}
+.priceText{
+  color: red;
+  font-size: 28rpx
+}
 .cellImage{
   width:100%;
   height:300rpx; 

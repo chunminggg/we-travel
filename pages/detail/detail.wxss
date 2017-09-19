@@ -3,6 +3,16 @@
 .textCenter{
   text-align: center
 }
+.samallText{
+  font-size: 24rpx;
+  color: #18CBC3;
+}
+
+.stripView {
+  background: #f9f9f9;
+  width: 100%;
+  height: 30rpx;
+}
 .cellImage{
   width:100%;
   height:300rpx; 

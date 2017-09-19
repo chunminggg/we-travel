@@ -1,26 +1,6 @@
-/* pages/specialList/sepicalList.wxss */
-.card{
-  width: 100%;
-  height:420rpx;
-}
-.imgView{
-  width: 100%;
-  height: 300rpx;
-}
-.detailImage{
-  width: 100%;
-  height: 280rpx;
-}
-.nameView{
-  margin: 10rpx;
-  width: 100%;
-}
-.describeView{
-  margin-left: 15rpx;
-  margin-right: 10rpx;
-  width: 100%;
-  font-size: 12px;
-}
-.startDate{
-  text-align: center;
+.image-group {
+  width: 230rpx;
+  height: 354rpx;
+  margin:10rpx;
+  float: left;
 }

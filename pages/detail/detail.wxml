@@ -3,22 +3,19 @@
 <scroll-view class="page" scroll-top="{{scrollTop}}">
   <!-- head -->
   <view class="page__hd" style="padding:0">
-   <swiper indicator-dots="true" autoplay="YES" interval="2000">
-  <block wx:for="{{imageArray}}" wx:key="*this">
-    <swiper-item style="">
-      <image src="{{item.url}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
-    </swiper-item>
-  </block>
-</swiper>
-    <view class="page_title">
+    <swiper indicator-dots="true" autoplay="YES" interval="2000">
+      <block wx:for="{{imageArray}}" wx:key="*this">
+        <swiper-item style="">
+          <image src="{{item.url}}" mode="aspectFill" style="width:100%;height:350rpx"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="page_title textCenter">
       <text class="weui-article__h1">{{detailData.name}}</text>
     </view>
-        <view class="weui-flex">
-            <view><view ><text>{{detailData.place}}出发</text></view></view>
-            <view class="weui-flex__item textCenter"><view class="placeholder">{{detailData.startDate}}</view></view>
-            <view><view class="placeholder" ><text style="color:red">￥{{detailData.price}}</text></view></view>
-        </view>
-   
+    <view class="textCenter samallText"><icon type="waiting" size ="15" color="#18CBC3"/>{{detailData.startDate}}</view>
+    <view class="textCenter samallText">{{detailData.place}}出发</view>
+    <view class="textCenter " style="color:red">￥{{detailData.price}}</view>
 
   </view>
   <!-- menu -->
@@ -28,7 +25,8 @@
     </block>
 </view>   -->
   <!-- 滑块选项 -->
-
+ <view class='stripView'></view>
+ 
   <view class="swiper-tab">
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">线路特色</view>
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">行程介绍</view>
@@ -78,5 +76,5 @@
   </swiper>
 
 </scroll-view>
-  <!-- <button class="weui-btn" type="primary" bindtap="reserverItem"> 立即预定</button> -->
-  <!-- <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button> -->
+<!-- <button class="weui-btn" type="primary" bindtap="reserverItem"> 立即预定</button> -->
+<!-- <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button> -->

@@ -1,6 +1,7 @@
 /**app.wxss**/
 @import 'style/weui.wxss';
 @import "/wxParse/wxParse.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -10,45 +11,51 @@
   padding: 200rpx 0;
   box-sizing: border-box;
   background-color: rgb(239, 239, 239);
-} 
-.leftSection{
-  margin-left: 20px
 }
-.section{
-  width:100%;
+
+.leftSection {
+  margin-left: 20px;
+}
+
+.section {
+  width: 100%;
   /*background-color: white;*/
   margin-top: 20rpx;
 }
-page{
-    /* background-color: #F8F8F8; */
-    font-size: 16px;
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-}
-.page__hd {
-    padding: 40px;
-}
-.page__bd {
-    padding-bottom: 40px;
-}
-.page__bd_spacing {
-    padding-left: 15px;
-    padding-right: 15px;
+
+page {
+  /* background-color: #F8F8F8; */
+  font-size: 16px;
+  font-family: PingFangSC-Medium;
 }
 
-.page__ft{
-    padding-bottom: 10px;
-    text-align: center;
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd {
+  padding-bottom: 40px;
+}
+
+.page__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page__ft {
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .page__title {
-    text-align: left;
-    font-size: 20px;
-    font-weight: 400;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .page__desc {
-    margin-top: 5px;
-    color: #888888;
-    text-align: left;
-    font-size: 14px;
+  margin-top: 5px;
+  color: #888;
+  text-align: left;
+  font-size: 14px;
 }
