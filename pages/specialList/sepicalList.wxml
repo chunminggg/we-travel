@@ -8,7 +8,7 @@
         <text>{{item.name}}</text>
       </view>
       <view class='describeView weui-flex'>
-        <view class='weui-flex__item'>
+        <view class='weui-flex__item priceText'>
           <text>￥{{item.price}}</text>
         </view>
         <view class='weui-flex__item startDate'>

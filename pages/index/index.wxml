@@ -8,7 +8,7 @@
       <view class='englishTitle'>SALE</view>
     </view>
     <view class='saleBody'></view>
-    <swiper class='specialView' indicator-dots="true" autoplay="YES" interval="2000">
+    <swiper class='specialView' indicator-dots="true" autoplay="YES" interval="2000" indicator-active-color="white">
       <block wx:for="{{specialPriceArray}}" wx:key="*this">
         <swiper-item style="">
           <image src="{{item.imageArray[0].url}}" mode="scaleToFill" class='scrollImage' data-id="{{item.id}}" bindtap="clickSpecialPrice" ></image>

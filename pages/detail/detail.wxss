@@ -1,11 +1,48 @@
 /* detail.wxss */
-
-.textCenter{
-  text-align: center
+.titleClass{
+  font-family:PingFangSC-Medium;
+  font-size: 32rpx;
+  margin-top: 20rpx;
 }
-.samallText{
+.myBottomView{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80rpx;
+  background: red;
+}
+.topView {
+  z-index: 9999;
+  position: relative;
+}
+.priceText{
+  margin-top: 10rpx;
+}
+.placeText {
+  font-family: PingFangSC-Regular;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+
+.iconType {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+
+.describeText {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.samallText {
   font-size: 24rpx;
-  color: #18CBC3;
+  color: #18cbc3;
+  font-family: PingFangSC-Regular;
 }
 
 .stripView {
@@ -13,60 +50,131 @@
   width: 100%;
   height: 30rpx;
 }
-.cellImage{
-  width:100%;
-  height:300rpx; 
-}
-.bottomView{
+
+.cellImage {
   width: 100%;
-  height:60rpx;
+  height: 300rpx;
+}
+
+.bottomView {
+  width: 100%;
+  height: 60rpx;
   margin: 0 atuo;
   padding: 20px 0;
 }
-.bottomButton{
-  width:40%;
 
+.bottomButton {
+  width: 40%;
 }
-.orderButton{
+
+.orderButton {
   /* float:right; */
- background-color: lightgray;
+  background-color: lightgray;
 }
-.serviceButton{
+
+.serviceButton {
   float: left;
   background-color: lightseagreen;
-  margin-top:2;
+  margin-top: 2;
 }
-.footer{
+
+.footer {
   background-color: red;
   height: 150rpx;
   margin-bottom: 0;
 }
-.swiper-tab{  
-    width: 100%;  
-    /* border-bottom: 2rpx solid #777777;   */
-    text-align: center;  
-    line-height: 80rpx;}  
-.swiper-tab-list{  font-size: 30rpx;  
-    display: inline-block;  
-    width: 25%;  
-    color: #777777;  
-}  
-.on{ color: #da7c0c;  
-    border-bottom: 5rpx solid #da7c0c;}  
-  
-.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
-.swiper-box view{  
-    text-align: left;  
-}  
-.weui-flex{-webkit-box-align:center;-webkit-align-items:center;align-items:center}
-.weui-cells{margin-top:0;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:.3s;transition:.3s}
-.weui-cells:after,.weui-cells:before{display:none}
-.weui-cells_show{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}
-.weui-cell:before{right:15px}
-.kind-list__item{margin:10px 0;background-color:#fff;border-radius:2px;overflow:hidden}
-.kind-list__item:first-child{margin-top:0}
-.kind-list__img{width:30px;height:30px}
-.kind-list__item-hd{padding:20px;-webkit-transition:opacity .3s;transition:opacity .3s}
-.kind-list__item-hd_show{opacity:.4}
-.kind-list__item-bd{height:0;overflow:hidden}
-.kind-list__item-bd_show{height:auto}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  font-family: PingFangSC-Medium;
+  color: #18cbc3;
+}
+
+.swiper-tab-list {
+  font-size: 24rpx;
+  display: inline-block;
+  width: 25%;
+  color: #999999;
+}
+
+.on {
+  color: #18CBC3;
+  border-bottom: 5rpx solid #18CBC3;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: left;
+}
+
+.weui-flex {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.weui-cells {
+  margin-top: 0;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.weui-cells:after, .weui-cells:before {
+  display: none;
+}
+
+.weui-cells_show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.weui-cell:before {
+  right: 15px;
+}
+
+.kind-list__item {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.kind-list__item:first-child {
+  margin-top: 0;
+}
+
+.kind-list__img {
+  width: 30px;
+  height: 30px;
+}
+
+.kind-list__item-hd {
+  padding: 20px;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.kind-list__item-hd_show {
+  opacity: 0.4;
+}
+
+.kind-list__item-bd {
+  height: 0;
+  overflow: hidden;
+}
+
+.kind-list__item-bd_show {
+  height: auto;
+}

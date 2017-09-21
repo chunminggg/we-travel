@@ -1,4 +1,8 @@
 /* pages/specialList/sepicalList.wxss */
+.priceText{
+  color: red;
+  font-size: 14px;
+}
 .card{
   width: 100%;
   height:420rpx;
