@@ -1,7 +1,7 @@
 <view class="page">
     <view class='islands'>
     
-    <image wx:for="{{itemArray}}" wx:key="*this" class="image-group" data-title="{{item.name}}" data-type="{{item.type}}" mode="aspectFill" src="{{item.url}}" data-img="{{item.url}}" bindtap="clickImageidx"></image>
+    <image wx:for="{{itemArray}}" wx:key="*this" class="image-group" data-title="{{item.name}}" data-type="{{item.type}}" mode="aspectFill" src="{{item.coverDetail}}" data-img="{{item.coverDetail}}" bindtap="clickImageidx"></image>
     
     </view>
 </view>

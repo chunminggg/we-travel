@@ -155,6 +155,7 @@ var getTestData = {
             var model = data[i]
             if (model.attributes.imageArray.length) {
               model.attributes.url = model.attributes.imageArray[0].url
+              model.attributes.coverDetail = model.attributes.imageArray[1].url
             }
             dataArray.push(data[i].attributes)
           }

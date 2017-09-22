@@ -3,7 +3,7 @@
  <!-- <view class='myBottomView'></view> -->
 
 <view class='page'>
-  <scroll-view class="page" scroll-top="{{scrollTop}}">
+  <scroll-view class="main" scroll-top="{{scrollTop}}">
     <!-- head -->
     <view class="page__hd" style="padding:0">
       <swiper indicator-dots="true" autoplay="YES" interval="2000">
@@ -78,9 +78,11 @@
 
       </swiper-item>
     </swiper>
-   
-
   </scroll-view>
+ <view class="weui-footer weui-footer_fixed-bottom footer" bindtap='makePhone'>
+ <image class='phoneIcon' src='../../img/phoneIcon.png'></image>
+      了解更多
+    </view>
 </view>
 
 <!-- <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button> -->

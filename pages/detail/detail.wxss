@@ -1,4 +1,33 @@
 /* detail.wxss */
+.page{
+min-height: 100%;
+margin: 0;
+padding: 0;
+position: relative;
+}
+.phoneIcon{
+  width: 34rpx;
+  height: 34rpx;
+  margin-bottom: -6rpx;
+}
+.main{
+  padding-bottom: 80rpx;
+}
+.weui-footer{
+    margin-bottom: 80rpx;
+}
+.weui-footer_fixed-bottom{
+    margin-bottom: 0;
+}
+.footer{
+background: #18CBC3;
+text-align: center;
+color: white;
+bottom: -0.1em;
+height: 80rpx;
+line-height: 80rpx;
+font-family: PingFangSC-Regular;
+}
 .titleClass{
   font-family:PingFangSC-Medium;
   font-size: 32rpx;
@@ -76,12 +105,6 @@
   float: left;
   background-color: lightseagreen;
   margin-top: 2;
-}
-
-.footer {
-  background-color: red;
-  height: 150rpx;
-  margin-bottom: 0;
 }
 
 .swiper-tab {

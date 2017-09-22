@@ -72,6 +72,7 @@ Page({
             obj.attributes.id = obj.id
             isFreeArray.push(obj.attributes)
           })
+
           that.setData({
             winWidth: res.windowWidth,
             winHeight: res.windowHeight,
