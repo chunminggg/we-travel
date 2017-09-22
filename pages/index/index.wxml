@@ -93,8 +93,8 @@
       </view>
     </view>
 
-    <view class='saleBody'>
-      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+    <view class='recommendBody'>
+      <view style=" white-space: nowrap; display: flex">
         <block wx:for="{{recommendArray}}" wx:key="*this">
           <view class='follow-view'>
           <image class="recommend-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
@@ -102,7 +102,7 @@
           </view>
           </view>
         </block>
-      </scroll-view>
+      </view>
     </view>
   </view>
 

@@ -129,4 +129,8 @@
   height: 240rpx;
  
 }
+.recommendBody{
+  display: flex;
+  
+}
 
