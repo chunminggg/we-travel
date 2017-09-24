@@ -34,6 +34,7 @@ Page({
     recommendArray:[],
     followArray:[],
     freeArray:[],
+    secondReommendArray:[],
   },
 
   //事件处理函数
@@ -56,9 +57,18 @@ Page({
           })
 
           let recommendArray = []
-          data4.forEach(obj => {
+          let secondReommendArray = []
+          let recomLength = data4.length
+          data4.forEach((obj, idx) => {
             obj.attributes.id = obj.id
-            recommendArray.push(obj.attributes)
+
+            if(idx<recomLength/2){
+              recommendArray.push(obj.attributes)
+
+            }
+            else{
+              secondReommendArray.push(obj.attributes)
+            }
           })
 
           let isFollowArray = []
@@ -72,7 +82,7 @@ Page({
             obj.attributes.id = obj.id
             isFreeArray.push(obj.attributes)
           })
-
+          
           that.setData({
             winWidth: res.windowWidth,
             winHeight: res.windowHeight,
@@ -82,6 +92,7 @@ Page({
             // imageArray: data1,
             specialPriceArray:myDealArray,
             recommendArray:recommendArray,
+            secondReommendArray:secondReommendArray,
           });
         
         }

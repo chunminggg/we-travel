@@ -1,18 +1,18 @@
 <view class="page">
   <view class='card' wx:for="{{itemArray}}" wx:for-index="idx" wx:key="*this" bindtap='clickItem' data-itemId="{{idx}}" style='background-image:url({{item.coverImage}})'>
-  <view class='textView'>
-  <view class='nameView'>
+    <view class='textView'>
+      <view class='nameView'>
         <text>{{item.name}}</text>
       </view>
       <view class='describeView'>
-       <view class='startDate'>
+        <view class='startDate'>
           <text>{{item.startDate}}</text>
         </view>
-       <view class=' priceText'>
+        <view class=' priceText'>
           <text style="float:right">￥{{item.price}}</text>
         </view>
       </view>
-  </view>
+    </view>
   </view>
 
 </view>
