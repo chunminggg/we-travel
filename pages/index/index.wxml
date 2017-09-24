@@ -108,7 +108,7 @@
 
   <view class='firstRecommend'>
         <block wx:for="{{secondReommendArray}}" wx:key="*this">
-          <view wx:if="{{index ==0}}">
+            <block wx:if="{{index ==0}}">
             <view class='follow-view recommend-image' style='background-image:url({{item.imageArray[0].url}});width:260rpx' data-id="{{item.id}}" bindtap="clickRecommenItem">
               <view class='textView'>
                 <view class='nameView'>
@@ -116,8 +116,8 @@
                 </view>
               </view>
             </view>
-          </view>
-          <view wx:elif="{{index >0}}">
+            </block>   
+           <block wx:elif="{{index >0}}">
             <view class='follow-view recommend-image' style='background-image:url({{item.imageArray[0].url}})' data-id="{{item.id}}" bindtap="clickRecommenItem">
               <view class='textView'>
                 <view class='nameView'>
@@ -125,7 +125,7 @@
                 </view>
               </view>
             </view>
-          </view>
+          </block> 
         </block>
       </view>
 
