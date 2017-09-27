@@ -17,7 +17,7 @@
         <text class="">{{detailData.name}}</text>
       </view>
       <view class="textCenter samallText describeText">{{detailData.describe}}</view>
-      <view class="textCenter priceText" style="color:red">￥{{detailData.price}}</view>
+      <view class="textCenter priceText" style="color:red" bindtap='showPriceView' data-statu="open">￥{{detailData.price}}</view>
 
       <view class="textCenter samallText placeText" > <image src='../../img/location.png' class='iconType'></image> <text class='placeText'>{{detailData.place}}出发</text></view>
 
@@ -83,6 +83,29 @@
  <image class='phoneIcon' src='../../img/phoneIcon.png'></image>
       了解更多
     </view>
+
+<!--mask-->  
+<view class="drawer_screen" bindtap="showPriceView" data-statu="close" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  
+  <!--drawer content-->  
+  <view class="drawer_title">价格详情</view>  
+  <view class="drawer_content">  
+    <block wx:for="{{tagArray}}" wx:key="*this">
+    <view class='priceView'>
+    <view class='detailPriceView'>{{item.date}}</view>
+    <view class='detailPriceView'>{{item.price}}</view>
+    </view>
+    </block> 
+  </view>  
+  <view class="btn_ok" bindtap="showPriceView" data-statu="close">确定</view>  
+</view> 
+
+
+
+    
 </view>
 
 <!-- <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button> -->
