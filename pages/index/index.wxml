@@ -23,31 +23,31 @@
   <view class='btn-group'>
     <view class='itemCell' bindtap='allIslandsClick'>
       <view class='btn-round'>
-        <image src='../../img/全部海岛-1.png' class='btn-image'></image>
+        <image src='../../img/全部海岛.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>全部海岛</view>
     </view>
     <view class='itemCell' bindtap='clickMoreSpecialPriceList'>
       <view class='btn-round'>
-        <image src='../../img/海岛特价-1.png' class='btn-image'></image>
+        <image src='../../img/海岛特价.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>海岛特价</view>
     </view>
     <view class='itemCell' bindtap='clickMoreRecommend'>
       <view class='btn-round'>
-        <image src='../../img/精品推荐-1.png' class='btn-image'></image>
+        <image src='../../img/精品推荐.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>精品推荐</view>
     </view>
     <view class='itemCell' bindtap='clickMoreFollow'>
       <view class='btn-round'>
-        <image src='../../img/跟团游-1.png' class='btn-image'></image>
+        <image src='../../img/跟团游.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>跟团游</view>
     </view>
     <view class='itemCell' bindtap='clickMoreFree'>
       <view class='btn-round'>
-        <image src='../../img/自由行-1.png' class='btn-image'></image>
+        <image src='../../img/自由行.png' class='btn-image'></image>
       </view>
       <view class='btn-text'>自由行</view>
     </view>

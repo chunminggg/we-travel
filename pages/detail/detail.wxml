@@ -17,10 +17,12 @@
         <text class="">{{detailData.name}}</text>
       </view>
       <view class="textCenter samallText describeText">{{detailData.describe}}</view>
-      <view class="textCenter priceText" style="color:red" bindtap='showPriceView' data-statu="open">￥{{detailData.price}}</view>
+      <view class="textCenter priceText iconType" style="color:red" bindtap='showPriceView' data-statu="open">￥{{detailData.price}}</view>
 
-      <view class="textCenter samallText placeText" > <image src='../../img/location.png' class='iconType'></image> <text class='placeText'>{{detailData.place}}出发</text></view>
-
+      <view class="textCenter samallText placeText" > <text class="fa fa-map-marker iconType"></text> <text class='placeText'>{{detailData.place}}出发</text></view>
+   <view class="textCenter samallText placeText" >
+   <text class="fa fa-calendar iconType"></text>
+   {{detailData.startDate}}</view>
     </view>
     <!-- menu -->
     <!-- <view style="padding: 20px 10px; background-color:#eee;">
@@ -80,8 +82,10 @@
     </swiper>
   </scroll-view>
  <view class="weui-footer weui-footer_fixed-bottom footer" bindtap='makePhone'>
- <image class='phoneIcon' src='../../img/phoneIcon.png'></image>
-      了解更多
+ 
+  <text class='fa fa-phone phoneIcon'></text>
+
+     <text> 了解更多</text>
     </view>
 
 <!--mask-->  

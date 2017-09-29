@@ -5,11 +5,7 @@ margin: 0;
 padding: 0;
 position: relative;
 }
-.phoneIcon{
-  width: 34rpx;
-  height: 34rpx;
-  margin-bottom: -6rpx;
-}
+
 .main{
   padding-bottom: 80rpx;
 }
@@ -46,16 +42,14 @@ font-family: PingFangSC-Regular;
 }
 .priceText{
   margin-top: 10rpx;
+  margin-right: 6rpx;
 }
 .placeText {
   font-family: PingFangSC-Regular;
-  margin-bottom: 20rpx;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
 }
 
 .iconType {
-  width: 24rpx;
-  height: 24rpx;
   margin-right: 6rpx;
 }
 
@@ -70,7 +64,7 @@ font-family: PingFangSC-Regular;
 
 .samallText {
   font-size: 24rpx;
-  color: #18cbc3;
+  color: #999999;
   font-family: PingFangSC-Regular;
 }
 
@@ -113,6 +107,7 @@ font-family: PingFangSC-Regular;
   line-height: 80rpx;
   font-family: PingFangSC-Medium;
   color: #18cbc3;
+  margin-top: 20rpx;
 }
 
 .swiper-tab-list {

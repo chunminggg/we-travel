@@ -5,8 +5,8 @@
   -webkit-line-clamp:1;
   -webkit-box-orient:vertical;
   overflow:hidden;
-  font-family: PingFangSC-Regular;
   font-size: 12px;
+   font-family: PingFangSC-Regular;
 }
 .page{
   background: #F9F9F9;
