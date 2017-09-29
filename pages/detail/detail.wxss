@@ -43,6 +43,7 @@ font-family: PingFangSC-Regular;
 .priceText{
   margin-top: 10rpx;
   margin-right: 6rpx;
+  text-decoration: underline;
 }
 .placeText {
   font-family: PingFangSC-Regular;
