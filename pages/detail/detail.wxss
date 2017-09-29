@@ -228,17 +228,20 @@ font-family: PingFangSC-Regular;
   
 .drawer_title{  
   padding:15px;  
-  font: 20px "microsoft yahei";  
+  font: 20px ;  
   text-align: center;  
+   background-color: #18CBC3;
+   color: white;
 }  
 .drawer_content {  
   height: 210rpx;  
-  overflow-y: scroll; /*超出父盒子高度可滚动*/  
+  overflow-y: scroll; /*超出父盒子高度可滚动*/ 
+  margin-top: 10rpx;
 }  
   
 .btn_ok{  
   padding: 10px;  
-  font: 20px "microsoft yahei";  
+  font: 20px ;  
   text-align: center;  
   border-top: 1px solid #E8E8EA;  
   color: #3CC51F;  
