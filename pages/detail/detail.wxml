@@ -84,12 +84,12 @@
       </swiper-item>
     </swiper>
   </scroll-view>
-  <view class="weui-footer weui-footer_fixed-bottom footer" bindtap='makePhone'>
+  <button class="weui-footer weui-footer_fixed-bottom footer"  open-type="contact">
 
     <text class='fa fa-phone phoneIcon'></text>
 
     <text> 了解更多</text>
-  </view>
+  </button>
 
   <!--mask-->
   <view class="drawer_screen" bindtap="showPriceView" data-statu="close" wx:if="{{showModalStatus}}"></view>

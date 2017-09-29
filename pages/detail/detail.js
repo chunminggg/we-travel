@@ -112,9 +112,10 @@ Page({
 
   },
   makePhone(e){
-    wx.makePhoneCall({
-      // phoneNumber: '15151965292' //仅为示例，并非真实的电话号码
-    })
+    // wx.makePhoneCall({
+    //   phoneNumber: '15151965292' 
+    // })
+
   },
   /** 
   * 滑动切换tab 
