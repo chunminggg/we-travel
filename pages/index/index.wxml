@@ -93,66 +93,9 @@
       </view>
     </view>
 
-    <view class='recommendBody'>
-      <view class='firstRecommend'>
-        <block wx:for="{{recommendArray}}" wx:key="*this">
-          <view class='follow-view recommend-image' style='background-image:url({{item.imageArray[0].url}})' data-id="{{item.id}}" bindtap="clickRecommenItem">
-            <view class='textView'>
-              <view class='nameView'>
-                <text>{{item.name}}</text>
-              </view>
-            </view>
-          </view>
-        </block>
-      </view>
-
-  <view class='firstRecommend'>
-        <block wx:for="{{secondReommendArray}}" wx:key="*this">
-            <block wx:if="{{index ==0}}">
-            <view class='follow-view recommend-image' style='background-image:url({{item.imageArray[0].url}});width:260rpx' data-id="{{item.id}}" bindtap="clickRecommenItem">
-              <view class='textView'>
-                <view class='nameView'>
-                  <text>{{item.name}}</text>
-                </view>
-              </view>
-            </view>
-            </block>   
-           <block wx:elif="{{index >0}}">
-            <view class='follow-view recommend-image' style='background-image:url({{item.imageArray[0].url}})' data-id="{{item.id}}" bindtap="clickRecommenItem">
-              <view class='textView'>
-                <view class='nameView'>
-                  <text>{{item.name}}</text>
-                </view>
-              </view>
-            </view>
-          </block> 
-        </block>
-      </view>
-
-    </view>
-
-  </view>
-
-  <view class='stripView'></view>
-
-  <!-- 跟团游 -->
-  <view class='saleView'>
-    <view class='saleHead'>
-      <view class='line'></view>
-      <view class='chineseTitle'>跟团游</view>
-      <view class='englishTitle'>FOLLOW</view>
-      <view class='allView' bindtap='clickMoreFollow'>
-        <view class='allText'>
-          全部
-        </view>
-        <image src='../../img/全部-1.png' class='arrowView'></image>
-      </view>
-    </view>
-  </view>
-
-  <view class='saleBody'>
+     <view class='saleBody'>
     <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-      <block wx:for="{{followArray}}" wx:key="*this">
+      <block wx:for="{{recommendArray}}" wx:key="*this">
         <view class='follow-view'>
           <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
           <view class='follow-describe'> {{item.name}}
@@ -163,35 +106,69 @@
     </scroll-view>
   </view>
 
-  <view class='stripView'></view>
 
-  <!-- 自由行 -->
-  <view class='saleView'>
-    <view class='saleHead'>
-      <view class='line'></view>
-      <view class='chineseTitle'>自由行</view>
-      <view class='englishTitle'>FREEDOM</view>
-      <view class='allView' bindtap='clickMoreFree'>
-        <view class='allText'>
-          全部
-        </view>
-        <image src='../../img/全部-1.png' class='arrowView'></image>
 
+</view>
+
+<view class='stripView'></view>
+
+<!-- 跟团游 -->
+<view class='saleView'>
+  <view class='saleHead'>
+    <view class='line'></view>
+    <view class='chineseTitle'>跟团游</view>
+    <view class='englishTitle'>FOLLOW</view>
+    <view class='allView' bindtap='clickMoreFollow'>
+      <view class='allText'>
+        全部
       </view>
+      <image src='../../img/全部-1.png' class='arrowView'></image>
     </view>
   </view>
+</view>
 
-  <view class='saleBody'>
-    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
-      <block wx:for="{{freeArray}}" wx:key="*this">
-        <view class='follow-view'>
-          <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
-          <view class='follow-describe'> {{item.name}}
-          </view>
-          <view class='follow-price' style='color:red'>￥{{item.price}}</view>
+<view class='saleBody'>
+  <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+    <block wx:for="{{followArray}}" wx:key="*this">
+      <view class='follow-view'>
+        <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
+        <view class='follow-describe'> {{item.name}}
         </view>
-      </block>
-    </scroll-view>
+        <view class='follow-price' style='color:red'>￥{{item.price}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<view class='stripView'></view>
+
+<!-- 自由行 -->
+<view class='saleView'>
+  <view class='saleHead'>
+    <view class='line'></view>
+    <view class='chineseTitle'>自由行</view>
+    <view class='englishTitle'>FREEDOM</view>
+    <view class='allView' bindtap='clickMoreFree'>
+      <view class='allText'>
+        全部
+      </view>
+      <image src='../../img/全部-1.png' class='arrowView'></image>
+
+    </view>
   </view>
+</view>
+
+<view class='saleBody'>
+  <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+    <block wx:for="{{freeArray}}" wx:key="*this">
+      <view class='follow-view'>
+        <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
+        <view class='follow-describe'> {{item.name}}
+        </view>
+        <view class='follow-price' style='color:red'>￥{{item.price}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
 
 </view>
