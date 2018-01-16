@@ -1,0 +1,82 @@
+/* pages/theme/theme.wxss */
+
+.head {
+  background-image: url('http://ac-qduqr0em.clouddn.com/1bb267f3f4e37cd024bd.jpg');
+  width: 100%;
+  height: 350rpx;
+  background-repeat:no-repeat;
+   background-size:100% 100%;-moz-background-size:100% 100%;
+}
+.layout{
+  margin-top: -49rpx;
+  background-color: rgb(234, 234, 234);
+}
+.headText {
+  color: white;
+  text-align: center;
+  margin-top: 100rpx;
+}
+.headDes{
+  color: white;
+  text-align: center;
+}
+.btn-group{
+  background-color: rgba(234, 234, 234, 1);
+}
+.itemCell {
+  float: left;
+  width: 25%;
+  height: 200rpx;
+}
+
+.btn-image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+}
+
+.btn-text {
+  font-family: PingFangSC-Medium;
+  /* color: #999; */
+  color: white;
+  font-size: 24rpx;
+  text-align: center;
+}
+/* 主题推荐css */
+.themeRecommend{
+  margin-top: 10px;
+  background-color: white;
+}
+.themeText{
+  text-align: center;
+  margin-top: 20rpx;
+}
+.themeImage{
+   background-image: url('http://ac-qduqr0em.clouddn.com/1bb267f3f4e37cd024bd.jpg');
+  width: 90%;
+  height: 250rpx;
+  background-repeat:no-repeat;
+   background-size:100% 100%;-moz-background-size:100% 100%;
+   margin-top: 20rpx;
+  margin-left: 5%;
+}
+.themeMore{
+  text-align: center;
+  color: rgb(234, 234, 234);
+  margin-top: 20rpx;
+}
+/* 路线推荐 */
+.lineRecommend{
+  margin-top: 10px;
+  background-color: white;
+}
+.lineBlockImage{
+  display: flex
+}
+.singleImage{
+  flex: 1;
+  height: 150rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}

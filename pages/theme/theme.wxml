@@ -1,0 +1,83 @@
+<view class='layout'>
+  <!-- 头部视图 -->
+  
+  <view class='head'>
+    <view class='headText'>拉萨</view>
+    <view class='headDes'>100位小编推荐</view>
+  </view>
+  <!-- 按钮组 -->
+  <view class='btn-group'>
+    <view class='btn-group'>
+      <view class='itemCell' bindtap='clickMoreSpecialPriceList'>
+        <view class='btn-round'>
+          <image src='../../img/海岛特价.png' class='btn-image'></image>
+        </view>
+        <view class='btn-text'>美景</view>
+      </view>
+      <view class='itemCell'>
+        <view class='btn-round'>
+          <image src='../../img/精品推荐.png' class='btn-image'></image>
+        </view>
+        <view class='btn-text'>美食</view>
+      </view>
+      <view class='itemCell'>
+        <view class='btn-round'>
+          <image src='../../img/跟团游.png' class='btn-image'></image>
+        </view>
+        <view class='btn-text'>美宿</view>
+      </view>
+      <view class='itemCell'>
+        <view class='btn-round'>
+          <image src='../../img/自由行.png' class='btn-image'></image>
+        </view>
+        <view class='btn-text'>美物</view>
+      </view>
+    </view>
+  </view>
+  <!-- 主题推荐 -->
+  <view class='themeRecommend'>
+    <view class='themeText'>
+      - 主题推荐 -
+    </view>
+    <view class='themeImage'>
+      <view class='headText'>拉萨必吃的六个美食地点</view>
+      <view class='headDes'>100位小编推荐</view>
+    </view>
+    <view class='themeImage'>
+      <view class='headText'>拉萨必吃的六个淘宝地点</view>
+      <view class='headDes'>100位小编推荐</view>
+    </view>
+    <view class='themeImage'>
+      <view class='headText'>拉萨六大经典必游景点</view>
+      <view class='headDes'>6大推荐</view>
+    </view>
+    <view class='themeMore'>
+      更多主题推荐
+    </view>
+  </view>
+  <!-- 路线推荐 -->
+  <view class='lineRecommend'>
+    <view class='themeText'>
+      - 路线推荐 -
+    </view>
+    <!-- 每块路线介绍 -->
+    <view class='lineBlock' wx:for="{{lineArray}}">
+      <!-- 图片 -->
+      <view class='lineBlockImage'>
+        <image class='singleImage' src='http://ac-qduqr0em.clouddn.com/1bb267f3f4e37cd024bd.jpg'></image>
+        <image class='singleImage' src='http://ac-qduqr0em.clouddn.com/1bb267f3f4e37cd024bd.jpg'></image>
+        <image class='singleImage' src='http://ac-qduqr0em.clouddn.com/1bb267f3f4e37cd024bd.jpg'></image>
+      </view>
+      <!-- 文字 -->
+      <view class='lineBlockText'>
+        <text>拉萨三日游，不可错过的朝圣之旅</text>
+        <text>路线包括：宗角禄康公园 - 药王山 - 布达拉宫 - 大昭寺 - 八廊街</text>
+      </view>
+    </view>
+    <view class='themeMore'>
+      更多路线推荐
+    </view>
+  </view>
+  <!-- 私藏资讯 -->
+  <view></view>
+</view>

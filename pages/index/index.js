@@ -1,3 +1,4 @@
+
 //index.js
 //获取应用实例
 
@@ -120,9 +121,13 @@ Page({
   clickImageidx(e) {
     var idx = e.currentTarget.dataset.type
     let naviTitle = e.currentTarget.dataset.title
+    // wx.navigateTo({
+    //   url: `../itemList/itemList?type=${idx}&title=${naviTitle}`,
+    // })
     wx.navigateTo({
-      url: `../itemList/itemList?type=${idx}&title=${naviTitle}`,
+      url: '../theme/theme',
     })
+
   },
   allIslandsClick(e) {
     wx.navigateTo({
