@@ -1,5 +1,9 @@
 var networkBaseUrl = '123'
 const AV = require('.././libs/av-weapp-min.js')
+function replaceAllText (orginString,FindText, RepText) { 
+  regExp = new RegExp(FindText, "http://lc-qduqr0em.cn-n1.lcfile.com/"); 
+  return orginString.replace(regExp, RepText); 
+  }
 var getTestData = {
   // 发送短信验证
   snedShortMessage(phoneNumber, successCallBack, errorCallBack) {
@@ -141,6 +145,7 @@ var getTestData = {
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
+  
   //获取首页列表
   getMainThemeList(successCallback) {
 
