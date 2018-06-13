@@ -14,7 +14,7 @@ var getTestData = {
     }, function (err) {
       //调用失败
 
-      errorCallBack(err)
+      errorCallBack(egetSpecialPriceListrr)
     });
   },
   //验证短信
