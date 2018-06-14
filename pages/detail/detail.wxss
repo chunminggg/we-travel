@@ -114,7 +114,7 @@ font-family: PingFangSC-Regular;
 .swiper-tab-list {
   font-size: 24rpx;
   display: inline-block;
-  width: 25%;
+  width: 20%;
   color: #999999;
 }
 
