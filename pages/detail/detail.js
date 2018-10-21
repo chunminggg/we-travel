@@ -43,13 +43,7 @@ Page({
         id: 'nav',
         name: '预订须知',
         open: false,
-      },
-      {
-        id: 'file',
-        name: '相关附件',
-        open: false,
-      },
-      
+      }
     ],
     list: [
       {
@@ -72,12 +66,7 @@ Page({
         id: 'nav',
         name: '预订须知',
         open: false,
-      },
-      {
-        id: 'file',
-        name: '相关附件',
-        open: false,
-      },
+      }
     ]
   },
   
@@ -99,7 +88,6 @@ Page({
         localFileArray = data.fileArray
       }
       wx.hideLoading()
-
       that.setData({
         tagArray:data.tagArray,
         detailData: data,
