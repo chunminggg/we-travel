@@ -1,8 +1,10 @@
 //app.js
 const AV = require('./libs/av-weapp-min.js')
 var mta = require('./libs/mta_analysis.js')
-var APP_KEY = 'SoJCNHa1SX2NpLNMkTVX3KfL';
-var APP_ID = '9wNC9P5zyzuA7bSUCXmyNygr-gzGzoHsz';
+// var APP_KEY = 'SoJCNHa1SX2NpLNMkTVX3KfL';
+// var APP_ID = '9wNC9P5zyzuA7bSUCXmyNygr-gzGzoHsz';
+var APP_ID = 'qDUQr0EmHHn3HOIqb3Re0IHa-gzGzoHsz';
+var APP_KEY = 'w2TRHW0KHUkt5mVHtgp9wa2s';
 AV.init({
   appId: APP_ID,
   appKey: APP_KEY
