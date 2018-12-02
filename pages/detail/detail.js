@@ -43,13 +43,7 @@ Page({
         id: 'nav',
         name: '预订须知',
         open: false,
-      },
-      {
-        id: 'file',
-        name: '相关附件',
-        open: false,
-      },
-      
+      }
     ],
     list: [
       {
@@ -72,12 +66,7 @@ Page({
         id: 'nav',
         name: '预订须知',
         open: false,
-      },
-      {
-        id: 'file',
-        name: '相关附件',
-        open: false,
-      },
+      }
     ]
   },
   
@@ -88,24 +77,17 @@ Page({
     var that = this
     network.getDetailItemWithId(onlyId, (data) => {
 
-      var localImageArray = [{ 'url': 'http://ac-qDUQr0Em.clouddn.com/741cc9231efb2930db26.JPG' }]
+      var localImageArray = []
       if (data.imageArray.length) {
         localImageArray = []
         localImageArray = data.imageArray
       }
-      let localFileArray = []
-      if (data.fileArray.length) {
-        localFileArray = []
-        localFileArray = data.fileArray
-      }
       wx.hideLoading()
-
       that.setData({
         tagArray:data.tagArray,
         detailData: data,
         icon60: data.imageArray[0].url,
         imageArray: localImageArray,
-        fileArray:localFileArray,
       })
       var list = []
       for (let i = 0, len = that.data.list.length; i < len; i++) {
