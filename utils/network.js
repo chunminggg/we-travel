@@ -10,7 +10,7 @@ var getTestData = {
 
     AV.Cloud.requestSmsCode({
       mobilePhoneNumber: phoneNumber,
-      name: '超想去旅行',
+      name: '星旅游',
       op: '验证',
       ttl: 10
     }).then(function () {

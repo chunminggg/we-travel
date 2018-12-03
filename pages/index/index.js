@@ -154,7 +154,7 @@ Page({
 
     }
     return {
-      title: '超想去旅行',
+      title: '星旅游',
       path: '/pages/index/index',
       success: function (res) {
 
