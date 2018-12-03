@@ -24,12 +24,6 @@
       </view>
       <view class='btn-text'>全部线路</view>
     </view>
-    <view class='itemCell' bindtap='clickMoreSpecialPriceList'>
-      <view class='btn-round'>
-        <image src='../../img/海岛特价.png' class='btn-image'></image>
-      </view>
-      <view class='btn-text'>国内特价</view>
-    </view>
     <view class='itemCell' bindtap='clickMoreRecommend'>
       <view class='btn-round'>
         <image src='../../img/精品推荐.png' class='btn-image'></image>

@@ -19,7 +19,7 @@ Page({
         itemArray: data
       })
       wx.setNavigationBarTitle({
-        title: '全部海岛',
+        title: '全部线路',
       })
     })
   },

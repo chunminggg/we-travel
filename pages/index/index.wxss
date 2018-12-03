@@ -54,17 +54,18 @@
   width: 100%;
   height: 30rpx;
 }
-
+.btn-group{
+  display: flex;
+}
 .itemCell {
-  float: left;
-  width: 20%;
+ flex:1;
   height: 200rpx;
 }
 
 .btn-image {
   width: 100rpx;
   height: 100rpx;
-  margin-left: 20rpx;
+  margin-left: 40rpx;
   margin-top: 20rpx;
 }
 
