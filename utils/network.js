@@ -1,4 +1,3 @@
-var networkBaseUrl = '123'
 const AV = require('.././libs/av-weapp-min.js')
 function replaceAllText (orginString,FindText, RepText) { 
   regExp = new RegExp(FindText, "http://lc-qduqr0em.cn-n1.lcfile.com/"); 
