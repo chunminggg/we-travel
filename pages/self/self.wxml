@@ -1,2 +1,21 @@
 <!--pages/self/self.wxml-->
-<text>pages/self/self.wxml</text>
+<view wx:if="{{loginType==='login'}}">
+  <i-panel>
+    <view style="padding: 16px">
+      <view class='head-icon-wrap'>
+        <view class="head-icon">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+      </view>
+      <i-input maxlength="-1" value="{{ phone }}" bind:change="changePhone" type="number" title="手机号" placeholder="请输入手机号" />
+      <view class='code-wrap'>
+        <i-input maxlength="-1" value="{{ code }}" bind:change="changeCode" type="number" title="验证码" placeholder="请输入手机验证码" />
+        <i-button bind:click="getCode" size="small">获取验证码</i-button>
+      </view>
+    </view>
+  </i-panel>
+  <!-- 需要使用 button 来授权登录 -->
+  <button type="primary" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录</button>
+  <view wx:else>请升级微信版本</view>
+  <i-button bind:click="goToRegister" size="small">没有账号？去注册</i-button>
+</view>

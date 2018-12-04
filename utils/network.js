@@ -1,20 +1,20 @@
 const AV = require('.././libs/av-weapp-min.js')
-function replaceAllText (orginString,FindText, RepText) { 
-  regExp = new RegExp(FindText, "http://lc-qduqr0em.cn-n1.lcfile.com/"); 
-  return orginString.replace(regExp, RepText); 
-  }
+
+function replaceAllText(orginString, FindText, RepText) {
+  regExp = new RegExp(FindText, "http://lc-qduqr0em.cn-n1.lcfile.com/");
+  return orginString.replace(regExp, RepText);
+}
 var getTestData = {
   // 发送短信验证
   snedShortMessage(phoneNumber, successCallBack, errorCallBack) {
-
     AV.Cloud.requestSmsCode({
       mobilePhoneNumber: phoneNumber,
       name: '星旅游',
       op: '验证',
       ttl: 10
-    }).then(function () {
+    }).then(function() {
       successCallBack()
-    }, function (err) {
+    }, function(err) {
       //调用失败
 
       errorCallBack(egetSpecialPriceListrr)
@@ -23,13 +23,13 @@ var getTestData = {
   //验证短信
   verifyMessageCode(verifyCode, phoneNumber, successCallBack, errorCallBack) {
     var that = this
-    AV.Cloud.verifySmsCode(verifyCode, phoneNumber).then(function () {
+    AV.Cloud.verifySmsCode(verifyCode, phoneNumber).then(function() {
       //验证成功
       that.createNewUser(phoneNumber)
-      setTimeout(function () {
+      setTimeout(function() {
         successCallBack()
       }, 500)
-    }, function (err) {
+    }, function(err) {
       //验证失败
       errorCallBack(err)
     });
@@ -42,19 +42,34 @@ var getTestData = {
     }).catch(console.error);
   },
   //leancloud login
-  loginWithLeanCloud() {
-
-    var that = this
-    AV.User.loginWithWeapp().then(user => {
-
-
-    }).catch(console.error);
+  loginWithLeanCloud(userInfo) {
+    return new Promise(resolve => {
+      AV.User.loginWithWeapp().then(user => {
+        user.set(userInfo).save().then(user => {
+          resolve(user);
+        }).catch(console.error);
+      }).catch(console.error);
+    });
+  },
+  //获取手机验证码
+  getVerifyMobilePhone(phone){
+    return AV.User.requestSmsCode(phone)
+  },
+  //校验手机验证码
+  verifyMobilePhone(code){
+    return AV.User.verifyMobilePhone(code)
+  },
+  //还原验证码校验标志（否则短信发不出去）
+  resetMobilePhone() {
+    
   },
   leanCloudGetUserInfo(phoneNumber) {
     const user = AV.User.current();
     // 调用小程序 API，得到用户信息
     wx.getUserInfo({
-      success: ({ userInfo }) => {
+      success: ({
+        userInfo
+      }) => {
         // 更新当前用户的信息
         userInfo.mobilePhoneNumber = phoneNumber
         user.set(userInfo).save().then(user => {
@@ -74,7 +89,9 @@ var getTestData = {
         if (imageArray.length) {
           var dataArray = []
           for (var i = 0; i < imageArray.length; i++) {
-            dataArray.push({ 'imageUrl': imageArray[i].url })
+            dataArray.push({
+              'imageUrl': imageArray[i].url
+            })
           }
           return resolve(dataArray)
         }
@@ -94,14 +111,14 @@ var getTestData = {
     var query = new AV.Query('Product')
     query.equalTo('isSpecialPrice', true)
     query.descending('updatedAt')
-    if(isLimit){
+    if (isLimit) {
       query.limit(6)
     }
     query.addAscending('isRecommend')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
-  getListWithSpeicalName(isLimit,className){
+  getListWithSpeicalName(isLimit, className) {
     var query = new AV.Query('Product')
     query.equalTo(className, true)
     if (isLimit) {
@@ -139,15 +156,14 @@ var getTestData = {
     query.equalTo('isFreeTravel', true)
     if (isLimit) {
       query.limit(6)
-    }    
+    }
     query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
-  
+
   //获取首页列表
   getMainThemeList(successCallback) {
-
     return new Promise((resolve, reject) => {
       var query = new AV.Query('Theme')
       query.ascending('type')
@@ -199,7 +215,7 @@ var getTestData = {
       }
 
       return successCallback(dataArray)
-    }, function (error) {
+    }, function(error) {
       // 异常处理
     });
   },
@@ -219,7 +235,7 @@ var getTestData = {
       wx.showToast({
         title: '提交成功'
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateBack({
 
         })
@@ -263,13 +279,14 @@ var getTestData = {
     })
   },
 }
+
 function handleDataWithNoPostData(dataUrl, success, error) {
   wx.request({
     url: dataUrl,
-    success: function (data) {
+    success: function(data) {
       return success(data)
     },
-    error: function (data) {
+    error: function(data) {
       return error(data)
     },
   })

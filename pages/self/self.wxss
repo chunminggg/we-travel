@@ -1,1 +1,11 @@
 /* pages/self/self.wxss */
+.head-icon{
+  width: 150rpx;
+  display: inline-block;
+}
+.head-icon-wrap{
+  text-align: center;
+}
+.code-wrap{
+  display: flex;
+}

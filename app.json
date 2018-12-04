@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/self/self",
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
@@ -8,8 +9,7 @@
     "pages/reserve/reserve",
     "pages/specialList/sepicalList",
     "pages/islands/islands",
-    "pages/theme/theme",
-    "pages/self/self"
+    "pages/theme/theme"
   ],
   "window": {
     "backgroundTextStyle": "light",

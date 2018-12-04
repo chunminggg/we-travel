@@ -45,8 +45,7 @@ Page({
       title: '加载中',
     })
     Promise.all([netWork.getMainThemeList(), netWork.getSpecialPriceList(true), netWork.getRecommendList(true), netWork.getFollowTravleList(true), netWork.getFreeTravelList(true)]).then(([data2, data3, data4, data5, data6]) => {
-
-      netWork.loginWithLeanCloud()
+      // netWork.loginWithLeanCloud()
       wx.hideLoading()
       wx.getSystemInfo({
         success: function (res) {

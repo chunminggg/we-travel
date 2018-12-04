@@ -21,9 +21,9 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-    AV.User.loginWithWeapp().then(user => {
-      this.globalData.user = user.toJSON();
-    }).catch(console.error);
+    // AV.User.loginWithWeapp().then(user => {
+    //   this.globalData.user = user.toJSON();
+    // }).catch(console.error);
   },
 
   getUserInfo: function(cb) {
