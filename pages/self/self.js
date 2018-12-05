@@ -7,17 +7,18 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    loginType: 'login',
+    loginType: 'register',
     phone: '13732645412',
-    code: '123456'
+    code: '123456',
+    name: '小志'
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.oneStepLogin()
+    this.checkIfLogin()
   },
-  oneStepLogin() {
+  checkIfLogin() {
     let currentUser = AV.User.current();
     if (currentUser) {
       this.setData({
@@ -25,20 +26,8 @@ Page({
       });
     } else {
       this.setData({
-        loginType: 'login'
+        loginType: 'register'
       });
-      // wx.getSetting({
-      //   success(res) {
-      //     if (res.authSetting['scope.userInfo']) {
-      //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-      //       wx.getUserInfo({
-      //         success: function(res) {
-      //           console.log(res.userInfo,111)
-      //         }
-      //       })
-      //     }
-      //   }
-      // })
     }
   },
   changePhone({
@@ -55,19 +44,35 @@ Page({
       code: detail.detail.value
     })
   },
-  bindGetUserInfo(e) {
-    // 未授权
-    if (!e.detail.userInfo) {
-      return;
-    }
-    netWork.verifyMobilePhone(this.data.code).then(d => {
-      netWork.loginWithLeanCloud({ ...e.detail.userInfo,
-        mobilePhoneNumber: this.data.phone
-      }).then(data => {
-        debugger
-        this.setData({
-          loginType: 'hasLogin'
-        });
+  changeName({
+    detail
+  }) {
+    this.setData({
+      name: detail.detail.value
+    })
+  },
+  login(e) {
+    netWork.logInWithMobilePhoneSmsCode(this.data.phone, this.data.code).then(d => {
+      this.setData({
+        loginType: 'hasLogin'
+      });
+    }).catch(err => {
+      wx.showToast({
+        icon: 'none',
+        title: '无效的验证码',
+      })
+    });
+  },
+  register(e) {
+    debugger
+    netWork.checkIfExistPhone(this.data.phone).then(data=>{
+      debugger
+    });
+    return;
+    netWork.signUpOrlogInWithMobilePhone(this.data.phone, this.data.code).then(user => {
+      user.linkWithWeapp();
+      this.setData({
+        loginType: 'hasLogin'
       });
     }).catch(err => {
       wx.showToast({
@@ -81,8 +86,28 @@ Page({
       console.log('发送验证码')
     });
   },
+  getLoginCode() {
+    netWork.requestLoginSmsCode(this.data.phone).then(data => {
+      console.log('发送登录验证码')
+    });
+  },
   goToRegister() {
-
+    this.setData({
+      loginType: 'register'
+    })
+    this.resetInputData();
+  },
+  goToLogin() {
+    this.setData({
+      loginType: 'login'
+    })
+    this.resetInputData();
+  },
+  resetInputData() {
+    this.setData({
+      code: '',
+      name: ''
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

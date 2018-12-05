@@ -16,7 +16,6 @@ var getTestData = {
       successCallBack()
     }, function(err) {
       //调用失败
-
       errorCallBack(egetSpecialPriceListrr)
     });
   },
@@ -51,17 +50,27 @@ var getTestData = {
       }).catch(console.error);
     });
   },
+  //验证手机号是否已经注册
+  checkIfExistPhone(phone) {
+    var query = new AV.Query('_User');
+    query.equalTo('mobilePhoneNumber', phone);
+    return query.find()
+  },
+  //获取手机登录验证码
+  requestLoginSmsCode(phone) {
+    return AV.User.requestLoginSmsCode(phone);
+  },
+  //手机验证码登录
+  logInWithMobilePhoneSmsCode(phone, code) {
+    return AV.User.logInWithMobilePhoneSmsCode(phone, code);
+  },
   //获取手机验证码
-  getVerifyMobilePhone(phone){
-    return AV.User.requestSmsCode(phone)
+  getVerifyMobilePhone(phone) {
+    return AV.Cloud.requestSmsCode(phone)
   },
   //校验手机验证码
-  verifyMobilePhone(code){
-    return AV.User.verifyMobilePhone(code)
-  },
-  //还原验证码校验标志（否则短信发不出去）
-  resetMobilePhone() {
-    
+  signUpOrlogInWithMobilePhone(phone, code) {
+    return AV.User.signUpOrlogInWithMobilePhone(phone, code)
   },
   leanCloudGetUserInfo(phoneNumber) {
     const user = AV.User.current();
@@ -80,7 +89,6 @@ var getTestData = {
     });
   },
   getMainScroll(successCallback) {
-
     return new Promise((resolve, reject) => {
       var query = new AV.Query('MainScroll')
       query.descending('createdAt')
