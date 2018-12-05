@@ -1,16 +1,20 @@
 // pages/self/self.js
 const AV = require('../.././libs/av-weapp-min.js')
 const netWork = require('../../utils/network.js')
+let timer = null;
+const waitTime = 60;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    loginType: 'register',
-    phone: '13732645412',
-    code: '123456',
-    name: '小志'
+    loginType: 'login',
+    phone: '',
+    code: '',
+    name: '',
+    ifEditingName: false,
+    timeCount: waitTime
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,11 +26,13 @@ Page({
     let currentUser = AV.User.current();
     if (currentUser) {
       this.setData({
-        loginType: 'hasLogin'
+        loginType: 'hasLogin',
+        phone: currentUser.attributes.mobilePhoneNumber,
+        name: currentUser.attributes.name,
       });
     } else {
       this.setData({
-        loginType: 'register'
+        loginType: 'login'
       });
     }
   },
@@ -52,23 +58,27 @@ Page({
     })
   },
   login(e) {
-    netWork.logInWithMobilePhoneSmsCode(this.data.phone, this.data.code).then(d => {
-      this.setData({
-        loginType: 'hasLogin'
-      });
-    }).catch(err => {
+    if (this.data.phone === '') {
       wx.showToast({
         icon: 'none',
-        title: '无效的验证码',
+        title: '手机号码不能为空',
       })
-    });
-  },
-  register(e) {
-    debugger
-    netWork.checkIfExistPhone(this.data.phone).then(data=>{
-      debugger
-    });
-    return;
+      return;
+    }
+    if (!(/^1[34578]\d{9}$/.test(this.data.phone))) {
+      wx.showToast({
+        icon: 'none',
+        title: '手机号格式不正确',
+      })
+      return;
+    }
+    if (!this.data.code === '') {
+      wx.showToast({
+        icon: 'none',
+        title: '验证码不能为空',
+      })
+      return;
+    }
     netWork.signUpOrlogInWithMobilePhone(this.data.phone, this.data.code).then(user => {
       user.linkWithWeapp();
       this.setData({
@@ -81,32 +91,51 @@ Page({
       })
     });
   },
+  editName() {
+    this.setData({
+      ifEditingName: true
+    });
+  },
+  saveName() {
+    netWork.saveName(this.data.name).then(d => {
+      this.setData({
+        ifEditingName: false
+      });
+    });
+  },
   getCode() {
+    if (this.data.phone === '') {
+      wx.showToast({
+        icon: 'none',
+        title: '手机号码不能为空',
+      })
+      return;
+    }
+    if (!(/^1[34578]\d{9}$/.test(this.data.phone))) {
+      wx.showToast({
+        icon: 'none',
+        title: '手机号格式不正确',
+      })
+      return;
+    }
     netWork.getVerifyMobilePhone(this.data.phone).then(data => {
-      console.log('发送验证码')
-    });
-  },
-  getLoginCode() {
-    netWork.requestLoginSmsCode(this.data.phone).then(data => {
-      console.log('发送登录验证码')
-    });
-  },
-  goToRegister() {
-    this.setData({
-      loginType: 'register'
-    })
-    this.resetInputData();
-  },
-  goToLogin() {
-    this.setData({
-      loginType: 'login'
-    })
-    this.resetInputData();
-  },
-  resetInputData() {
-    this.setData({
-      code: '',
-      name: ''
+      timer = setInterval(() => {
+        if (this.data.timeCount <= 0) {
+          clearInterval(timer);
+          this.setData({
+            timeCount: waitTime
+          });
+          return;
+        }
+        this.setData({
+          timeCount: this.data.timeCount - 1
+        });
+      }, 1000);
+    }).catch(err => {
+      wx.showToast({
+        icon: 'none',
+        title: '获取验证码失败',
+      })
     });
   },
   /**

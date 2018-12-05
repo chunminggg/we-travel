@@ -50,19 +50,12 @@ var getTestData = {
       }).catch(console.error);
     });
   },
-  //验证手机号是否已经注册
-  checkIfExistPhone(phone) {
-    var query = new AV.Query('_User');
-    query.equalTo('mobilePhoneNumber', phone);
-    return query.find()
-  },
-  //获取手机登录验证码
-  requestLoginSmsCode(phone) {
-    return AV.User.requestLoginSmsCode(phone);
-  },
-  //手机验证码登录
-  logInWithMobilePhoneSmsCode(phone, code) {
-    return AV.User.logInWithMobilePhoneSmsCode(phone, code);
+  // 保存姓名
+  saveName(name) {
+    const user = AV.User.current();
+    return user.set({
+      name: name
+    }).save();
   },
   //获取手机验证码
   getVerifyMobilePhone(phone) {

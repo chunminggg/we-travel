@@ -9,3 +9,6 @@
 .code-wrap{
   display: flex;
 }
+.small-btn{
+  font-size: 25rpx!important;
+}
