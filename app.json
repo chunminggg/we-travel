@@ -9,7 +9,8 @@
     "pages/reserve/reserve",
     "pages/specialList/sepicalList",
     "pages/islands/islands",
-    "pages/theme/theme"
+    "pages/theme/theme",
+    "pages/priceDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,18 +19,19 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "img/starHomeUn.png",
-      "selectedIconPath": "img/starHome.png"
-    },
-    {
-      "pagePath": "pages/self/self",
-      "text": "我的",
-      "iconPath": "img/starMyUn.png",
-      "selectedIconPath": "img/starMy.png"
-    }
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/starHomeUn.png",
+        "selectedIconPath": "img/starHome.png"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "text": "我的",
+        "iconPath": "img/starMyUn.png",
+        "selectedIconPath": "img/starMy.png"
+      }
     ]
   }
 }

@@ -1,0 +1,14 @@
+<view class="caption-wrap">
+  <text class="caption-title">日期选择</text>
+  <i-collapse name="{{name}}">
+    <block wx:for="{{monthItemArray}}">
+      <i-collapse-item title="{{item.month}}" name="{{index}}">
+        <view slot="content">
+          <i-cell-group>
+            <i-cell title="{{obj.startDate}}" value="{{obj.price}}" wx:for="{{item.priceArray}}" wx:for-key="{{obj.startDate}}" wx:for-item="obj"></i-cell>
+          </i-cell-group>
+        </view>
+      </i-collapse-item>
+    </block>
+  </i-collapse>
+</view>

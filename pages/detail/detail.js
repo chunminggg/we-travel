@@ -17,11 +17,11 @@ Page({
     currentTab: 0,
     offsetTop: 0,
     imageArray: [],
-    fileArray:[],
+    fileArray: [],
     countNumber: 0,
     //price view
     showModalStatus: false,
-    tagArray:[],
+    tagArray: [],
     myList: [
       {
         id: 'form',
@@ -69,7 +69,7 @@ Page({
       }
     ]
   },
-  
+
   getDetailData(onlyId) {
     wx.showLoading({
       title: '数据加载中',
@@ -84,7 +84,7 @@ Page({
       }
       wx.hideLoading()
       that.setData({
-        tagArray:data.tagArray,
+        tagArray: data.tagArray,
         detailData: data,
         icon60: data.imageArray[0].url,
         imageArray: localImageArray,
@@ -107,11 +107,35 @@ Page({
 
     })
   },
+  showDetailPriceView(e) {
+    let monthArray = []
+    this.data.tagArray.map(item => {
+      let arrayDate = item.startDate.split('-'),
+        first = arrayDate[0],
+        second = arrayDate[1],
+        monthData = `${first}-${second}`;
+      monthArray.push(monthData)
+
+    })
+    monthArray = [...new Set(monthArray)]
+    wx.setStorage({
+      key: 'monthArray',
+      data: monthArray
+    })
+    wx.setStorage({
+      key: 'priceArray',
+      data: this.data.tagArray,
+    })
+    wx.navigateTo({
+      url: '../priceDetail/index'
+    })
+
+  },
   //主页面纵向滑动时间
   mainScroll(e) {
 
   },
-  makePhone(e){
+  makePhone(e) {
     // wx.makePhoneCall({
     //   phoneNumber: '15151965292' 
     // })
@@ -160,9 +184,9 @@ Page({
 
     this.getDetailData(this.data.onlyId)
     setTimeout(function () {
-     let countId = that.data.onlyId
+      let countId = that.data.onlyId
 
-     network.makeProductCount(countId,that.data.detailData.countNumber)
+      //  network.makeProductCount(countId,that.data.detailData.countNumber)
     }, 3000)
   },
   //立即预定
@@ -180,26 +204,27 @@ Page({
       url: '../reserve/reserve?itemId=' + onlyId,
     })
   },
-  downloadFile(e){
+  downloadFile(e) {
     let url = e.currentTarget.dataset.url
-    
+
     wx.downloadFile({
       url: url, //仅为示例，并非真实的资源
-      success: function(res) {
-        
+      success: function (res) {
+
         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
         if (res.statusCode === 200) {
-            wx.openDocument({
-              filePath: res.tempFilePath
-            })
+          wx.openDocument({
+            filePath: res.tempFilePath
+          })
         }
       }
     })
   },
-  closePriceView(e){
+  closePriceView(e) {
 
   },
-  showPriceView(e){
+  showPriceView(e) {
+    return
     let currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
   },

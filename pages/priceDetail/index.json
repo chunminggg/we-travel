@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "价格详情",
+    "usingComponents":
+    {
+        "i-collapse": "../../dist/collapse/index",
+        "i-collapse-item": "../../dist/collapse-item/index",
+        "i-cell-group": "../../dist/cell-group/index",
+        "i-cell": "../../dist/cell/index"
+    }
+}

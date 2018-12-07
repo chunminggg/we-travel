@@ -23,7 +23,7 @@
         <text class="fa fa-map-marker iconType"></text>
         <text class='placeText'>{{detailData.place}}出发</text>
       </view>
-      <view class="textCenter samallText placeText">
+      <view class="textCenter samallText placeText" bindtap="showDetailPriceView">
         <text class="fa fa-calendar iconType"></text> {{detailData.startDate}}
       </view>
     </view>
