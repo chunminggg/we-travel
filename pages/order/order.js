@@ -1,4 +1,5 @@
 // pages/order/order.js
+const netWork = require('../../utils/network.js')
 Page({
 
   /**
@@ -11,13 +12,16 @@ Page({
     firstCount:1,
     secondCount:0,
     startDate: '2018-12-01',
+    id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id:options.productId
+    })
   },
   bindDateChange: function (e) {
     this.setData({
@@ -40,7 +44,47 @@ Page({
     this.setData(obj);
   },
   submitOrder(){
-    debugger
+    if(this.validate()){
+      wx.showLoading({
+        title: '正在提交',
+      })
+      let params = {
+        id:this.data.id,
+        name:this.data.name,
+        phoneNumber:this.data.phoneNumber,
+        startPlace:this.data.startPlace,
+        startDate:this.data.startDate,
+        firstCount: `${this.data.firstCount}`,
+        secondCount: `${this.data.secondCount}`
+      }
+      netWork.saveOrder(params).then(data=>{
+        wx.showToast({
+          title: '提交成功',
+        })
+        wx.navigateBack({
+          
+        })
+      })
+    }
+  },
+  validate() {
+    if (!this.data.name || !this.data.startPlace) {
+      wx.showToast({
+        title: '表单填写不完整',
+        icon: 'none'
+      })
+      return false
+    }
+    else if (!(/^1[34578]\d{9}$/.test(this.data.phoneNumber))) {
+      wx.showToast({
+        title: '手机号输入有误',
+        icon: 'none'
+      })
+      return false;
+    }
+    else {
+      return true
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

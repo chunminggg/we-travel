@@ -19,7 +19,18 @@ var getTestData = {
       errorCallBack(egetSpecialPriceListrr)
     });
   },
-  //验证短信
+  saveOrder(params){
+    let obj = new AV.Object('Order')
+    obj.set('name',params.name)
+    obj.set('phoneNumber',params.phoneNumber)
+    obj.set('startDate',params.startDate)
+    obj.set('startPlace',params.startPlace)
+    obj.set('firstCount',params.firstCount)
+    obj.set('secondCount',params.secondCount)
+    let product = AV.Object.createWithoutData(params.id)
+    return obj.save()
+  },
+  //验证短信sa
   verifyMessageCode(verifyCode, phoneNumber, successCallBack, errorCallBack) {
     var that = this
     AV.Cloud.verifySmsCode(verifyCode, phoneNumber).then(function() {
@@ -161,8 +172,9 @@ var getTestData = {
     query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
-  },
-
+  },  
+   
+  
   //获取首页列表
   getMainThemeList(successCallback) {
     return new Promise((resolve, reject) => {
