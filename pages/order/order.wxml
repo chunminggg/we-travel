@@ -1,0 +1,36 @@
+<view>
+  <i-panel title="">
+    <i-input value="{{ name }}" title="姓名" autofocus placeholder="姓名"  bind:change="inputChange" data-str="name"></i-input>
+    <i-input value="{{ phoneNumber }}" type="number" title="联系电话" placeholder="请输入手机号" bind:change="inputChange" data-str="phoneNumber"></i-input>
+   
+    <i-input value="{{ startPlace }}" title="出发地" placeholder="出发地" data-str="startPlace" bind:change="inputChange"></i-input>
+      <view style="padding: 32rpx">
+       <i-row>
+        <i-col span="8" i-class="col-class">出发日期：</i-col>
+        <i-col span="16" i-class="col-class">
+          <picker mode="date" value="{{startDate}}" start="2018-23-01" end="2019-09-01" bindchange='bindDateChange'>
+          {{startDate}}
+          </picker>
+          </i-col>
+      </i-row>
+     </view>
+     
+      <view style="padding: 32rpx">
+        <i-row class="travel-row">
+          <i-col span="8" i-class="col-class">成人：</i-col>
+          <i-col span="16" i-class="col-class">
+            <i-input-number value="{{ firstCount }}" min="0" max="100" data-str="firstCount" bind:change="numberChange" /></i-col>
+        </i-row>
+      </view>
+      <view style="padding: 32rpx;margin-top:10rpx;">
+        <i-row>
+          <i-col span="8" i-class="col-class">儿童：</i-col>
+          <i-col span="16" i-class="col-class">
+            <i-input-number value="{{ secondCount }}" min="0" max="100" data-str="secondCount" bind:change="numberChange" /></i-col>
+        </i-row>
+      </view>
+      <view>
+        <i-button bind:click="submitOrder" type="primary" size="large">提交</i-button>
+      </view>
+  </i-panel>
+  </view>

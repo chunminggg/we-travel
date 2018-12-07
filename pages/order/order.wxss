@@ -1,0 +1,8 @@
+/* pages/order/order.wxss */
+.travel-row{
+  margin-top: 20rpx;
+}
+.picker{
+    padding: 13px;
+    background-color: #FFFFFF;
+}

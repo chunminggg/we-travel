@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "产品预订",
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-panel": "../../dist/panel/index",
+    "i-input-number": "../../dist/input-number/index",
+      "i-row": "../../dist/row/index",
+      "i-col": "../../dist/col/index",
+      "i-button": "../../dist/button/index"
+  }
+}

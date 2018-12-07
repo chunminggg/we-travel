@@ -69,7 +69,12 @@ Page({
       }
     ]
   },
+  enterOrder(){
+    wx.navigateTo({
+      url: `../order/order?productId=${this.data.onlyId}`,
 
+    })
+  },
   getDetailData(onlyId) {
     wx.showLoading({
       title: '数据加载中',

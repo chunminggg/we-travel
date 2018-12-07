@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/self/self",
     "pages/index/index",
+    "pages/self/self",
     "pages/login/login",
     "pages/logs/logs",
     "pages/itemList/itemList",
@@ -10,7 +10,8 @@
     "pages/specialList/sepicalList",
     "pages/islands/islands",
     "pages/theme/theme",
-    "pages/priceDetail/index"
+    "pages/priceDetail/index",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",

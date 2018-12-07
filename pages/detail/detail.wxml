@@ -17,7 +17,7 @@
         <text class="">{{detailData.name}}</text>
       </view>
       <view class="textCenter samallText describeText">{{detailData.describe}}</view>
-      <view class="textCenter priceText iconType" style="color:red" bindtap='showPriceView' data-statu="open">￥{{detailData.price}}</view>
+      <view class="textCenter priceText iconType" style="color:red" bindtap='showDetailPriceView' data-statu="open">￥{{detailData.price}}</view>
 
       <view class="textCenter samallText placeText">
         <text class="fa fa-map-marker iconType"></text>
@@ -41,7 +41,7 @@
       <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">行程介绍</view>
       <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">费用说明</view>
       <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">预订须知</view>
- 
+
 
     </view>
     <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;" bindchange="bindChange">
@@ -84,17 +84,16 @@
 
       </swiper-item>
 
-        <swiper-item>
-        
-          <view wx:for="{{fileArray}}" style="color:blue" wx:key="*this">
-<button bindtap="downloadFile" data-url="{{item.url}}">{{item.name}}</button>
-</view>
+      <swiper-item>
+
+        <view wx:for="{{fileArray}}" style="color:blue" wx:key="*this">
+          <button bindtap="downloadFile" data-url="{{item.url}}">{{item.name}}</button>
+        </view>
 
       </swiper-item>
     </swiper>
   </scroll-view>
-  <button class="weui-footer weui-footer_fixed-bottom footer"  open-type="contact">
-
+  <button class="weui-footer weui-footer_fixed-bottom footer" bindtap='enterOrder'>
     <text class='fa fa-phone phoneIcon'></text>
 
     <text> 立即预定</text>
@@ -107,7 +106,7 @@
   <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
 
     <!--drawer content-->
-    <view class="drawer_title" >价格详情</view>
+    <view class="drawer_title">价格详情</view>
     <view class="drawer_content">
       <block wx:for="{{tagArray}}" wx:key="*this">
         <view class='priceView'>
@@ -116,7 +115,7 @@
         </view>
       </block>
     </view>
-     <view class="btn_ok" bindtap="showPriceView" data-statu="close">确定</view>   
+    <view class="btn_ok" bindtap="showPriceView" data-statu="close">确定</view>
   </view>
 
 
