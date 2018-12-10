@@ -1,14 +1,37 @@
 /* pages/self/self.wxss */
-.head-icon{
+
+.head-icon {
   width: 150rpx;
   display: inline-block;
 }
-.head-icon-wrap{
+
+.head-icon-wrap {
   text-align: center;
 }
-.code-wrap{
+
+.code-wrap {
   display: flex;
+  align-items: center;
 }
-.small-btn{
-  font-size: 25rpx!important;
+
+.small-btn {
+  font-size: 25rpx !important;
+}
+
+.name-text {
+  font-size: 35rpx;
+  color: #495060;
+  margin-left: 37rpx;
+  width: 100rpx;
+}
+
+.name-input {
+  font-size: 35rpx;
+  color: #495060;
+  flex: 1;
+  padding-left: 80rpx;
+}
+
+.option-button {
+  display: inline-block;
 }

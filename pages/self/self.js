@@ -13,6 +13,7 @@ Page({
     phone: '',
     code: '',
     name: '',
+    focus: false,
     ifEditingName: false,
     timeCount: waitTime
   },
@@ -82,7 +83,8 @@ Page({
     netWork.signUpOrlogInWithMobilePhone(this.data.phone, this.data.code).then(user => {
       user.linkWithWeapp();
       this.setData({
-        loginType: 'hasLogin'
+        loginType: 'hasLogin',
+        name: user.attributes.name
       });
     }).catch(err => {
       wx.showToast({
@@ -95,9 +97,25 @@ Page({
     this.setData({
       ifEditingName: true
     });
+    this.setData({
+      focus: true
+    })
+  },
+  focus(){
+    this.setData({
+      focus: true
+    })
+  },
+  blur() {
+    this.setData({
+      focus: false
+    })
   },
   saveName() {
     netWork.saveName(this.data.name).then(d => {
+      wx.showToast({
+        title: '修改成功',
+      })
       this.setData({
         ifEditingName: false
       });
