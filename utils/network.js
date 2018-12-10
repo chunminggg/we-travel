@@ -68,6 +68,22 @@ var getTestData = {
       name: name
     }).save();
   },
+  getUserInfoWithPhone(phone){
+    var query = new AV.Query('_User')
+    query.equalTo('mobilePhoneNumber',phone)
+    return query.find()
+  },
+  getCurrentUserPhone(){
+    let userInfo = AV.User.current()
+    if(userInfo == null){
+      return ''
+    }
+    else{
+      return userInfo.toJSON().mobilePhoneNumber
+    }
+   
+
+  }, 
   //获取手机验证码
   getVerifyMobilePhone(phone) {
     return AV.Cloud.requestSmsCode(phone)

@@ -136,9 +136,10 @@ Page({
   clickRecommenItem(e) {
 
     let id = e.currentTarget.dataset.id
-
+    let phone = netWork.getCurrentUserPhone()
     wx.navigateTo({
-      url: '../detail/detail?detailId=' + id,
+      // url: '../detail/detail?detailId=' + id,
+      url:`../detail/detail?detailId=${id}&&phone=${phone}`
     })
   },
   clickSpecialPrice(e) {

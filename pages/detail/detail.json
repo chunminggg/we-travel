@@ -1,6 +1,7 @@
 {
 "navigationBarTitleText": "产品详情",
 "usingComponents": {
-  "i-button": "../../dist/button/index"
+  "i-button": "../../dist/button/index",
+  "i-card": "../../dist/card/index"
 }
 }

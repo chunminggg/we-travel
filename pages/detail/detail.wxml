@@ -27,6 +27,14 @@
         <text class="fa fa-calendar iconType"></text> {{detailData.startDate}}
       </view>
     </view>
+    <view class='user-card'>
+    <i-card title="商家信息" wx:if="{{isShowUserInfo}}">
+    <view slot="content">
+     <view>名称：{{userInfo.name}}</view>
+    <view>手机号：{{userInfo.phone}}</view>
+    </view>
+</i-card>
+    </view>
     <!-- menu -->
     <!-- <view style="padding: 20px 10px; background-color:#eee;">
     <block wx:for="{{list}}" wx:key="">

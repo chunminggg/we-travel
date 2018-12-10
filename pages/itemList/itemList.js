@@ -62,9 +62,9 @@ Page({
   detailItemClick(detailData) {
     var idx = detailData.currentTarget.dataset.itemid,
         model = this.data.itemArray[idx]
-
+    let phone = netTool.getCurrentUserPhone()
   wx.navigateTo({
-    url: '../detail/detail?detailId='+model.uid,
+    url:`../detail/detail?detailId=${model.uid}&&phone=${phone}`
   })
   },
   /**

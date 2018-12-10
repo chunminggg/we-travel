@@ -15,7 +15,6 @@ Page({
   onLoad: function (options) {
     var that = this
     let className = options.name
-
     netTool.getListWithSpeicalName(false, className).then(data => {
       let myDealArray = []
       data.forEach(obj => {
@@ -37,9 +36,9 @@ Page({
   clickItem(detailData) {
     var idx = detailData.currentTarget.dataset.itemid,
       model = this.data.itemArray[idx]
-
+    let phone = netTool.getCurrentUserPhone()
     wx.navigateTo({
-      url: '../detail/detail?detailId=' + model.id,
+      url:`../detail/detail?detailId=${model.id}&&phone=${phone}`
     })
   },
   /**
