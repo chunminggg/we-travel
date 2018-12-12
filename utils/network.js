@@ -27,7 +27,8 @@ var getTestData = {
     obj.set('startPlace',params.startPlace)
     obj.set('firstCount',params.firstCount)
     obj.set('secondCount',params.secondCount)
-    let product = AV.Object.createWithoutData(params.id)
+    let product = AV.Object.createWithoutData("Product",params.id)
+    obj.set('targetProduct',product)
     return obj.save()
   },
   //验证短信sa

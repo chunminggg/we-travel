@@ -1,4 +1,3 @@
-// pages/order/order.js
 const netWork = require('../../utils/network.js')
 Page({
 
