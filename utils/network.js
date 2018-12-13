@@ -191,7 +191,10 @@ var getTestData = {
     return query.find()
   },  
    
-  
+  getAllLineArray(){
+    var query = new AV.Query('Type')
+    return query.find()
+  },
   //获取首页列表
   getMainThemeList(successCallback) {
     return new Promise((resolve, reject) => {

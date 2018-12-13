@@ -81,7 +81,7 @@ Page({
           that.setData({
             winWidth: res.windowWidth,
             winHeight: res.windowHeight,
-            dataArray: data2,
+            dataArray: [],
             followArray: isFollowArray,
             freeArray: isFreeArray,
             // imageArray: data1,

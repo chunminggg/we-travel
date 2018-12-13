@@ -14,7 +14,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    netTool.getMainThemeList().then(data => {
+    netTool.getAllLineArray().then(data => {
+      data = data.map(item => {
+        return {
+          id:item.id,
+          ...item.attributes
+        }
+      })
       that.setData({
         itemArray: data
       })
