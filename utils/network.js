@@ -138,7 +138,9 @@ var getTestData = {
   //获取特价列表
   getSpecialPriceList(isLimit) {
     var query = new AV.Query('Product')
-    query.equalTo('isSpecialPrice', true)
+    // query.equalTo('isSpecialPrice', true)
+    query.equalTo('type', '5c0fa55a44d904005f481911')
+    
     query.descending('updatedAt')
     if (isLimit) {
       query.limit(6)
@@ -149,7 +151,7 @@ var getTestData = {
   },
   getListWithSpeicalName(isLimit, className) {
     var query = new AV.Query('Product')
-    query.equalTo(className, true)
+    query.equalTo('type', className)
     if (isLimit) {
       query.limit(6)
     }
@@ -157,10 +159,10 @@ var getTestData = {
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
-  //获取推荐列表
+  //获取推荐列表 北京首页数据
   getRecommendList(isLimit) {
     var query = new AV.Query('Product')
-    query.equalTo('isRecommend', true)
+    query.equalTo('type', '5bfd42f844d904005f2595a8')
     if (isLimit) {
       query.limit(6)
     }
@@ -168,10 +170,11 @@ var getTestData = {
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
   },
-  //获取跟团游列表
+  //获取跟团游列表 海南数据
   getFollowTravleList(isLimit) {
     var query = new AV.Query('Product')
-    query.equalTo('isFollowTeam', true)
+    // query.equalTo('isFollowTeam', true)
+    query.equalTo('type', '5c061a63303f39005f3111a7')
     if (isLimit) {
       query.limit(6)
     }
@@ -182,7 +185,8 @@ var getTestData = {
   // 获取自由行列表
   getFreeTravelList(isLimit) {
     var query = new AV.Query('Product')
-    query.equalTo('isFreeTravel', true)
+    // query.equalTo('isFreeTravel', true)
+    query.equalTo('type', '5c0fa55a44d904005f481911')
     if (isLimit) {
       query.limit(6)
     }

@@ -104,17 +104,17 @@ Page({
   },
   clickMoreFree() {
     wx.navigateTo({
-      url: `../specialList/sepicalList?name=isFreeTravel&title=自由行`,
+      url: `../specialList/sepicalList?name=5c0fa55a44d904005f481911&title=贵州旅游`,
     })
   },
   clickMoreRecommend() {
     wx.navigateTo({
-      url: `../specialList/sepicalList?name=isRecommend&title=精品推荐`,
+      url: `../specialList/sepicalList?name=5bfd42f844d904005f2595a8&title=北京旅游`,
     })
   },
   clickMoreFollow() {
     wx.navigateTo({
-      url: `../specialList/sepicalList?name=isFollowTeam&title=跟团游`,
+      url: `../specialList/sepicalList?name=5c061a63303f39005f3111a7&title=海南旅游`,
     })
   },
   clickImageidx(e) {
