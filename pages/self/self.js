@@ -55,7 +55,7 @@ Page({
     detail
   }) {
     this.setData({
-      name: detail.detail.value
+      name: detail.value
     })
   },
   login(e) {
@@ -82,6 +82,7 @@ Page({
     }
     netWork.signUpOrlogInWithMobilePhone(this.data.phone, this.data.code).then(user => {
       user.linkWithWeapp();
+      netWork.copyUser(user);
       this.setData({
         loginType: 'hasLogin',
         name: user.attributes.name
@@ -113,6 +114,7 @@ Page({
   },
   saveName() {
     netWork.saveName(this.data.name).then(d => {
+      netWork.copyUser(d);
       wx.showToast({
         title: '修改成功',
       })

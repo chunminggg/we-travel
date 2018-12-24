@@ -19,16 +19,16 @@ var getTestData = {
       errorCallBack(egetSpecialPriceListrr)
     });
   },
-  saveOrder(params){
+  saveOrder(params) {
     let obj = new AV.Object('Order')
-    obj.set('name',params.name)
-    obj.set('phoneNumber',params.phoneNumber)
-    obj.set('startDate',params.startDate)
-    obj.set('startPlace',params.startPlace)
-    obj.set('firstCount',params.firstCount)
-    obj.set('secondCount',params.secondCount)
-    let product = AV.Object.createWithoutData("Product",params.id)
-    obj.set('targetProduct',product)
+    obj.set('name', params.name)
+    obj.set('phoneNumber', params.phoneNumber)
+    obj.set('startDate', params.startDate)
+    obj.set('startPlace', params.startPlace)
+    obj.set('firstCount', params.firstCount)
+    obj.set('secondCount', params.secondCount)
+    let product = AV.Object.createWithoutData("Product", params.id)
+    obj.set('targetProduct', product)
     return obj.save()
   },
   //验证短信sa
@@ -69,22 +69,21 @@ var getTestData = {
       name: name
     }).save();
   },
-  getUserInfoWithPhone(phone){
+  getUserInfoWithPhone(phone) {
     var query = new AV.Query('_User')
-    query.equalTo('mobilePhoneNumber',phone)
+    query.equalTo('mobilePhoneNumber', phone)
     return query.find()
   },
-  getCurrentUserPhone(){
+  getCurrentUserPhone() {
     let userInfo = AV.User.current()
-    if(userInfo == null){
+    if (userInfo == null) {
       return ''
-    }
-    else{
+    } else {
       return userInfo.toJSON().mobilePhoneNumber
     }
-   
 
-  }, 
+
+  },
   //获取手机验证码
   getVerifyMobilePhone(phone) {
     return AV.Cloud.requestSmsCode(phone)
@@ -92,6 +91,29 @@ var getTestData = {
   //校验手机验证码
   signUpOrlogInWithMobilePhone(phone, code) {
     return AV.User.signUpOrlogInWithMobilePhone(phone, code)
+  },
+  copyUser(user) {
+    const data = user.toJSON();
+    const objectId = data.objectId;
+    var query = new AV.Query('UserCopy');
+    query.equalTo('mobilePhoneNumber', data.mobilePhoneNumber).find().then(d => {
+      if (d.length) {
+        console.log('存在', d)
+        d[0].set('username', data.username);
+        d[0].set('name', data.name);
+        d[0].set('mobilePhoneNumber', data.mobilePhoneNumber);
+        d[0].set('authData', JSON.stringify(data.authData));
+        d[0].save()
+      } else {
+        console.log('不存在', d)
+        let obj = new AV.Object('UserCopy')
+        obj.set('username', data.username);
+        obj.set('name', data.name);
+        obj.set('mobilePhoneNumber', data.mobilePhoneNumber);
+        obj.set('authData', JSON.stringify(data.authData));
+        obj.save()
+      }
+    });
   },
   leanCloudGetUserInfo(phoneNumber) {
     const user = AV.User.current();
@@ -140,7 +162,7 @@ var getTestData = {
     var query = new AV.Query('Product')
     // query.equalTo('isSpecialPrice', true)
     query.equalTo('type', '5c0fa55a44d904005f481911')
-    
+
     query.descending('updatedAt')
     if (isLimit) {
       query.limit(6)
@@ -193,9 +215,9 @@ var getTestData = {
     query.descending('updatedAt')
     query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
     return query.find()
-  },  
-   
-  getAllLineArray(){
+  },
+
+  getAllLineArray() {
     var query = new AV.Query('Type')
     return query.find()
   },
