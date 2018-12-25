@@ -13,6 +13,9 @@
   display: flex;
   align-items: center;
 }
+.code-wrap.first{
+  margin-top: 20rpx;
+}
 
 .small-btn {
   font-size: 25rpx !important;
@@ -22,14 +25,14 @@
   font-size: 35rpx;
   color: #495060;
   margin-left: 37rpx;
-  width: 100rpx;
+  width: 150rpx;
 }
 
 .name-input {
   font-size: 35rpx;
   color: #495060;
   flex: 1;
-  padding-left: 80rpx;
+  padding-left: 30rpx;
 }
 
 .option-button {

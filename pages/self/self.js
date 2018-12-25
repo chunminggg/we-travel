@@ -15,6 +15,9 @@ Page({
     name: '',
     focus: false,
     ifEditingName: false,
+    name2: '',
+    focus2: false,
+    ifEditingName2: false,
     timeCount: waitTime
   },
   /**
@@ -30,6 +33,7 @@ Page({
         loginType: 'hasLogin',
         phone: currentUser.attributes.mobilePhoneNumber,
         name: currentUser.attributes.name,
+        name2: currentUser.attributes.sellerName
       });
     } else {
       this.setData({
@@ -56,6 +60,13 @@ Page({
   }) {
     this.setData({
       name: detail.value
+    })
+  },
+  changeName2({
+    detail
+  }) {
+    this.setData({
+      name2: detail.value
     })
   },
   login(e) {
@@ -85,7 +96,8 @@ Page({
       netWork.copyUser(user);
       this.setData({
         loginType: 'hasLogin',
-        name: user.attributes.name
+        name: user.attributes.name,
+        name2: user.attributes.sellerName,        
       });
     }).catch(err => {
       wx.showToast({
@@ -102,14 +114,32 @@ Page({
       focus: true
     })
   },
-  focus(){
+  editName2() {
+    this.setData({
+      ifEditingName2: true
+    });
+    this.setData({
+      focus2: true
+    })
+  },
+  focus() {
     this.setData({
       focus: true
+    })
+  },
+  focus2() {
+    this.setData({
+      focus2: true
     })
   },
   blur() {
     this.setData({
       focus: false
+    })
+  },
+  blur2() {
+    this.setData({
+      focus2: false
     })
   },
   saveName() {
@@ -120,6 +150,28 @@ Page({
       })
       this.setData({
         ifEditingName: false
+      });
+    });
+  },
+  saveName() {
+    netWork.saveName(this.data.name).then(d => {
+      netWork.copyUser(d);
+      wx.showToast({
+        title: '修改成功',
+      })
+      this.setData({
+        ifEditingName: false
+      });
+    });
+  },
+  saveName2() {
+    netWork.saveSellerName(this.data.name2).then(d => {
+      netWork.copyUser(d);
+      wx.showToast({
+        title: '修改成功',
+      })
+      this.setData({
+        ifEditingName2: false
       });
     });
   },

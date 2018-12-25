@@ -80,6 +80,12 @@ var getTestData = {
       name: name
     }).save();
   },
+  saveSellerName(name) {
+    const user = AV.User.current();
+    return user.set({
+      sellerName: name,
+    }).save();
+  },
   getUserInfoWithPhone(phone) {
     var query = new AV.Query('_User')
     query.equalTo('mobilePhoneNumber', phone)
@@ -117,6 +123,7 @@ var getTestData = {
         console.log('存在', d)
         d[0].set('username', data.username);
         d[0].set('name', data.name);
+        d[0].set('sellerName', data.sellerName);
         d[0].set('mobilePhoneNumber', data.mobilePhoneNumber);
         d[0].set('authData', JSON.stringify(data.authData));
         d[0].save()
@@ -125,6 +132,7 @@ var getTestData = {
         let obj = new AV.Object('UserCopy')
         obj.set('username', data.username);
         obj.set('name', data.name);
+        obj.set('sellerName', data.sellerName);
         obj.set('mobilePhoneNumber', data.mobilePhoneNumber);
         obj.set('authData', JSON.stringify(data.authData));
         obj.save()
