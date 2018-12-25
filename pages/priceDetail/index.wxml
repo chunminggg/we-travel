@@ -5,10 +5,17 @@
       <i-collapse-item title="{{item.month}}" name="{{index}}">
         <view slot="content">
           <i-cell-group>
-            <i-cell title="{{obj.startDate}}" value="{{obj.price}}" wx:for="{{item.priceArray}}" wx:for-key="{{obj.startDate}}" wx:for-item="obj"></i-cell>
+            <i-cell title="{{obj.startDate}}" value="{{obj.price}}" wx:for="{{item.priceArray}}" wx:for-key="{{obj.startDate}}" wx:for-item="obj" data-price="{{obj}}" bind:click="showPriceDetail" is-link></i-cell>
           </i-cell-group>
         </view>
       </i-collapse-item>
     </block>
   </i-collapse>
+  <i-modal title="价格详情" visible="{{ isShowPriceModal }}" bind:ok="handleClose" bind:cancel="handleClose">
+    <view>成人价格:{{currentPriceObj.price}}</view>
+    <view>备注:{{currentPriceObj.comment}}</view>
+   <view>儿童价格:{{currentPriceObj.childPrice}}</view>
+    <view>备注:{{currentPriceObj.childComment}}</view>
+    <view wx:if="{{isSeller}}">佣金:{{currentPriceObj.commission}}</view>
+</i-modal>
 </view>

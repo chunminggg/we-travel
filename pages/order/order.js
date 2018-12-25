@@ -5,22 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:"",
-    phoneNumber:'',
-    startPlace:'',
-    firstCount:1,
-    secondCount:0,
-    startDate: '2018-12-01',
-    id:''
+    name:"海南测试",
+    phoneNumber:'18550786000',
+    startPlace:'苏州',
+    firstCount:2,
+    secondCount:1,
+    startDate: '2019-1-01',
+    id:'',
+    orderPhone:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      id:options.productId
+    let that = this
+    wx.getStorage({
+      key: 'orderPhone',
+      success(res) {
+        that.setData({
+          id: options.productId,
+          orderPhone:res.data
+        })
+      },
     })
+   
   },
   bindDateChange: function (e) {
     this.setData({
@@ -60,11 +69,20 @@ Page({
         wx.showToast({
           title: '提交成功',
         })
-        wx.navigateBack({
-          
-        })
+        this.sendMessage()
       })
     }
+  },
+  sendMessage(){
+    netWork.sendOrderMessage({
+      phoneNumber:this.data.phoneNumber,
+      saleName:this.data.name,
+      orderPhone:this.data.orderPhone
+    }).then(data => {
+      wx.navigateBack({
+        
+      })
+    })
   },
   validate() {
     if (!this.data.name || !this.data.startPlace) {

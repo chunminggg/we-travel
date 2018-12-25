@@ -19,6 +19,17 @@ var getTestData = {
       errorCallBack(egetSpecialPriceListrr)
     });
   },
+  sendOrderMessage(params){
+   
+    return AV.Cloud.requestSmsCode({
+      mobilePhoneNumber:params.orderPhone,
+      // 海南 18018148030
+      template:'五洲订单',
+      saleName:params.saleName,
+      phoneNumber:params.phoneNumber,
+      sign:'五洲旅行'
+    })
+  },
   saveOrder(params) {
     let obj = new AV.Object('Order')
     obj.set('name', params.name)
@@ -72,6 +83,11 @@ var getTestData = {
   getUserInfoWithPhone(phone) {
     var query = new AV.Query('_User')
     query.equalTo('mobilePhoneNumber', phone)
+    return query.find()
+  },
+  checkUserIsSeller(phoneNumber){
+    let query = new AV.Query('UserCopy');
+    query.equalTo('mobilePhoneNumber',phoneNumber)
     return query.find()
   },
   getCurrentUserPhone() {

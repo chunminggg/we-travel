@@ -37,9 +37,12 @@ Page({
     freeArray: [],
     secondReommendArray: [],
   },
+  testAction(){
 
+  },
   //事件处理函数
   onLoad: function () {
+    this.testAction()
     var that = this
     wx.showLoading({
       title: '加载中',

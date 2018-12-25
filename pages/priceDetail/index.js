@@ -9,6 +9,16 @@ Page({
     monthArray: [],
     priceArray: [],
     monthItemArray: [],
+    isShowPriceModal:false,
+    isSeller:false,
+    currentPriceObj:{
+      startDate:'',
+      price:'',
+      commission:'',
+      comment:'',
+      childPrice:'',
+      childComment:''
+    }
   },
 
   /**
@@ -18,8 +28,16 @@ Page({
     wx.hideShareMenu({
       
     })
+    let that = this
+    wx.getStorage({
+      key: 'isSeller',
+      success(res) {
+        that.setData({
+          isSeller:res.data
+        })
+      },
+    })
     let monthArray = [],
-      that = this,
       priceArray = [];
     wx.getStorage({
       key: 'monthArray',
@@ -37,6 +55,17 @@ Page({
           },
         })
       },
+    })
+  },
+  showPriceDetail(e){
+    this.setData({
+      currentPriceObj: e.target.dataset.price,
+      isShowPriceModal:true
+    })
+  },
+  handleClose(){
+    this.setData({
+      isShowPriceModal:false
     })
   },
   configPriceView(){

@@ -101,7 +101,7 @@
       </swiper-item>
     </swiper>
   </scroll-view>
-  <button class="weui-footer weui-footer_fixed-bottom footer" bindtap='enterOrder'>
+  <button class="weui-footer weui-footer_fixed-bottom footer" bindtap='enterOrder' wx:if="{{isSeller}}">
     <text class='fa fa-phone phoneIcon'></text>
 
     <text> 立即预定</text>

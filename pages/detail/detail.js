@@ -26,6 +26,7 @@ Page({
     countNumber: 0,
     //price view
     showModalStatus: false,
+    isSeller:false,
     tagArray: [],
     myList: [{
         id: 'form',
@@ -84,7 +85,18 @@ Page({
     })
     var that = this
     network.getDetailItemWithId(onlyId, (data) => {
-
+      if (data.type == '5bfd42f844d904005f2595a8'){
+        wx.setStorage({
+          key: 'orderPhone',
+          data: '13776106499',
+        })
+      }
+      if (data.type == '5c061a63303f39005f3111a7') {
+        wx.setStorage({
+          key: 'orderPhone',
+          data: '18018148030',
+        })
+      }
       var localImageArray = []
       if (data.imageArray.length) {
         localImageArray = []
@@ -179,6 +191,7 @@ Page({
    */
   onLoad: function(options) {
     this.getUserInfo(options)
+    this.checkUserLevel()
     var that = this
     wx.getSystemInfo({
       success: function(res) {
@@ -196,6 +209,29 @@ Page({
 
       //  network.makeProductCount(countId,that.data.detailData.countNumber)
     }, 3000)
+  },
+  // 检查当前用户等级状态
+  checkUserLevel(){
+    let userPhoneNumber = network.getCurrentUserPhone()
+    if(userPhoneNumber.length){
+      network.checkUserIsSeller(userPhoneNumber).then(data=>{
+        if(data.length){
+          wx.setStorage({
+            key: 'isSeller',
+            data: true,
+          })
+          this.setData({
+            isSeller:true
+          })
+        }
+      })
+    }
+    else{
+      wx.setStorage({
+        key: 'isSeller',
+        data: false,
+      })
+    }
   },
   getUserInfo(options) {
     let phone = options.phone
