@@ -1,7 +1,27 @@
 <view class="caption-wrap">
-  <text class="caption-title">日期选择</text>
-  <i-collapse name="{{name}}">
-    <block wx:for="{{monthItemArray}}">
+  <!-- <text class="caption-title">日期选择</text> -->
+  <i-tabs current="{{ current }}" bindchange="handleTabsChange" style="margin-top:30rpx;">
+    <i-tab key="{{item.month}}" title="{{item.month}}" wx:for="{{monthItemArray}}" wx:key="{{item.month}}">
+    </i-tab>
+  </i-tabs>
+  <view key="{{item.month}}" title="{{item.month}}" wx:for="{{monthItemArray}}" wx:key="{{item.month}}" wx:if="{{current == item.month}}" style='margin-top:20rpx;'>
+    <i-row>
+      <i-col span="6" i-class="col-class" wx:for="{{item.priceArray}}" wx:for-key="{{obj.startDate}}" wx:for-item="obj" data-price="{{obj}}" bindtap="showPriceDetail">
+       <view class='price-item' >
+       <view>
+       <text>{{obj.startDate}}</text></view>
+        <view>
+        ￥<text class='money-text'>{{obj.price}}</text></view>
+       </view>
+      </i-col>
+    </i-row>
+  </view>
+  <!-- <i-collapse name="{{name}}">
+    <block wx:for="{{monthItem,,,,,   "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"   "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"   "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"   "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"Array}}">
       <i-collapse-item title="{{item.month}}" name="{{index}}">
         <view slot="content">
           <i-cell-group>
@@ -10,12 +30,12 @@
         </view>
       </i-collapse-item>
     </block>
-  </i-collapse>
+  </i-collapse> -->
   <i-modal title="价格详情" visible="{{ isShowPriceModal }}" bind:ok="handleClose" bind:cancel="handleClose">
     <view>成人价格:{{currentPriceObj.price}}</view>
     <view>备注:{{currentPriceObj.comment}}</view>
-   <view>儿童价格:{{currentPriceObj.childPrice}}</view>
+    <view>儿童价格:{{currentPriceObj.childPrice}}</view>
     <view>备注:{{currentPriceObj.childComment}}</view>
     <view wx:if="{{isSeller}}">佣金:{{currentPriceObj.commission}}</view>
-</i-modal>
+  </i-modal>
 </view>

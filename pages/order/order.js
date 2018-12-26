@@ -5,9 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:"海南测试",
-    phoneNumber:'18550786000',
-    startPlace:'苏州',
+    name:"",
+    phoneNumber:'',
+    startPlace:'',
     firstCount:2,
     secondCount:1,
     startDate: '2019-1-01',

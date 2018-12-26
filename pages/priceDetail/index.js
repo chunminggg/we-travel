@@ -9,6 +9,7 @@ Page({
     monthArray: [],
     priceArray: [],
     monthItemArray: [],
+    current:0,
     isShowPriceModal:false,
     isSeller:false,
     currentPriceObj:{
@@ -57,9 +58,14 @@ Page({
       },
     })
   },
+  handleTabsChange({detail}){
+    this.setData({
+      current: detail.key
+    });
+  },
   showPriceDetail(e){
     this.setData({
-      currentPriceObj: e.target.dataset.price,
+      currentPriceObj: e.currentTarget.dataset.price,
       isShowPriceModal:true
     })
   },
@@ -82,9 +88,50 @@ Page({
         }
       })
     })
-    this.setData({
-      monthItemArray:monthItemArray
+    monthItemArray.map(item => {
+      item.priceArray = this.quickSort(item.priceArray,"startDate",false)
     })
+    this.setData({
+      monthItemArray:monthItemArray,
+      current:monthItemArray[0].month
+    })
+  },
+  quickSort(arr, name, snum) {
+    //如果数组<=1,则直接返回
+    if (arr.length <= 1) {
+      return arr;
+    }
+    var pivotIndex = Math.floor(arr.length / 2);
+    //找基准，并把基准从原数组删除
+    var pivot = arr.splice(pivotIndex, 1)[0];
+    var middleNum = pivot[name];
+    // 定义左右数组
+    var left = [];
+    var right = [];
+    //比基准小的放在left，比基准大的放在right
+    if (snum) {
+      for (var i = 0; i < arr.length; i++) {
+        if (Number(arr[i][name]) <= Number(middleNum)) {
+          left.push(arr[i]);
+        } else {
+          right.push(arr[i]);
+        }
+      }
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i][name] <= middleNum) {
+          left.push(arr[i]);
+        } else {
+          right.push(arr[i]);
+        }
+      }
+    }
+    let that = this
+    //递归,返回所需数组
+    return that.quickSort(left, name, snum).concat(
+      [pivot],
+      that.quickSort(right, name, snum)
+    );
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
