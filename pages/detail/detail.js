@@ -216,12 +216,13 @@ Page({
     if(userPhoneNumber.length){
       network.checkUserIsSeller(userPhoneNumber).then(data=>{
         if(data.length){
+          let userItem = data[0].toJSON()
           wx.setStorage({
             key: 'isSeller',
-            data: true,
+            data: userItem.ifSeller,
           })
           this.setData({
-            isSeller:true
+            isSeller: userItem.ifSeller
           })
         }
       })
