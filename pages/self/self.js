@@ -28,6 +28,7 @@ Page({
   },
   checkIfLogin() {
     let currentUser = AV.User.current();
+    console.log(currentUser)
     if (currentUser) {
       this.setData({
         loginType: 'hasLogin',
@@ -141,17 +142,6 @@ Page({
     this.setData({
       focus2: false
     })
-  },
-  saveName() {
-    netWork.saveName(this.data.name).then(d => {
-      netWork.copyUser(d);
-      wx.showToast({
-        title: '修改成功',
-      })
-      this.setData({
-        ifEditingName: false
-      });
-    });
   },
   saveName() {
     netWork.saveName(this.data.name).then(d => {
