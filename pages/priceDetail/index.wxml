@@ -6,7 +6,7 @@
   </i-tabs>
   <view key="{{item.month}}" title="{{item.month}}" wx:for="{{monthItemArray}}" wx:key="{{item.month}}" wx:if="{{current == item.month}}" style='margin-top:20rpx;'>
     <i-row>
-      <i-col span="6" i-class="col-class" wx:for="{{item.priceArray}}" wx:for-key="{{obj.startDate}}" wx:for-item="obj" data-price="{{obj}}" bindtap="showPriceDetail">
+      <i-col span="6" i-class="col-class" wx:for="{{item.filterPriceArray}}" wx:for-key="{{obj.startDate}}" wx:for-item="obj" data-price="{{obj}}" bindtap="showPriceDetail">
        <view class='price-item' >
        <view>
        <text>{{obj.startDate}}</text></view>
@@ -38,4 +38,9 @@
     <view>备注:{{currentPriceObj.childComment}}</view>
     <view wx:if="{{isSeller}}">佣金:{{currentPriceObj.commission}}</view>
   </i-modal>
+  <i-action-sheet visible="{{ isShowActionSheet }}" actions="{{ priceActions }}" show-cancel bind:cancel="handleActionCancel" bind:click="handleClickActionItem" >
+     <view slot="header" style="padding: 16px">
+        <view style="color: #444;font-size: 16px">请选择价格</view>
+    </view>
+  </i-action-sheet>
 </view>
