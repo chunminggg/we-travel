@@ -24,7 +24,13 @@
 .small-btn {
   font-size: 25rpx !important;
 }
-
+.code-image{
+  width: 100%;
+  text-align: center;
+}
+.code-image .image{
+  width: 80%;
+}
 .name-text {
   font-size: 35rpx;
   color: #495060;

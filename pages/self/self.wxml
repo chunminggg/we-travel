@@ -40,14 +40,12 @@
       </view>
     </view>
     <view>
-     <view class="head-icon-image" wx:if="{{userImageUrl.length}}">
-        <view>
-         <image
-          src="{{userImageUrl}}"
-        ></image></view>
+      <view class="head-icon-image" wx:if="{{userImageUrl.length}}">
+        <view class="code-image">
+          <image mode="widthFix" class="image" src="{{userImageUrl}}"></image>
         </view>
-     
-    <button bindtap='uploadImageAction'>上传商户二维码</button>
+      </view>
+      <i-button bindtap='uploadImageAction'>上传商户二维码</i-button>
     </view>
   </i-panel>
 </view>
