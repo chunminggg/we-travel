@@ -19,7 +19,7 @@ Page({
     focus2: false,
     ifEditingName2: false,
     timeCount: waitTime,
-    userImageUrl:'',
+    userImageUrl: '',
   },
   /**
    * 生命周期函数--监听页面加载
@@ -99,8 +99,8 @@ Page({
       this.setData({
         loginType: 'hasLogin',
         name: user.attributes.name,
-        name2: user.attributes.sellerName, 
-        userImageUrl: user.attributes.userImageUrl     
+        name2: user.attributes.sellerName,
+        userImageUrl: user.attributes.userImageUrl
       });
     }).catch(err => {
       wx.showToast({
@@ -110,35 +110,34 @@ Page({
     });
   },
   // 上传头像
-  uploadImageAction(){
+  uploadImageAction() {
     let that = this
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
-       let filePath = res.tempFilePaths[0]
-        netWork.uploadUserImage(that.data.phone,filePath).then(data => {
+        let filePath = res.tempFilePaths[0]
+        netWork.uploadUserImage(AV.User.current().attributes.mobilePhoneNumber, filePath).then(data => {
           let fileUrl = data.url()
           netWork.saveUserImageUrl(fileUrl).then(d => {
             netWork.copyUser(d);
-            setTimeout(()=>{
+            setTimeout(() => {
               that.getUserImage()
-            },500)
+            }, 500)
             wx.showToast({
               title: '上传成功',
             })
           });
-        }).catch(error=>{
-        })
+        }).catch(error => {})
       }
     })
   },
-  getUserImage(){
+  getUserImage() {
     netWork.getUserInfoWithPhone(this.data.phone).then(info => {
       let userInfoUrl = info[0].toJSON().userImageUrl
       this.setData({
-        userImageUrl:userInfoUrl
+        userImageUrl: userInfoUrl
       })
     })
   },

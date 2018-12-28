@@ -36,7 +36,7 @@
              <view class='seller-info-image'  wx:if="{{userInfo.userImageUrl.length}}">
           </view>
           </view>
-          <image src='{{userInfo.userImageUrl}}' data-src="{{userInfo.userImageUrl}}" bindtap='previewUserImage'></image>
+          <image src='{{userInfo.userImageUrl}}' mode='widthFix' data-src="{{userInfo.userImageUrl}}" bindtap='previewUserImage'></image>
         </view>
       </i-card>
     </view>

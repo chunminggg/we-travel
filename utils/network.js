@@ -139,6 +139,7 @@ var getTestData = {
         d[0].set('name', data.name);
         d[0].set('sellerName', data.sellerName);
         d[0].set('mobilePhoneNumber', data.mobilePhoneNumber);
+        d[0].set('userImageUrl', data.userImageUrl);        
         d[0].set('authData', JSON.stringify(data.authData));
         d[0].save()
       } else {
@@ -148,6 +149,7 @@ var getTestData = {
         obj.set('name', data.name);
         obj.set('sellerName', data.sellerName);
         obj.set('mobilePhoneNumber', data.mobilePhoneNumber);
+        obj.set('userImageUrl', data.userImageUrl); 
         obj.set('authData', JSON.stringify(data.authData));
         obj.save()
       }
