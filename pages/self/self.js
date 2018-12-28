@@ -29,13 +29,13 @@ Page({
   },
   checkIfLogin() {
     let currentUser = AV.User.current();
-    console.log(currentUser)
     if (currentUser) {
       this.setData({
         loginType: 'hasLogin',
         phone: currentUser.attributes.mobilePhoneNumber,
         name: currentUser.attributes.name,
-        name2: currentUser.attributes.sellerName
+        name2: currentUser.attributes.sellerName,
+        userImageUrl: currentUser.attributes.userImageUrl,
       });
     } else {
       this.setData({

@@ -43,6 +43,7 @@
      <view class="head-icon-image" wx:if="{{userImageUrl.length}}">
         <view>
          <image
+         mode='scaleToFill'
           src="{{userImageUrl}}"
         ></image></view>
         </view>

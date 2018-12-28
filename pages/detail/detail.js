@@ -267,6 +267,14 @@ Page({
     })
 
   },
+  // 预览二维码
+  previewUserImage(e){
+    let imageUrl = e.currentTarget.dataset.src
+    wx.previewImage({
+      current: imageUrl, // 当前显示图片的http链接
+      urls: [imageUrl] // 需要预览的图片http链接列表
+    })
+  },
   //立即预定
   reserverItem(e) {
     var that = this,

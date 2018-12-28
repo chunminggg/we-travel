@@ -34,9 +34,9 @@
               <view>手机号：{{userInfo.phone}}</view>
             </view>
              <view class='seller-info-image'  wx:if="{{userInfo.userImageUrl.length}}">
-            <image src='{{userInfo.userImageUrl}}'></image>
           </view>
           </view>
+          <image src='{{userInfo.userImageUrl}}' data-src="{{userInfo.userImageUrl}}" bindtap='previewUserImage'></image>
         </view>
       </i-card>
     </view>
