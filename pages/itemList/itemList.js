@@ -12,10 +12,6 @@ Page({
     isHaveData:true,
     imageArray:[],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   *
   onLoad: function (options) {
     var that = this
     wx.showLoading({
@@ -24,49 +20,53 @@ Page({
     wx.setNavigationBarTitle({
       title: options.title,
     })
-    netTool.getItemList(options.type,(data)=>{
+    netTool.getItemList(options.type, (data) => {
       wx.hideLoading()
-      if ( data==undefined) {
-      that.setData({
-        isHaveData: false,
-      })
+      if (data == undefined) {
+        that.setData({
+          isHaveData: false,
+        })
         wx.showToast({
           title: '当前无产品信息',
         })
-       
-        
+
+
       }
-      
+
       var coverImage = 'http://omh0qz95c.bkt.clouddn.com/111499175319_.pic.jpg'
-      var dataImageArray = [{'imageUrl':coverImage}]
-      if(data.length){
+      var dataImageArray = [{ 'imageUrl': coverImage }]
+      if (data.length) {
 
         dataImageArray = []
         coverImage = data[0].coverImage
-        data.forEach((obj)=>{
-          if(obj.coverImage == undefined){
+        data.forEach((obj) => {
+          if (obj.coverImage == undefined) {
             return
           }
-          dataImageArray.push({'imageUrl':obj.coverImage})
+          dataImageArray.push({ 'imageUrl': obj.coverImage })
         })
       }
       that.setData({
-        itemArray:data,
+        itemArray: data,
         icon20: '',
         icon60: coverImage,
-        imageArray:dataImageArray
+        imageArray: dataImageArray
       })
-      
+
     })
   },
   detailItemClick(detailData) {
     var idx = detailData.currentTarget.dataset.itemid,
-        model = this.data.itemArray[idx]
+      model = this.data.itemArray[idx]
     let phone = netTool.getCurrentUserPhone()
-  wx.navigateTo({
-    url:`../detail/detail?detailId=${model.uid}&&phone=${phone}`
-  })
+    wx.navigateTo({
+      url: `../detail/detail?detailId=${model.uid}&&phone=${phone}`
+    })
   },
+  /**
+   * 生命周期函数--监听页面加载
+   *
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

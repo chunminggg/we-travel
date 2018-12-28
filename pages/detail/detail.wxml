@@ -1,7 +1,5 @@
 <!--detail.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
-<!-- <view class='myBottomView'></view> -->
-
 <view class='page'>
   <scroll-view class="main" scroll-top="{{scrollTop}}">
     <!-- head -->
@@ -18,7 +16,6 @@
       </view>
       <view class="textCenter samallText describeText">{{detailData.describe}}</view>
       <view class="textCenter priceText iconType" style="color:red" bindtap='showDetailPriceView' data-statu="open">￥{{detailData.price}}</view>
-
       <view class="textCenter samallText placeText">
         <text class="fa fa-map-marker iconType"></text>
         <text class='placeText'>{{detailData.place}}出发</text>
@@ -28,107 +25,66 @@
       </view>
     </view>
     <view class='user-card'>
-    <i-card title="商家信息" wx:if="{{isShowUserInfo}}">
-    <view slot="content">
-     <view>名称：{{userInfo.name}}</view>
-    <view>手机号：{{userInfo.phone}}</view>
+      <i-card title="商家信息" wx:if="{{isShowUserInfo}}">
+        <view slot="content">
+          <view>名称：{{userInfo.name}}</view>
+          <view>商家名称：{{userInfo.sellerName}}</view>
+          <view>手机号：{{userInfo.phone}}</view>
+        </view>
+      </i-card>
     </view>
-</i-card>
-    </view>
-    <!-- menu -->
-    <!-- <view style="padding: 20px 10px; background-color:#eee;">
-    <block wx:for="{{list}}" wx:key="">
-        回复{{index}}:<template is="wxParse" data="{{wxParseData:item}}"/>
-    </block>
-</view>   -->
-    <!-- 滑块选项 -->
     <view class='stripView'></view>
-
-    <view class="swiper-tab">
+    <!-- <view class="swiper-tab">
       <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">线路特色</view>
       <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">行程介绍</view>
       <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">费用说明</view>
       <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">预订须知</view>
-
-
     </view>
     <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;" bindchange="bindChange">
-      <!-- 线路特色 -->
       <swiper-item>
-
         <scroll-view scroll-y style="height:600px" class="wxParse">
           <template is="wxParse" data="{{wxParseData:line.nodes}}" />
-
         </scroll-view>
-
-
       </swiper-item>
-      <!-- 行程介绍 -->
       <swiper-item>
-
         <scroll-view scroll-y style="height:600px" class="wxParse">
           <template is="wxParse" data="{{wxParseData:trip.nodes}}" />
-
         </scroll-view>
-
-        <!-- <view class="wxParse detailView">
-
-    </view> -->
       </swiper-item>
-      <!-- 费用说明 -->
       <swiper-item>
-
         <scroll-view scroll-y style="height:600px" class="wxParse">
           <template is="wxParse" data="{{wxParseData:money.nodes}}" />
-
         </scroll-view>
-
       </swiper-item>
       <swiper-item>
         <scroll-view scroll-y style="height:600px" class="wxParse">
           <template is="wxParse" data="{{wxParseData:order.nodes}}" />
-
         </scroll-view>
-
       </swiper-item>
-
-      <swiper-item>
-
-        <view wx:for="{{fileArray}}" style="color:blue" wx:key="*this">
-          <button bindtap="downloadFile" data-url="{{item.url}}">{{item.name}}</button>
-        </view>
-
-      </swiper-item>
-    </swiper>
+    </swiper> -->
+         <i-panel title="线路特色">
+      <view style="padding: 30rpx;">
+        <template is="wxParse" data="{{wxParseData:line.nodes}}" />
+      </view>
+    </i-panel>
+    <i-panel title="行程介绍">
+      <view style="padding: 30rpx;">
+        <template is="wxParse" data="{{wxParseData:trip.nodes}}" />
+      </view>
+    </i-panel>
+    <i-panel title="费用说明">
+      <view style="padding: 30rpx;">
+        <template is="wxParse" data="{{wxParseData:money.nodes}}" />
+      </view>
+    </i-panel>
+    <i-panel title="预订须知">
+      <view style="padding: 30rpx;">
+        <template is="wxParse" data="{{wxParseData:order.nodes}}" />
+      </view>
+    </i-panel>
   </scroll-view>
   <button class="weui-footer weui-footer_fixed-bottom footer" bindtap='enterOrder' wx:if="{{isSeller}}">
     <text class='fa fa-phone phoneIcon'></text>
-
     <text> 立即预定</text>
   </button>
-
-  <!--mask-->
-  <view class="drawer_screen" bindtap="showPriceView" data-statu="close" wx:if="{{showModalStatus}}"></view>
-  <!--content-->
-  <!--使用animation属性指定需要执行的动画-->
-  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
-
-    <!--drawer content-->
-    <view class="drawer_title">价格详情</view>
-    <view class="drawer_content">
-      <block wx:for="{{tagArray}}" wx:key="*this">
-        <view class='priceView'>
-          <view class='detailPriceView'>{{item.date}}</view>
-          <view class='detailPriceView'>{{item.price}}</view>
-        </view>
-      </block>
-    </view>
-    <view class="btn_ok" bindtap="showPriceView" data-statu="close">确定</view>
-  </view>
-
-
-
-
 </view>
-
-<!-- <button class="weui-btn" open-type="contact" session-from="weapp"> 咨询客服</button> -->

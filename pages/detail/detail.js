@@ -10,7 +10,8 @@ Page({
     isShowUserInfo: false,
     userInfo: {
       phone: '',
-      name: ''
+      name: '',
+      sellerName:'',
     },
     icon60: '',
     onlyId: '',
@@ -190,8 +191,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getUserInfo(options)
-    this.checkUserLevel()
+    this.checkUserLevel(options)
+   
     var that = this
     wx.getSystemInfo({
       success: function(res) {
@@ -211,7 +212,7 @@ Page({
     }, 3000)
   },
   // 检查当前用户等级状态
-  checkUserLevel(){
+  checkUserLevel(options){
     let userPhoneNumber = network.getCurrentUserPhone()
     if(userPhoneNumber.length){
       network.checkUserIsSeller(userPhoneNumber).then(data=>{
@@ -225,6 +226,7 @@ Page({
             isSeller: userItem.ifSeller
           })
         }
+        this.getUserInfo(options)
       })
     }
     else{
@@ -235,23 +237,28 @@ Page({
     }
   },
   getUserInfo(options) {
+    
     let phone = options.phone
     if (phone == undefined || phone == '') {
       return
     }
+    let that = this
     network.getUserInfoWithPhone(phone).then(info => {
       if (info.length) {
         let currentUser = info[0].toJSON()
         let currentUserPhone = network.getCurrentUserPhone()
         
         if (currentUserPhone != currentUser.mobilePhoneNumber) {
-          this.setData({
-            userInfo: {
-              phone: currentUser.mobilePhoneNumber,
-              name: currentUser.name
-            },
-            isShowUserInfo: true
-          })
+          if (this.data.isSeller){
+            this.setData({
+              userInfo: {
+                phone: currentUser.mobilePhoneNumber,
+                name: currentUser.name,
+                sellerName: currentUser.sellerName
+              },
+              isShowUserInfo: true
+            })
+          }
         }
       }
     })

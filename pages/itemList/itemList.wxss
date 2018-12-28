@@ -20,6 +20,7 @@
   font-size: 16px;
   margin-left: 200rpx;
   float: right;
+  white-space:nowrap;
 }
 .thirdline{
   width: 100%

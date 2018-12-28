@@ -76,7 +76,7 @@ Page({
       currentPriceArray = currentPriceArray.map(item => {
         return {
           ...item,
-          name:item.price
+          name: `${item.price}(${item.comment})`
         }
       })
       this.setData({
@@ -128,6 +128,7 @@ Page({
     monthItemArray.map(item => {
       item.priceArray = this.quickSort(item.priceArray, "startDate", false)
       item.filterPriceArray = this.unique(JSON.parse(JSON.stringify(item.priceArray)))
+
     })
 
     this.setData({
@@ -140,8 +141,16 @@ Page({
     array.map(item => {
       if (filterArray.length) {
         let findArray = filterArray.find(obj => obj.startDate == item.startDate)
+        let findIndex = filterArray.findIndex(obj => obj.startDate == item.startDate)
         if (findArray == undefined) {
           filterArray.push(item)
+        }
+        else{
+          let itemPrice = parseFloat(item.price)
+          let findPrice = parseFloat(findArray.price)
+          if(findPrice>itemPrice){
+            filterArray[findIndex] = item
+          }
         }
       } else {
         filterArray.push(item)

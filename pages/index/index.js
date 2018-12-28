@@ -107,17 +107,17 @@ Page({
   },
   clickMoreFree() {
     wx.navigateTo({
-      url: `../specialList/sepicalList?name=5c0fa55a44d904005f481911&title=贵州旅游`,
+      url: `../itemList/itemList?type=5c0fa55a44d904005f481911&title=贵州旅游`,
     })
   },
   clickMoreRecommend() {
     wx.navigateTo({
-      url: `../specialList/sepicalList?name=5bfd42f844d904005f2595a8&title=北京旅游`,
+      url: `../itemList/itemList?type=5bfd42f844d904005f2595a8&title=北京旅游`,
     })
   },
   clickMoreFollow() {
     wx.navigateTo({
-      url: `../specialList/sepicalList?name=5c061a63303f39005f3111a7&title=海南旅游`,
+      url: `../itemList/itemList?type=5c061a63303f39005f3111a7&title=海南旅游`,
     })
   },
   clickImageidx(e) {
