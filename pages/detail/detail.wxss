@@ -5,7 +5,17 @@ margin: 0;
 padding: 0;
 position: relative;
 }
-
+.seller-info-flex{
+  display: flex;
+  justify-content: space-between;
+}
+.seller-info-detail{
+  flex: 1;
+}
+.seller-info-image{
+  width: 120rpx;
+  height: 120rpx;
+}
 .main{
   padding-bottom: 80rpx;
 }

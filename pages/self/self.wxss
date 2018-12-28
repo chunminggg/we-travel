@@ -1,5 +1,9 @@
 /* pages/self/self.wxss */
-
+.head-icon-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .head-icon {
   width: 150rpx;
   display: inline-block;

@@ -27,9 +27,16 @@
     <view class='user-card'>
       <i-card title="商家信息" wx:if="{{isShowUserInfo}}">
         <view slot="content">
-          <view>名称：{{userInfo.name}}</view>
-          <view>商家名称：{{userInfo.sellerName}}</view>
-          <view>手机号：{{userInfo.phone}}</view>
+          <view class='seller-info-flex'>
+            <view class='seller-info-detail'>
+              <view>名称：{{userInfo.name}}</view>
+              <view>商家名称：{{userInfo.sellerName}}</view>
+              <view>手机号：{{userInfo.phone}}</view>
+            </view>
+             <view class='seller-info-image'  wx:if="{{userInfo.userImageUrl.length}}">
+            <image src='{{userInfo.userImageUrl}}'></image>
+          </view>
+          </view>
         </view>
       </i-card>
     </view>
@@ -62,23 +69,24 @@
         </scroll-view>
       </swiper-item>
     </swiper> -->
-         <i-panel title="线路特色">
-      <view style="padding: 30rpx;">
+
+    <i-panel title="线路特色">
+      <view style="padding: 20rpx;">
         <template is="wxParse" data="{{wxParseData:line.nodes}}" />
       </view>
     </i-panel>
     <i-panel title="行程介绍">
-      <view style="padding: 30rpx;">
+      <view style="padding: 20rpx;">
         <template is="wxParse" data="{{wxParseData:trip.nodes}}" />
       </view>
     </i-panel>
     <i-panel title="费用说明">
-      <view style="padding: 30rpx;">
+      <view style="padding: 20rpx;">
         <template is="wxParse" data="{{wxParseData:money.nodes}}" />
       </view>
     </i-panel>
-    <i-panel title="预订须知">
-      <view style="padding: 30rpx;">
+    <i-panel title="预定须知">
+      <view style="padding: 20rpx;">
         <template is="wxParse" data="{{wxParseData:order.nodes}}" />
       </view>
     </i-panel>

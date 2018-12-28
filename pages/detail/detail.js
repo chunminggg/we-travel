@@ -7,11 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    collapseName: 'line',
     isShowUserInfo: false,
     userInfo: {
       phone: '',
       name: '',
       sellerName:'',
+      userImageUrl:'',
     },
     icon60: '',
     onlyId: '',
@@ -254,7 +256,8 @@ Page({
               userInfo: {
                 phone: currentUser.mobilePhoneNumber,
                 name: currentUser.name,
-                sellerName: currentUser.sellerName
+                sellerName: currentUser.sellerName,
+                userImageUrl: currentUser.userImageUrl
               },
               isShowUserInfo: true
             })

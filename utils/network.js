@@ -5,6 +5,14 @@ function replaceAllText(orginString, FindText, RepText) {
   return orginString.replace(regExp, RepText);
 }
 var getTestData = {
+  // 上传用户二维码
+  uploadUserImage(phoneNumber,filePath){
+    return new AV.File(phoneNumber,{
+      blob:{
+        uri:filePath
+      }
+    }).save()
+  },
   // 发送短信验证
   snedShortMessage(phoneNumber, successCallBack, errorCallBack) {
     AV.Cloud.requestSmsCode({
@@ -84,6 +92,12 @@ var getTestData = {
     const user = AV.User.current();
     return user.set({
       sellerName: name,
+    }).save();
+  },
+  saveUserImageUrl(path){
+    const user = AV.User.current();
+    return user.set({
+      userImageUrl: path,
     }).save();
   },
   getUserInfoWithPhone(phone) {

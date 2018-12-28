@@ -18,7 +18,8 @@ Page({
     name2: '',
     focus2: false,
     ifEditingName2: false,
-    timeCount: waitTime
+    timeCount: waitTime,
+    userImageUrl:'',
   },
   /**
    * 生命周期函数--监听页面加载
@@ -98,7 +99,8 @@ Page({
       this.setData({
         loginType: 'hasLogin',
         name: user.attributes.name,
-        name2: user.attributes.sellerName,        
+        name2: user.attributes.sellerName, 
+        userImageUrl: user.attributes.userImageUrl     
       });
     }).catch(err => {
       wx.showToast({
@@ -106,6 +108,39 @@ Page({
         title: '无效的验证码',
       })
     });
+  },
+  // 上传头像
+  uploadImageAction(){
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+       let filePath = res.tempFilePaths[0]
+        netWork.uploadUserImage(that.data.phone,filePath).then(data => {
+          let fileUrl = data.url()
+          netWork.saveUserImageUrl(fileUrl).then(d => {
+            netWork.copyUser(d);
+            setTimeout(()=>{
+              that.getUserImage()
+            },500)
+            wx.showToast({
+              title: '上传成功',
+            })
+          });
+        }).catch(error=>{
+        })
+      }
+    })
+  },
+  getUserImage(){
+    netWork.getUserInfoWithPhone(this.data.phone).then(info => {
+      let userInfoUrl = info[0].toJSON().userImageUrl
+      this.setData({
+        userImageUrl:userInfoUrl
+      })
+    })
   },
   editName() {
     this.setData({
