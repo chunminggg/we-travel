@@ -12,8 +12,8 @@ Page({
     userInfo: {
       phone: '',
       name: '',
-      sellerName:'',
-      userImageUrl:'',
+      sellerName: '',
+      userImageUrl: '',
     },
     icon60: '',
     onlyId: '',
@@ -29,7 +29,7 @@ Page({
     countNumber: 0,
     //price view
     showModalStatus: false,
-    isSeller:false,
+    isSeller: false,
     tagArray: [],
     myList: [{
         id: 'form',
@@ -88,7 +88,7 @@ Page({
     })
     var that = this
     network.getDetailItemWithId(onlyId, (data) => {
-      if (data.type == '5bfd42f844d904005f2595a8'){
+      if (data.type == '5bfd42f844d904005f2595a8') {
         wx.setStorage({
           key: 'orderPhone',
           data: '13776106499',
@@ -194,7 +194,7 @@ Page({
    */
   onLoad: function(options) {
     this.checkUserLevel(options)
-   
+    this.getUserInfo(options)
     var that = this
     wx.getSystemInfo({
       success: function(res) {
@@ -214,11 +214,11 @@ Page({
     }, 3000)
   },
   // 检查当前用户等级状态
-  checkUserLevel(options){
+  checkUserLevel(options) {
     let userPhoneNumber = network.getCurrentUserPhone()
-    if(userPhoneNumber.length){
-      network.checkUserIsSeller(userPhoneNumber).then(data=>{
-        if(data.length){
+    if (userPhoneNumber.length) {
+      network.checkUserIsSeller(userPhoneNumber).then(data => {
+        if (data.length) {
           let userItem = data[0].toJSON()
           wx.setStorage({
             key: 'isSeller',
@@ -228,10 +228,9 @@ Page({
             isSeller: userItem.ifSeller
           })
         }
-        this.getUserInfo(options)
+
       })
-    }
-    else{
+    } else {
       wx.setStorage({
         key: 'isSeller',
         data: false,
@@ -239,7 +238,6 @@ Page({
     }
   },
   getUserInfo(options) {
-    
     let phone = options.phone
     if (phone == undefined || phone == '') {
       return
@@ -249,26 +247,28 @@ Page({
       if (info.length) {
         let currentUser = info[0].toJSON()
         let currentUserPhone = network.getCurrentUserPhone()
-        
         if (currentUserPhone != currentUser.mobilePhoneNumber) {
-          if (this.data.isSeller){
-            this.setData({
-              userInfo: {
-                phone: currentUser.mobilePhoneNumber,
-                name: currentUser.name,
-                sellerName: currentUser.sellerName,
-                userImageUrl: currentUser.userImageUrl
-              },
-              isShowUserInfo: true
-            })
-          }
+          network.checkUserIsSeller(phone).then(data => {
+            let sendIsSeller = data[0].toJSON().ifSeller
+            if (sendIsSeller){
+              this.setData({
+                userInfo: {
+                  phone: currentUser.mobilePhoneNumber,
+                  name: currentUser.name,
+                  sellerName: currentUser.sellerName,
+                  userImageUrl: currentUser.userImageUrl
+                },
+                isShowUserInfo: true
+              })
+            }
+          })
         }
       }
     })
 
   },
   // 预览二维码
-  previewUserImage(e){
+  previewUserImage(e) {
     let imageUrl = e.currentTarget.dataset.src
     wx.previewImage({
       current: imageUrl, // 当前显示图片的http链接
