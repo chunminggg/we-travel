@@ -1,8 +1,8 @@
 //app.js
 const AV = require('./libs/av-weapp-min.js')
 var mta = require('./libs/mta_analysis.js')
-var APP_ID = 'CoowAeop80CKNvkcGJow83RN-gzGzoHsz';
-var APP_KEY = 'mVNul0fg5zl0bNdrEFerfE2Y';
+var APP_ID = '9wNC9P5zyzuA7bSUCXmyNygr-gzGzoHsz';
+var APP_KEY = 'SoJCNHa1SX2NpLNMkTVX3KfL';
 AV.init({
   appId: APP_ID,
   appKey: APP_KEY
@@ -16,7 +16,7 @@ App({
       "appID": "500512368",
       "eventID": "500512369",
       "statShareApp": true,
-      "lauchOpts": options,
+      "lauchOpts": options
     });
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())

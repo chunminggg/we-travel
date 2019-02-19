@@ -28,19 +28,19 @@
       <view class='btn-round'>
         <image src='../../img/精品推荐.png' class='btn-image'></image>
       </view>
-      <view class='btn-text'>北京板块</view>
+      <view class='btn-text'>特价游</view>
     </view>
     <view class='itemCell' bindtap='clickMoreFollow'>
       <view class='btn-round'>
         <image src='../../img/跟团游.png' class='btn-image'></image>
       </view>
-      <view class='btn-text'>海南板块</view>
+      <view class='btn-text'>跟团游</view>
     </view>
     <view class='itemCell' bindtap='clickMoreFree'>
       <view class='btn-round'>
         <image src='../../img/自由行.png' class='btn-image'></image>
       </view>
-      <view class='btn-text'>贵州板块</view>
+      <view class='btn-text'>自由行</view>
     </view>
   </view>
   <view class='stripView'></view>
@@ -48,7 +48,7 @@
   <view class='saleView'>
     <view class='saleHead'>
       <view class='line'></view>
-      <view class='chineseTitle'>北京旅游</view>
+      <view class='chineseTitle'>特价游</view>
       <view class='englishTitle'>RECOMMEND</view>
       <view class='allView' bindtap='clickMoreRecommend'>
         <view class='allText'>全部</view>
@@ -72,7 +72,7 @@
   <view class='saleView'>
     <view class='saleHead'>
       <view class='line'></view>
-      <view class='chineseTitle'>海南旅游</view>
+      <view class='chineseTitle'>跟团游</view>
       <view class='englishTitle'>FOLLOW</view>
       <view class='allView' bindtap='clickMoreFollow'>
         <view class='allText'>全部</view>
@@ -96,7 +96,7 @@
   <view class='saleView'>
     <view class='saleHead'>
       <view class='line'></view>
-      <view class='chineseTitle'>贵州旅游</view>
+      <view class='chineseTitle'>自由行</view>
       <view class='englishTitle'>FREEDOM</view>
       <view class='allView' bindtap='clickMoreFree'>
         <view class='allText'>全部</view>

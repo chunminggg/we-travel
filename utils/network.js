@@ -17,7 +17,7 @@ var getTestData = {
   snedShortMessage(phoneNumber, successCallBack, errorCallBack) {
     AV.Cloud.requestSmsCode({
       mobilePhoneNumber: phoneNumber,
-      name: '星旅游',
+      name: '超想去旅行',
       op: '验证',
       ttl: 10
     }).then(function() {
@@ -201,7 +201,7 @@ var getTestData = {
   getSpecialPriceList(isLimit) {
     var query = new AV.Query('Product')
     // query.equalTo('isSpecialPrice', true)
-    query.equalTo('type', '5c0fa55a44d904005f481911')
+    query.equalTo('type', '545c6b5506c05a80005433b7f4')
 
     query.descending('updatedAt')
     if (isLimit) {
@@ -224,7 +224,7 @@ var getTestData = {
   //获取推荐列表 北京首页数据
   getRecommendList(isLimit) {
     var query = new AV.Query('Product')
-    query.equalTo('type', '5bfd42f844d904005f2595a8')
+    query.equalTo('type', '5c6b5506c05a80005433b7f4')
     if (isLimit) {
       query.limit(6)
     }
@@ -236,7 +236,7 @@ var getTestData = {
   getFollowTravleList(isLimit) {
     var query = new AV.Query('Product')
     // query.equalTo('isFollowTeam', true)
-    query.equalTo('type', '5c061a63303f39005f3111a7')
+    query.equalTo('type', '5c6b550f67f3560044892866')
     if (isLimit) {
       query.limit(6)
     }
@@ -248,7 +248,7 @@ var getTestData = {
   getFreeTravelList(isLimit) {
     var query = new AV.Query('Product')
     // query.equalTo('isFreeTravel', true)
-    query.equalTo('type', '5c0fa55a44d904005f481911')
+    query.equalTo('type', '5c6b5506c05a80005433b7f4')
     if (isLimit) {
       query.limit(6)
     }
