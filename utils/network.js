@@ -236,7 +236,7 @@ var getTestData = {
   getFollowTravleList(isLimit) {
     var query = new AV.Query('Product')
     // query.equalTo('isFollowTeam', true)
-    query.equalTo('type', '5c6b550f67f3560044892866')
+    query.equalTo('type', '5c6b550ac05a80005433b81d')
     if (isLimit) {
       query.limit(6)
     }
@@ -248,7 +248,7 @@ var getTestData = {
   getFreeTravelList(isLimit) {
     var query = new AV.Query('Product')
     // query.equalTo('isFreeTravel', true)
-    query.equalTo('type', '5c6b5506c05a80005433b7f4')
+    query.equalTo('type', '5c6b550f67f3560044892866')
     if (isLimit) {
       query.limit(6)
     }
