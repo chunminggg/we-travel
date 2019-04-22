@@ -36,6 +36,7 @@ Page({
     followArray: [],
     freeArray: [],
     secondReommendArray: [],
+    halfFreeArray:[],
   },
   testAction(){
 
@@ -47,7 +48,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    Promise.all([netWork.getMainThemeList(), netWork.getSpecialPriceList(true), netWork.getRecommendList(true), netWork.getFollowTravleList(true), netWork.getFreeTravelList(true)]).then(([data2, data3, data4, data5, data6]) => {
+    Promise.all([netWork.getMainThemeList(), netWork.getSpecialPriceList(true), netWork.getRecommendList(true), netWork.getFollowTravleList(true), netWork.getFreeTravelList(true), netWork.getHalfFreeArrayList()]).then(([data2, data3, data4, data5, data6,halfFreeData]) => {
       // netWork.loginWithLeanCloud()
       wx.hideLoading()
       wx.getSystemInfo({
@@ -80,7 +81,11 @@ Page({
             obj.attributes.id = obj.id
             isFreeArray.push(obj.attributes)
           })
-
+          let halfFreeDataArray = []
+          halfFreeData.forEach(obj => {
+            obj.attributes.id = obj.id
+            halfFreeDataArray.push(obj.attributes)
+          })
           that.setData({
             winWidth: res.windowWidth,
             winHeight: res.windowHeight,
@@ -91,6 +96,7 @@ Page({
             specialPriceArray: myDealArray,
             recommendArray: recommendArray,
             secondReommendArray: secondReommendArray,
+            halfFreeArray:halfFreeDataArray,
           });
 
         }

@@ -1,6 +1,6 @@
 <view class="page">
   <!-- 特价 -->
-  <view class='saleView'>
+  <!-- <view class='saleView'>
     <view class='saleHead'>
       <view class='line'></view>
       <view class='chineseTitle'>国内特价</view>
@@ -14,10 +14,10 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
+  </view> -->
   <view class='stripView'></view>
   <!-- 按钮组 -->
-  <view class='btn-group'>
+  <!-- <view class='btn-group'>
     <view class='itemCell' bindtap='allIslandsClick'>
       <view class='btn-round'>
         <image src='../../img/全部海岛.png' class='btn-image'></image>
@@ -42,7 +42,7 @@
       </view>
       <view class='btn-text'>自由行</view>
     </view>
-  </view>
+  </view> -->
   <view class='stripView'></view>
   <!-- 精品推荐 -->
   <view class='saleView'>
@@ -107,6 +107,30 @@
   <view class='saleBody'>
     <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
       <block wx:for="{{freeArray}}" wx:key="*this">
+        <view class='follow-view'>
+          <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
+          <view class='follow-describe'>{{item.name}}</view>
+          <view class='follow-price' style='color:red'>￥{{item.price}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class='stripView'></view>
+
+    <view class='saleView'>
+    <view class='saleHead'>
+      <view class='line'></view>
+      <view class='chineseTitle'>半自助</view>
+      <view class='englishTitle'>Half self-help</view>
+      <view class='allView' bindtap='clickMoreFree'>
+        <view class='allText'>全部</view>
+        <image src='../../img/全部-1.png' class='arrowView'></image>
+      </view>
+    </view>
+  </view>
+  <view class='saleBody'>
+    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+      <block wx:for="{{halfFreeArray}}" wx:key="*this">
         <view class='follow-view'>
           <image class="follow-image" src="{{item.imageArray[0].url}}" data-id="{{item.id}}" mode="aspectFill" bindtap="clickRecommenItem"></image>
           <view class='follow-describe'>{{item.name}}</view>

@@ -88,18 +88,10 @@ Page({
     })
     var that = this
     network.getDetailItemWithId(onlyId, (data) => {
-      if (data.type == '5bfd42f844d904005f2595a8') {
-        wx.setStorage({
-          key: 'orderPhone',
-          data: '13776106499',
-        })
-      }
-      if (data.type == '5c061a63303f39005f3111a7') {
-        wx.setStorage({
-          key: 'orderPhone',
-          data: '18018148030',
-        })
-      }
+      wx.setStorage({
+        key: 'orderPhone',
+        data: '18914009363',
+      })
       var localImageArray = []
       if (data.imageArray.length) {
         localImageArray = []

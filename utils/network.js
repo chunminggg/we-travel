@@ -32,7 +32,7 @@ var getTestData = {
     return AV.Cloud.requestSmsCode({
       mobilePhoneNumber:params.orderPhone,
       // 海南 18018148030
-      template:'五洲订单',
+      template:'超想去旅行订单',
       saleName:params.saleName,
       phoneNumber:params.phoneNumber,
       sign:'五洲旅行'
@@ -225,6 +225,18 @@ var getTestData = {
   getRecommendList(isLimit) {
     var query = new AV.Query('Product')
     query.equalTo('type', '5c6b5506c05a80005433b7f4')
+    if (isLimit) {
+      query.limit(6)
+    }
+    query.descending('updatedAt')
+    query.select(['place', 'name', 'startDate', 'type', 'onleyId', 'price', 'describe', 'imageArray'])
+    return query.find()
+  },
+  // 获取半自助列表
+  getHalfFreeArrayList(isLimit = true){
+    var query = new AV.Query('Product')
+    // query.equalTo('isFollowTeam', true)
+    query.equalTo('type', '5cb9429ea91c9377aa667c03')
     if (isLimit) {
       query.limit(6)
     }
