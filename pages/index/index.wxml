@@ -1,9 +1,9 @@
 <view class="page">
   <!-- 特价 -->
-  <!-- <view class='saleView'>
+  <view class='saleView'>
     <view class='saleHead'>
       <view class='line'></view>
-      <view class='chineseTitle'>国内特价</view>
+      <view class='chineseTitle'>特价推荐</view>
       <view class='englishTitle'>SALE</view>
     </view>
     <view class='saleBody'></view>
@@ -14,7 +14,7 @@
         </swiper-item>
       </block>
     </swiper>
-  </view> -->
+  </view>
   <view class='stripView'></view>
   <!-- 按钮组 -->
   <!-- <view class='btn-group'>

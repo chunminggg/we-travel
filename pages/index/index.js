@@ -152,11 +152,11 @@ Page({
     })
   },
   clickSpecialPrice(e) {
-    // let id = e.currentTarget.dataset.id
+    let id = e.currentTarget.dataset.id
 
-    // wx.navigateTo({
-    //   url: '../detail/detail?detailId=' + id,
-    // })
+    wx.navigateTo({
+      url: '../detail/detail?detailId=' + id,
+    })
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

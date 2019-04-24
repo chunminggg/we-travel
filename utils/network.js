@@ -200,8 +200,8 @@ var getTestData = {
   //获取特价列表
   getSpecialPriceList(isLimit) {
     var query = new AV.Query('Product')
-    // query.equalTo('isSpecialPrice', true)
-    query.equalTo('type', '545c6b5506c05a80005433b7f4')
+    query.equalTo('isSpecialPrice', true)
+    // query.equalTo('type', '545c6b5506c05a80005433b7f4')
 
     query.descending('updatedAt')
     if (isLimit) {
